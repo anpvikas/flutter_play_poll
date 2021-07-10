@@ -19,11 +19,13 @@ class _$MyUserTearOff {
   _MyUser call(
       {required UniqueId id,
       required StringSingleLine name,
-      required EmailAddress emailAddress}) {
+      required EmailAddress emailAddress,
+      required PhotoUrl photoUrl}) {
     return _MyUser(
       id: id,
       name: name,
       emailAddress: emailAddress,
+      photoUrl: photoUrl,
     );
   }
 }
@@ -36,6 +38,7 @@ mixin _$MyUser {
   UniqueId get id => throw _privateConstructorUsedError;
   StringSingleLine get name => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  PhotoUrl get photoUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyUserCopyWith<MyUser> get copyWith => throw _privateConstructorUsedError;
@@ -45,7 +48,11 @@ mixin _$MyUser {
 abstract class $MyUserCopyWith<$Res> {
   factory $MyUserCopyWith(MyUser value, $Res Function(MyUser) then) =
       _$MyUserCopyWithImpl<$Res>;
-  $Res call({UniqueId id, StringSingleLine name, EmailAddress emailAddress});
+  $Res call(
+      {UniqueId id,
+      StringSingleLine name,
+      EmailAddress emailAddress,
+      PhotoUrl photoUrl});
 }
 
 /// @nodoc
@@ -61,6 +68,7 @@ class _$MyUserCopyWithImpl<$Res> implements $MyUserCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? emailAddress = freezed,
+    Object? photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -75,6 +83,10 @@ class _$MyUserCopyWithImpl<$Res> implements $MyUserCopyWith<$Res> {
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      photoUrl: photoUrl == freezed
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as PhotoUrl,
     ));
   }
 }
@@ -84,7 +96,11 @@ abstract class _$MyUserCopyWith<$Res> implements $MyUserCopyWith<$Res> {
   factory _$MyUserCopyWith(_MyUser value, $Res Function(_MyUser) then) =
       __$MyUserCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, StringSingleLine name, EmailAddress emailAddress});
+  $Res call(
+      {UniqueId id,
+      StringSingleLine name,
+      EmailAddress emailAddress,
+      PhotoUrl photoUrl});
 }
 
 /// @nodoc
@@ -101,6 +117,7 @@ class __$MyUserCopyWithImpl<$Res> extends _$MyUserCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? emailAddress = freezed,
+    Object? photoUrl = freezed,
   }) {
     return _then(_MyUser(
       id: id == freezed
@@ -115,6 +132,10 @@ class __$MyUserCopyWithImpl<$Res> extends _$MyUserCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      photoUrl: photoUrl == freezed
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as PhotoUrl,
     ));
   }
 }
@@ -123,7 +144,10 @@ class __$MyUserCopyWithImpl<$Res> extends _$MyUserCopyWithImpl<$Res>
 
 class _$_MyUser implements _MyUser {
   const _$_MyUser(
-      {required this.id, required this.name, required this.emailAddress});
+      {required this.id,
+      required this.name,
+      required this.emailAddress,
+      required this.photoUrl});
 
   @override
   final UniqueId id;
@@ -131,10 +155,12 @@ class _$_MyUser implements _MyUser {
   final StringSingleLine name;
   @override
   final EmailAddress emailAddress;
+  @override
+  final PhotoUrl photoUrl;
 
   @override
   String toString() {
-    return 'MyUser(id: $id, name: $name, emailAddress: $emailAddress)';
+    return 'MyUser(id: $id, name: $name, emailAddress: $emailAddress, photoUrl: $photoUrl)';
   }
 
   @override
@@ -147,7 +173,10 @@ class _$_MyUser implements _MyUser {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.emailAddress, emailAddress) ||
                 const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)));
+                    .equals(other.emailAddress, emailAddress)) &&
+            (identical(other.photoUrl, photoUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.photoUrl, photoUrl)));
   }
 
   @override
@@ -155,7 +184,8 @@ class _$_MyUser implements _MyUser {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(emailAddress);
+      const DeepCollectionEquality().hash(emailAddress) ^
+      const DeepCollectionEquality().hash(photoUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +197,8 @@ abstract class _MyUser implements MyUser {
   const factory _MyUser(
       {required UniqueId id,
       required StringSingleLine name,
-      required EmailAddress emailAddress}) = _$_MyUser;
+      required EmailAddress emailAddress,
+      required PhotoUrl photoUrl}) = _$_MyUser;
 
   @override
   UniqueId get id => throw _privateConstructorUsedError;
@@ -175,6 +206,8 @@ abstract class _MyUser implements MyUser {
   StringSingleLine get name => throw _privateConstructorUsedError;
   @override
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  @override
+  PhotoUrl get photoUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MyUserCopyWith<_MyUser> get copyWith => throw _privateConstructorUsedError;

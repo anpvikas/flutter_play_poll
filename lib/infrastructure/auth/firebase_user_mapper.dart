@@ -14,6 +14,7 @@ class FirebaseUserMapper {
         id: UniqueId.fromUniqueString(_.uid),
         name: StringSingleLine(_.displayName ?? _.email!.split('@').first),
         emailAddress: EmailAddress(_.email!),
+        photoUrl: PhotoUrl(_.photoURL!),
       );
     }
   }

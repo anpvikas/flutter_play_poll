@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_play_poll/domain/auth/i_auth_facade.dart';
 import 'package:flutter_play_poll/domain/auth/user.dart';
-import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -31,7 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       },
       signedOut: (e) async* {
         await _authFacade.signOut();
-        print("YIELD <----");
+        print("AuthBloc SignedOut YIELD <----");
         yield const AuthState.unauthenticated();
       },
     );

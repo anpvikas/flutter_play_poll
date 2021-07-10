@@ -8,11 +8,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user.freezed.dart';
 
 @freezed
-abstract class MyUser with _$MyUser implements IEntity {
+class MyUser with _$MyUser implements IEntity {
   const factory MyUser({
     required UniqueId id,
     required StringSingleLine name,
     required EmailAddress emailAddress,
+    required PhotoUrl photoUrl,
   }) = _MyUser;
 }
 

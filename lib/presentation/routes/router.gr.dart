@@ -7,6 +7,7 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
+import '../create_event/create_event_page.dart' as _i6;
 import '../home/user_home/user_home_page.dart' as _i5;
 import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
@@ -31,6 +32,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i5.UserHomePage();
+        }),
+    CreateEventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i6.CreateEventPage();
         })
   };
 
@@ -38,7 +44,8 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashRoute.name, path: '/'),
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
-        _i1.RouteConfig(UserHomeRoute.name, path: '/user-home-page')
+        _i1.RouteConfig(UserHomeRoute.name, path: '/user-home-page'),
+        _i1.RouteConfig(CreateEventRoute.name, path: '/create-event-page')
       ];
 }
 
@@ -58,4 +65,10 @@ class UserHomeRoute extends _i1.PageRouteInfo {
   const UserHomeRoute() : super(name, path: '/user-home-page');
 
   static const String name = 'UserHomeRoute';
+}
+
+class CreateEventRoute extends _i1.PageRouteInfo {
+  const CreateEventRoute() : super(name, path: '/create-event-page');
+
+  static const String name = 'CreateEventRoute';
 }

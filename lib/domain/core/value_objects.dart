@@ -81,3 +81,17 @@ class StringSingleLine extends ValueObject<String> {
 
   const StringSingleLine._(this.value);
 }
+
+class PhotoUrl extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory PhotoUrl(String input) {
+    assert(input != null);
+    return PhotoUrl._(
+      validateSingleLine(input),
+    );
+  }
+
+  const PhotoUrl._(this.value);
+}

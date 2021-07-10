@@ -14,13 +14,9 @@ class SignInFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        print('TEST ----****---- $context');
         state.authFailureOrSuccessOption.fold(
-          () {
-            print('TESTING-1 <----');
-          },
+          () {},
           (either) {
-            print('PRINTING .... ');
             either.fold(
               (failure) {
                 print('Sing-In Failure <----');
@@ -30,6 +26,9 @@ class SignInFormWidget extends StatelessWidget {
 
                 // AutoRouter.of(context).navigate((UserHomeRoute()));
                 // AutoRouter.of(context).navigate(UserHomeRoute());
+                // AutoRouter.of(context).popAndPush(UserHomeRoute());
+
+                context.replaceRoute(UserHomeRoute());
                 context
                     .read<AuthBloc>()
                     .add(const AuthEvent.authCheckRequested());
@@ -85,19 +84,19 @@ class SignInFormWidget extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    print('On Sign-In Page <---- $context');
+                BlocBuilder<SignInFormBloc, SignInFormState>(
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        print('On Sign-In Page <---- ');
 
-                    context
-                        .read<SignInFormBloc>()
-                        .add(SignInFormEvent.signInWithGooglePressed());
-
-                    // context
-                    //     .read<SignInFormBloc>()
-                    //     .add(const SignInFormEvent.signInWithGooglePressed());
+                        context
+                            .read<SignInFormBloc>()
+                            .add(SignInFormEvent.signInWithGooglePressed());
+                      },
+                      child: Text('Sing in With Google'),
+                    );
                   },
-                  child: Text('Sing in With Google'),
                 ),
               ],
             ),
