@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
+import 'package:flutter_play_poll/domain/events/value_objects.dart';
 
 class CreateEventPage extends StatelessWidget {
   const CreateEventPage({Key? key}) : super(key: key);
@@ -28,7 +29,25 @@ class CreateEventPage extends StatelessWidget {
               },
               onHomePageFromCreatePage: (_) {},
               eventNameValidated: (_) {},
-              eventCreated: (_) {},
+              eventCreated: (_) {
+                print('Event Successfully Created');
+                final snackBar = SnackBar(
+                  content: Text(
+                    'Event Successfully Created Under \n My Events',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  backgroundColor: Colors.green,
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                context
+                    .read<CreateBloc>()
+                    .add(CreateEvent.cancelButtonClicked());
+              },
+              eventLocationValidated: (_) {},
+              eventCreationFailed: (_) {
+                print('FAILED <----');
+              },
             );
           },
         ),
@@ -43,6 +62,7 @@ class CreateEventPage extends StatelessWidget {
             navigatedToSearchEventPage: (_) {},
             navigatedToMyEventPage: (_) {},
             navigatedToJoinedEventPage: (_) {},
+            onMyEventsPage: (_) {},
           );
         })
       ],
@@ -54,51 +74,54 @@ class CreateEventPage extends StatelessWidget {
           builder: (context, state) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  EventNameFieldWidget(),
-                  LocationFieldWidget(),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AddImageButtonWidget(),
-                      AddPeopleButtonWidget(),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  // SongsRepoButtonWidget(),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            context
-                                .read<CreateBloc>()
-                                .add(CreateEvent.create());
-                          },
-                          child: Text('Create'),
+              child: Form(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    EventNameFieldWidget(),
+                    LocationFieldWidget(),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AddImageButtonWidget(),
+                        AddPeopleButtonWidget(),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    // SongsRepoButtonWidget(),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              context
+                                  .read<CreateBloc>()
+                                  .add(CreateEvent.create());
+                            },
+                            child: Text('Create'),
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 20),
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () {
-                            print('6-Cancel Button Pressed on CreateEventPage');
-                            print(
-                                '7-Event added to the CreateBloc = cancelButtonClicked <----');
-                            context
-                                .read<CreateBloc>()
-                                .add(CreateEvent.cancelButtonClicked());
-                          },
-                          child: Text('Cancel'),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {
+                              print(
+                                  '6-Cancel Button Pressed on CreateEventPage');
+                              print(
+                                  '7-Event added to the CreateBloc = cancelButtonClicked <----');
+                              context
+                                  .read<CreateBloc>()
+                                  .add(CreateEvent.cancelButtonClicked());
+                            },
+                            child: Text('Cancel'),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -109,13 +132,20 @@ class CreateEventPage extends StatelessWidget {
 }
 
 class EventNameFieldWidget extends StatelessWidget {
-  const EventNameFieldWidget({Key? key}) : super(key: key);
-
+  Name name = Name('');
+  EventNameFieldWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (value) {
+        name = Name(value);
+        context.read<CreateBloc>().add(CreateEvent.validateEventName(name));
+      },
       validator: (_) {
-        context.read<CreateBloc>().add(CreateEvent.validateEventName());
+        context.read<CreateBloc>().add(CreateEvent.validateEventName(name));
+        if (name.value.toString().length <= 2) {
+          return 'Too Short';
+        }
       },
       cursorColor: Colors.blueGrey,
       decoration: InputDecoration(
@@ -136,13 +166,21 @@ class EventNameFieldWidget extends StatelessWidget {
 }
 
 class LocationFieldWidget extends StatelessWidget {
-  const LocationFieldWidget({
+  Location location = Location('');
+  LocationFieldWidget({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (value) {
+        location = Location(value);
+        context
+            .read<CreateBloc>()
+            .add(CreateEvent.validateEventLocation(location));
+        // location = Location('');
+      },
       cursorColor: Colors.blueGrey,
       decoration: InputDecoration(
         labelText: "Location",

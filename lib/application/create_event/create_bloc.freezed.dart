@@ -20,8 +20,16 @@ class _$CreateEventTearOff {
     return const _Started();
   }
 
-  _ValidateEventName validateEventName() {
-    return const _ValidateEventName();
+  _ValidateEventName validateEventName(Name name) {
+    return _ValidateEventName(
+      name,
+    );
+  }
+
+  _ValidateEventLocation validateEventLocation(Location location) {
+    return _ValidateEventLocation(
+      location,
+    );
   }
 
   _Create create() {
@@ -45,7 +53,8 @@ mixin _$CreateEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
@@ -54,7 +63,8 @@ mixin _$CreateEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
@@ -65,6 +75,8 @@ mixin _$CreateEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -74,6 +86,7 @@ mixin _$CreateEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -136,7 +149,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
@@ -148,7 +162,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
@@ -165,6 +180,8 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -177,6 +194,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -198,6 +216,7 @@ abstract class _$ValidateEventNameCopyWith<$Res> {
   factory _$ValidateEventNameCopyWith(
           _ValidateEventName value, $Res Function(_ValidateEventName) then) =
       __$ValidateEventNameCopyWithImpl<$Res>;
+  $Res call({Name name});
 }
 
 /// @nodoc
@@ -210,50 +229,76 @@ class __$ValidateEventNameCopyWithImpl<$Res>
 
   @override
   _ValidateEventName get _value => super._value as _ValidateEventName;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_ValidateEventName(
+      name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_ValidateEventName implements _ValidateEventName {
-  const _$_ValidateEventName();
+  const _$_ValidateEventName(this.name);
+
+  @override
+  final Name name;
 
   @override
   String toString() {
-    return 'CreateEvent.validateEventName()';
+    return 'CreateEvent.validateEventName(name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ValidateEventName);
+    return identical(this, other) ||
+        (other is _ValidateEventName &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ValidateEventNameCopyWith<_ValidateEventName> get copyWith =>
+      __$ValidateEventNameCopyWithImpl<_ValidateEventName>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
   }) {
-    return validateEventName();
+    return validateEventName(name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
     required TResult orElse(),
   }) {
     if (validateEventName != null) {
-      return validateEventName();
+      return validateEventName(name);
     }
     return orElse();
   }
@@ -263,6 +308,8 @@ class _$_ValidateEventName implements _ValidateEventName {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -275,6 +322,7 @@ class _$_ValidateEventName implements _ValidateEventName {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -288,7 +336,148 @@ class _$_ValidateEventName implements _ValidateEventName {
 }
 
 abstract class _ValidateEventName implements CreateEvent {
-  const factory _ValidateEventName() = _$_ValidateEventName;
+  const factory _ValidateEventName(Name name) = _$_ValidateEventName;
+
+  Name get name => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ValidateEventNameCopyWith<_ValidateEventName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ValidateEventLocationCopyWith<$Res> {
+  factory _$ValidateEventLocationCopyWith(_ValidateEventLocation value,
+          $Res Function(_ValidateEventLocation) then) =
+      __$ValidateEventLocationCopyWithImpl<$Res>;
+  $Res call({Location location});
+}
+
+/// @nodoc
+class __$ValidateEventLocationCopyWithImpl<$Res>
+    extends _$CreateEventCopyWithImpl<$Res>
+    implements _$ValidateEventLocationCopyWith<$Res> {
+  __$ValidateEventLocationCopyWithImpl(_ValidateEventLocation _value,
+      $Res Function(_ValidateEventLocation) _then)
+      : super(_value, (v) => _then(v as _ValidateEventLocation));
+
+  @override
+  _ValidateEventLocation get _value => super._value as _ValidateEventLocation;
+
+  @override
+  $Res call({
+    Object? location = freezed,
+  }) {
+    return _then(_ValidateEventLocation(
+      location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Location,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ValidateEventLocation implements _ValidateEventLocation {
+  const _$_ValidateEventLocation(this.location);
+
+  @override
+  final Location location;
+
+  @override
+  String toString() {
+    return 'CreateEvent.validateEventLocation(location: $location)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ValidateEventLocation &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(location);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ValidateEventLocationCopyWith<_ValidateEventLocation> get copyWith =>
+      __$ValidateEventLocationCopyWithImpl<_ValidateEventLocation>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
+    required TResult Function() create,
+    required TResult Function() cancelButtonClicked,
+    required TResult Function() onHomePage,
+  }) {
+    return validateEventLocation(location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
+    TResult Function()? create,
+    TResult Function()? cancelButtonClicked,
+    TResult Function()? onHomePage,
+    required TResult orElse(),
+  }) {
+    if (validateEventLocation != null) {
+      return validateEventLocation(location);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
+    required TResult Function(_Create value) create,
+    required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
+    required TResult Function(_OnHomePage value) onHomePage,
+  }) {
+    return validateEventLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
+    TResult Function(_Create value)? create,
+    TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
+    TResult Function(_OnHomePage value)? onHomePage,
+    required TResult orElse(),
+  }) {
+    if (validateEventLocation != null) {
+      return validateEventLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ValidateEventLocation implements CreateEvent {
+  const factory _ValidateEventLocation(Location location) =
+      _$_ValidateEventLocation;
+
+  Location get location => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ValidateEventLocationCopyWith<_ValidateEventLocation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -329,7 +518,8 @@ class _$_Create implements _Create {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
@@ -341,7 +531,8 @@ class _$_Create implements _Create {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
@@ -358,6 +549,8 @@ class _$_Create implements _Create {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -370,6 +563,7 @@ class _$_Create implements _Create {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -427,7 +621,8 @@ class _$_CancelButtonClicked implements _CancelButtonClicked {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
@@ -439,7 +634,8 @@ class _$_CancelButtonClicked implements _CancelButtonClicked {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
@@ -456,6 +652,8 @@ class _$_CancelButtonClicked implements _CancelButtonClicked {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -468,6 +666,7 @@ class _$_CancelButtonClicked implements _CancelButtonClicked {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -524,7 +723,8 @@ class _$_OnHomePage implements _OnHomePage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() validateEventName,
+    required TResult Function(Name name) validateEventName,
+    required TResult Function(Location location) validateEventLocation,
     required TResult Function() create,
     required TResult Function() cancelButtonClicked,
     required TResult Function() onHomePage,
@@ -536,7 +736,8 @@ class _$_OnHomePage implements _OnHomePage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? validateEventName,
+    TResult Function(Name name)? validateEventName,
+    TResult Function(Location location)? validateEventLocation,
     TResult Function()? create,
     TResult Function()? cancelButtonClicked,
     TResult Function()? onHomePage,
@@ -553,6 +754,8 @@ class _$_OnHomePage implements _OnHomePage {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_ValidateEventName value) validateEventName,
+    required TResult Function(_ValidateEventLocation value)
+        validateEventLocation,
     required TResult Function(_Create value) create,
     required TResult Function(_CancelButtonClicked value) cancelButtonClicked,
     required TResult Function(_OnHomePage value) onHomePage,
@@ -565,6 +768,7 @@ class _$_OnHomePage implements _OnHomePage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_ValidateEventName value)? validateEventName,
+    TResult Function(_ValidateEventLocation value)? validateEventLocation,
     TResult Function(_Create value)? create,
     TResult Function(_CancelButtonClicked value)? cancelButtonClicked,
     TResult Function(_OnHomePage value)? onHomePage,
@@ -593,6 +797,10 @@ class _$CreateStateTearOff {
     return const _EventNameValidated();
   }
 
+  _EventLocationValidated eventLocationValidated() {
+    return const _EventLocationValidated();
+  }
+
   _EventCreated eventCreated() {
     return const _EventCreated();
   }
@@ -603,6 +811,10 @@ class _$CreateStateTearOff {
 
   _OnHomePageFromCreatePage onHomePageFromCreatePage() {
     return const _OnHomePageFromCreatePage();
+  }
+
+  _EventCreationFailed eventCreationFailed() {
+    return const _EventCreationFailed();
   }
 }
 
@@ -615,18 +827,22 @@ mixin _$CreateState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -634,19 +850,24 @@ mixin _$CreateState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -707,9 +928,11 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) {
     return initial();
   }
@@ -719,9 +942,11 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -735,10 +960,13 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) {
     return initial(this);
   }
@@ -748,9 +976,11 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -806,9 +1036,11 @@ class _$_EventNameValidated implements _EventNameValidated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) {
     return eventNameValidated();
   }
@@ -818,9 +1050,11 @@ class _$_EventNameValidated implements _EventNameValidated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (eventNameValidated != null) {
@@ -834,10 +1068,13 @@ class _$_EventNameValidated implements _EventNameValidated {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) {
     return eventNameValidated(this);
   }
@@ -847,9 +1084,11 @@ class _$_EventNameValidated implements _EventNameValidated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (eventNameValidated != null) {
@@ -861,6 +1100,114 @@ class _$_EventNameValidated implements _EventNameValidated {
 
 abstract class _EventNameValidated implements CreateState {
   const factory _EventNameValidated() = _$_EventNameValidated;
+}
+
+/// @nodoc
+abstract class _$EventLocationValidatedCopyWith<$Res> {
+  factory _$EventLocationValidatedCopyWith(_EventLocationValidated value,
+          $Res Function(_EventLocationValidated) then) =
+      __$EventLocationValidatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$EventLocationValidatedCopyWithImpl<$Res>
+    extends _$CreateStateCopyWithImpl<$Res>
+    implements _$EventLocationValidatedCopyWith<$Res> {
+  __$EventLocationValidatedCopyWithImpl(_EventLocationValidated _value,
+      $Res Function(_EventLocationValidated) _then)
+      : super(_value, (v) => _then(v as _EventLocationValidated));
+
+  @override
+  _EventLocationValidated get _value => super._value as _EventLocationValidated;
+}
+
+/// @nodoc
+
+class _$_EventLocationValidated implements _EventLocationValidated {
+  const _$_EventLocationValidated();
+
+  @override
+  String toString() {
+    return 'CreateState.eventLocationValidated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _EventLocationValidated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
+    required TResult Function() eventCreated,
+    required TResult Function() returnToHomePage,
+    required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
+  }) {
+    return eventLocationValidated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
+    TResult Function()? eventCreated,
+    TResult Function()? returnToHomePage,
+    TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
+    required TResult orElse(),
+  }) {
+    if (eventLocationValidated != null) {
+      return eventLocationValidated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
+    required TResult Function(_EventCreated value) eventCreated,
+    required TResult Function(_ReturnToHomePage value) returnToHomePage,
+    required TResult Function(_OnHomePageFromCreatePage value)
+        onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
+  }) {
+    return eventLocationValidated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
+    TResult Function(_EventCreated value)? eventCreated,
+    TResult Function(_ReturnToHomePage value)? returnToHomePage,
+    TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
+    required TResult orElse(),
+  }) {
+    if (eventLocationValidated != null) {
+      return eventLocationValidated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EventLocationValidated implements CreateState {
+  const factory _EventLocationValidated() = _$_EventLocationValidated;
 }
 
 /// @nodoc
@@ -904,9 +1251,11 @@ class _$_EventCreated implements _EventCreated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) {
     return eventCreated();
   }
@@ -916,9 +1265,11 @@ class _$_EventCreated implements _EventCreated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (eventCreated != null) {
@@ -932,10 +1283,13 @@ class _$_EventCreated implements _EventCreated {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) {
     return eventCreated(this);
   }
@@ -945,9 +1299,11 @@ class _$_EventCreated implements _EventCreated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (eventCreated != null) {
@@ -1003,9 +1359,11 @@ class _$_ReturnToHomePage implements _ReturnToHomePage {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) {
     return returnToHomePage();
   }
@@ -1015,9 +1373,11 @@ class _$_ReturnToHomePage implements _ReturnToHomePage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (returnToHomePage != null) {
@@ -1031,10 +1391,13 @@ class _$_ReturnToHomePage implements _ReturnToHomePage {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) {
     return returnToHomePage(this);
   }
@@ -1044,9 +1407,11 @@ class _$_ReturnToHomePage implements _ReturnToHomePage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (returnToHomePage != null) {
@@ -1103,9 +1468,11 @@ class _$_OnHomePageFromCreatePage implements _OnHomePageFromCreatePage {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
     required TResult Function() eventCreated,
     required TResult Function() returnToHomePage,
     required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
   }) {
     return onHomePageFromCreatePage();
   }
@@ -1115,9 +1482,11 @@ class _$_OnHomePageFromCreatePage implements _OnHomePageFromCreatePage {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
     TResult Function()? eventCreated,
     TResult Function()? returnToHomePage,
     TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (onHomePageFromCreatePage != null) {
@@ -1131,10 +1500,13 @@ class _$_OnHomePageFromCreatePage implements _OnHomePageFromCreatePage {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
     required TResult Function(_EventCreated value) eventCreated,
     required TResult Function(_ReturnToHomePage value) returnToHomePage,
     required TResult Function(_OnHomePageFromCreatePage value)
         onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
   }) {
     return onHomePageFromCreatePage(this);
   }
@@ -1144,9 +1516,11 @@ class _$_OnHomePageFromCreatePage implements _OnHomePageFromCreatePage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
     TResult Function(_EventCreated value)? eventCreated,
     TResult Function(_ReturnToHomePage value)? returnToHomePage,
     TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
     required TResult orElse(),
   }) {
     if (onHomePageFromCreatePage != null) {
@@ -1158,4 +1532,112 @@ class _$_OnHomePageFromCreatePage implements _OnHomePageFromCreatePage {
 
 abstract class _OnHomePageFromCreatePage implements CreateState {
   const factory _OnHomePageFromCreatePage() = _$_OnHomePageFromCreatePage;
+}
+
+/// @nodoc
+abstract class _$EventCreationFailedCopyWith<$Res> {
+  factory _$EventCreationFailedCopyWith(_EventCreationFailed value,
+          $Res Function(_EventCreationFailed) then) =
+      __$EventCreationFailedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$EventCreationFailedCopyWithImpl<$Res>
+    extends _$CreateStateCopyWithImpl<$Res>
+    implements _$EventCreationFailedCopyWith<$Res> {
+  __$EventCreationFailedCopyWithImpl(
+      _EventCreationFailed _value, $Res Function(_EventCreationFailed) _then)
+      : super(_value, (v) => _then(v as _EventCreationFailed));
+
+  @override
+  _EventCreationFailed get _value => super._value as _EventCreationFailed;
+}
+
+/// @nodoc
+
+class _$_EventCreationFailed implements _EventCreationFailed {
+  const _$_EventCreationFailed();
+
+  @override
+  String toString() {
+    return 'CreateState.eventCreationFailed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _EventCreationFailed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() eventNameValidated,
+    required TResult Function() eventLocationValidated,
+    required TResult Function() eventCreated,
+    required TResult Function() returnToHomePage,
+    required TResult Function() onHomePageFromCreatePage,
+    required TResult Function() eventCreationFailed,
+  }) {
+    return eventCreationFailed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? eventNameValidated,
+    TResult Function()? eventLocationValidated,
+    TResult Function()? eventCreated,
+    TResult Function()? returnToHomePage,
+    TResult Function()? onHomePageFromCreatePage,
+    TResult Function()? eventCreationFailed,
+    required TResult orElse(),
+  }) {
+    if (eventCreationFailed != null) {
+      return eventCreationFailed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_EventNameValidated value) eventNameValidated,
+    required TResult Function(_EventLocationValidated value)
+        eventLocationValidated,
+    required TResult Function(_EventCreated value) eventCreated,
+    required TResult Function(_ReturnToHomePage value) returnToHomePage,
+    required TResult Function(_OnHomePageFromCreatePage value)
+        onHomePageFromCreatePage,
+    required TResult Function(_EventCreationFailed value) eventCreationFailed,
+  }) {
+    return eventCreationFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_EventNameValidated value)? eventNameValidated,
+    TResult Function(_EventLocationValidated value)? eventLocationValidated,
+    TResult Function(_EventCreated value)? eventCreated,
+    TResult Function(_ReturnToHomePage value)? returnToHomePage,
+    TResult Function(_OnHomePageFromCreatePage value)? onHomePageFromCreatePage,
+    TResult Function(_EventCreationFailed value)? eventCreationFailed,
+    required TResult orElse(),
+  }) {
+    if (eventCreationFailed != null) {
+      return eventCreationFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EventCreationFailed implements CreateState {
+  const factory _EventCreationFailed() = _$_EventCreationFailed;
 }

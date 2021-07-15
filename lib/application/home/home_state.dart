@@ -6,6 +6,7 @@ class HomeState with _$HomeState {
   const factory HomeState.navigatedToCreateEventPage() =
       _NavigatedToCreateEventPage;
   const factory HomeState.onCreateEventPage() = _onCreateEventPage;
+  const factory HomeState.onMyEventsPage() = _OnMyEventsPage;
   const factory HomeState.navigatedToSearchEventPage() =
       _NavigatedToSearchEventPage;
   const factory HomeState.navigatedToMyEventPage() = _NavigatedToMyEventPage;

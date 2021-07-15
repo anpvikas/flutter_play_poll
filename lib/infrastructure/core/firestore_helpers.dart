@@ -14,3 +14,8 @@ extension FirestoreX on FirebaseFirestore {
         .doc(user.id.getOrCrash());
   }
 }
+
+extension DocumentReferenceX on DocumentReference {
+  CollectionReference get eventCollection => collection('createdEvents');
+  CollectionReference get joinedEventCollection => collection('joinedEvents');
+}

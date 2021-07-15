@@ -33,10 +33,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         yield HomeState.navigatedToCreateEventPage();
       },
       searchEventClicked: (e) async* {},
-      myEventClicked: (e) async* {},
+      myEventClicked: (e) async* {
+        print('Home Bloc My Event Bloc <----');
+        yield HomeState.navigatedToMyEventPage();
+      },
       joinedEventClicked: (e) async* {},
       onCreateEventPage: (e) async* {
         yield HomeState.onCreateEventPage();
+      },
+      onMyEventsPageEvent: (e) async* {
+        print('GUESS-1');
+        yield HomeState.onMyEventsPage();
       },
     );
   }

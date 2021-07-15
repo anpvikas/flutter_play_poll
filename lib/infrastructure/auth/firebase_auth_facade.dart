@@ -1,13 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz_streaming.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_play_poll/domain/auth/auth_failure.dart';
 import 'package:flutter_play_poll/domain/auth/i_auth_facade.dart';
 import 'package:flutter_play_poll/domain/auth/user.dart';
-import 'package:flutter_play_poll/domain/core/errors.dart';
 import 'package:flutter_play_poll/infrastructure/auth/firebase_user_mapper.dart';
-import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 

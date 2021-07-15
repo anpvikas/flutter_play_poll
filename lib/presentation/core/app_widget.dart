@@ -4,6 +4,7 @@ import 'package:flutter_play_poll/application/auth/auth_bloc.dart';
 import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
+import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/injection.dart';
 
 import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
@@ -25,6 +26,9 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => getIt<CreateBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<MyEventsBloc>(),
         ),
       ],
       child: MaterialApp.router(

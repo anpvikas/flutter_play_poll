@@ -6,8 +6,10 @@ import 'package:flutter_play_poll/application/auth/auth_bloc.dart';
 import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
+import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/constants.dart';
 import 'package:flutter_play_poll/injection.dart';
+import 'package:flutter_play_poll/presentation/my_events/my_events_page.dart';
 
 import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
@@ -21,19 +23,21 @@ class UserHomePage extends StatelessWidget {
 
     return MultiBlocListener(
       listeners: [
-        BlocListener<CreateBloc, CreateState>(
-          listener: (context, state) {
-            state.map(
-              initial: (_) {
-                print('Started Event fired');
-              },
-              returnToHomePage: (_) {},
-              onHomePageFromCreatePage: (_) {},
-              eventNameValidated: (_) {},
-              eventCreated: (_) {},
-            );
-          },
-        ),
+        // BlocListener<CreateBloc, CreateState>(
+        //   listener: (context, state) {
+        //     state.map(
+        //       initial: (_) {
+        //         print('Started Event fired');
+        //       },
+        //       returnToHomePage: (_) {},
+        //       onHomePageFromCreatePage: (_) {},
+        //       eventNameValidated: (_) {},
+        //       eventCreated: (_) {},
+        //       eventLocationValidated: (_) {},
+        //       eventCreationFailed: (_) {},
+        //     );
+        //   },
+        // ),
         BlocListener<HomeBloc, HomeState>(
           listener: (context, state) {
             state.map(
@@ -48,9 +52,13 @@ class UserHomePage extends StatelessWidget {
                 AutoRouter.of(context).navigate(CreateEventRoute());
               },
               navigatedToSearchEventPage: (_) {},
-              navigatedToMyEventPage: (_) {},
+              navigatedToMyEventPage: (_) {
+                context.read<HomeBloc>().add(HomeEvent.onMyEventsPageEvent());
+                // context.read<MyEventsBloc>().add(MyEventsEvent.onMyEventPage());
+                AutoRouter.of(context).navigate(MyEventsRoute());
+              },
               navigatedToJoinedEventPage: (_) {},
-              onCreateEventPage: (_) {},
+              onCreateEventPage: (_) {}, onMyEventsPage: (_) {},
 
               // onCreateEventPage: (_) {
               //   print('State Changed');
@@ -229,30 +237,50 @@ class UserHomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        height: height / 5,
-                        width: width / 2,
-                        decoration: BoxDecoration(
-                          // color: Colors.lightGreen,
-                          border: Border.all(color: Colors.green, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.today_outlined,
-                              size: 60,
-                              color: Colors.blueGrey,
+                      child: BlocBuilder<HomeBloc, HomeState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              print('1-My Event Pressed on HomePage<---- ');
+                              print(
+                                  '2-Event added to the HomeBloc = myEventClicked <----');
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.myEventClicked());
+
+                              // context
+                              //     .read<MyEventsBloc>()
+                              //     .add(MyEventsEvent.started());
+                            },
+                            child: Container(
+                              height: height / 5,
+                              width: width / 2,
+                              decoration: BoxDecoration(
+                                // color: Colors.lightGreen,
+                                border:
+                                    Border.all(color: Colors.green, width: 2),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.today_outlined,
+                                    size: 60,
+                                    color: Colors.blueGrey,
+                                  ),
+                                  SizedBox(height: height / 20),
+                                  Text(
+                                    'My Events',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
-                            SizedBox(height: height / 20),
-                            Text(
-                              'My Events',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
                     ),
                     SizedBox(width: width / 20),
