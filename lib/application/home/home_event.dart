@@ -8,6 +8,7 @@ class HomeEvent with _$HomeEvent {
       _OnCreateEventPage; //Common for all other events to navigate back to the homepage
   const factory HomeEvent.onMyEventsPageEvent() = _OnMyEventsPageEvent;
   const factory HomeEvent.searchEventClicked() = _SearchEventClicked;
+  const factory HomeEvent.onSearchEventsPageEvent() = _OnSearchEventsPageEvent;
   const factory HomeEvent.myEventClicked() = _MyEventClicked;
   const factory HomeEvent.joinedEventClicked() = _JoinedEventClicked;
 }

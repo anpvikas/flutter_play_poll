@@ -9,6 +9,7 @@ import 'package:flutter_play_poll/domain/core/value_objects.dart';
 import 'package:flutter_play_poll/domain/events/event.dart';
 import 'package:flutter_play_poll/domain/events/i_event_repository.dart';
 import 'package:flutter_play_poll/domain/events/value_objects.dart';
+import 'package:flutter_play_poll/injection.dart';
 
 class MyEventsPage extends StatelessWidget {
   const MyEventsPage({
@@ -19,28 +20,19 @@ class MyEventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    TextEditingController _eventNameController = TextEditingController();
+    TextEditingController _eventLocationController = TextEditingController();
     return MultiBlocListener(
       listeners: [
         BlocListener<MyEventsBloc, MyEventsState>(listener: (context, state) {
           print('HERE1 <---- ');
           state.map(
-              initial: (_) {
-                print('$_ <------------');
-              },
+              initial: (_) {},
               eventViewed: (_) {},
               noEventsCreated: (_) {},
-              showEventsCreated: (allEvents) {
-                print('$allEvents <-----ALLEVENTS----');
-                print(allEvents.toString());
-              },
-              onMyEventsPageState: (_) {
-                print('??WHAT??');
-
-                // context.read<MyEventsBloc>().add(MyEventsEvent.started());
-              },
-              deletedEventState: (_) {
-                // context.read<MyEventsBloc>().add(MyEventsEvent.started());
-              },
+              showEventsCreated: (allEvents) {},
+              onMyEventsPageState: (_) {},
+              deletedEventState: (_) {},
               deletedFailedState: (_) {},
               updatedEventState: (_) {},
               updatedFailedState: (_) {});
@@ -51,17 +43,12 @@ class MyEventsPage extends StatelessWidget {
             state.map(
               navigatedToCreateEventPage: (_) {},
               navigatedToSearchEventPage: (_) {},
-              navigatedToMyEventPage: (_) {
-                // context.read<MyEventsBloc>().add(MyEventsEvent.started());
-              },
+              navigatedToMyEventPage: (_) {},
               navigatedToJoinedEventPage: (_) {},
-              onCreateEventPage: (_) {
-                // context.read<MyEventsBloc>().add(MyEventsEvent.started());
-              },
+              onCreateEventPage: (_) {},
               onHomePageState: (_) {},
-              onMyEventsPage: (_) {
-                print('FINAL TEST <----');
-              },
+              onMyEventsPage: (_) {},
+              onSearchEventsPage: (_) {},
             );
           },
         ),
@@ -72,16 +59,12 @@ class MyEventsPage extends StatelessWidget {
         ),
         body: BlocBuilder<MyEventsBloc, MyEventsState>(
           builder: (context, state) {
-            // context.read<MyEventsBloc>().add(MyEventsEvent.onMyEventPage());
             context.read<MyEventsBloc>().add(MyEventsEvent.started());
-            print('Printing CONTEXT $context');
+            print('Printing CONTEXT ');
             return context.read<MyEventsBloc>().state.maybeMap(
               showEventsCreated: (received) {
                 if (received.data.length > 0) {
                   print(received);
-
-                  // return Text('${received.data[2]['location']}');
-
                   return ListView.builder(
                     itemCount: received.data.length,
                     itemBuilder: (context, index) {
@@ -90,36 +73,42 @@ class MyEventsPage extends StatelessWidget {
                           title: Text('${received.data[index]['name']}'),
                           subtitle: Text('${received.data[index]['location']}'),
                           leading: Icon(Icons.date_range_outlined),
-                          // trailing: Icon(Icons.edit),
                           trailing: IconButton(
                               onPressed: () {
                                 showDialog(
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
+                                        scrollable: true,
                                         title: Text(
-                                            'Update ${received.data[index]['name']} event'),
-                                        content: Container(
-                                          height: height / 0.5,
-                                          width: width,
-                                          child: ListView(
-                                            shrinkWrap: true,
-                                            children: [
-                                              TextFormField(
-                                                initialValue: received
-                                                    .data[index]['name'],
-                                                decoration: InputDecoration(
-                                                  labelText: 'Name',
+                                            'Update: ${received.data[index]['name']} event'),
+                                        content: SingleChildScrollView(
+                                          child: Container(
+                                            height: height / 0.5,
+                                            width: width,
+                                            child: ListView(
+                                              shrinkWrap: true,
+                                              children: [
+                                                TextFormField(
+                                                  controller:
+                                                      _eventNameController,
+                                                  decoration: InputDecoration(
+                                                    helperText:
+                                                        'Current Name: ${received.data[index]['name']}',
+                                                    labelText: 'Name',
+                                                  ),
                                                 ),
-                                              ),
-                                              TextFormField(
-                                                initialValue: received
-                                                    .data[index]['location'],
-                                                decoration: InputDecoration(
-                                                  labelText: 'Location',
+                                                TextFormField(
+                                                  controller:
+                                                      _eventLocationController,
+                                                  decoration: InputDecoration(
+                                                    helperText:
+                                                        'Current Location: ${received.data[index]['location']}',
+                                                    labelText: 'Location',
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                         actions: [
@@ -137,6 +126,9 @@ class MyEventsPage extends StatelessWidget {
                                                               received.data[
                                                                       index]
                                                                   ['eventId']),
+                                                      creatorId:
+                                                          received.data[index]
+                                                              ['creatorId'],
                                                       id: UniqueId
                                                           .fromUniqueString(
                                                               received.data[
@@ -159,12 +151,36 @@ class MyEventsPage extends StatelessWidget {
                                           ElevatedButton(
                                             onPressed: () {
                                               print('UPDATE');
+                                              context.read<MyEventsBloc>().add(
+                                                      MyEventsEvent.updateEvent(
+                                                    Event(
+                                                      name: Name(
+                                                          _eventNameController
+                                                              .text),
+                                                      eventId: UniqueId
+                                                          .fromUniqueString(
+                                                              received.data[
+                                                                      index]
+                                                                  ['eventId']),
+                                                      creatorId:
+                                                          received.data[index]
+                                                              ['creatorId'],
+                                                      id: UniqueId
+                                                          .fromUniqueString(
+                                                              received.data[
+                                                                      index]
+                                                                  ['eventId']),
+                                                      location: Location(
+                                                          _eventLocationController
+                                                              .text),
+                                                    ),
+                                                  ));
+                                              AutoRouter.of(context).pop();
                                             },
                                             child: Text('Update'),
                                           ),
                                           TextButton(
                                             onPressed: () {
-                                              // Navigator.pop(context);
                                               AutoRouter.of(context).pop();
                                             },
                                             child: Text('Cancel'),

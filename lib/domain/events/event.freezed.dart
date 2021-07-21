@@ -20,12 +20,14 @@ class _$EventTearOff {
       {required UniqueId id,
       required Name name,
       required Location location,
-      required UniqueId eventId}) {
+      required UniqueId eventId,
+      required String creatorId}) {
     return _Event(
       id: id,
       name: name,
       location: location,
       eventId: eventId,
+      creatorId: creatorId,
     );
   }
 }
@@ -39,6 +41,7 @@ mixin _$Event {
   Name get name => throw _privateConstructorUsedError;
   Location get location => throw _privateConstructorUsedError;
   UniqueId get eventId => throw _privateConstructorUsedError;
+  String get creatorId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventCopyWith<Event> get copyWith => throw _privateConstructorUsedError;
@@ -48,7 +51,12 @@ mixin _$Event {
 abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res>;
-  $Res call({UniqueId id, Name name, Location location, UniqueId eventId});
+  $Res call(
+      {UniqueId id,
+      Name name,
+      Location location,
+      UniqueId eventId,
+      String creatorId});
 }
 
 /// @nodoc
@@ -65,6 +73,7 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
     Object? name = freezed,
     Object? location = freezed,
     Object? eventId = freezed,
+    Object? creatorId = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -83,6 +92,10 @@ class _$EventCopyWithImpl<$Res> implements $EventCopyWith<$Res> {
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      creatorId: creatorId == freezed
+          ? _value.creatorId
+          : creatorId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -92,7 +105,12 @@ abstract class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) then) =
       __$EventCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId id, Name name, Location location, UniqueId eventId});
+  $Res call(
+      {UniqueId id,
+      Name name,
+      Location location,
+      UniqueId eventId,
+      String creatorId});
 }
 
 /// @nodoc
@@ -110,6 +128,7 @@ class __$EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
     Object? name = freezed,
     Object? location = freezed,
     Object? eventId = freezed,
+    Object? creatorId = freezed,
   }) {
     return _then(_Event(
       id: id == freezed
@@ -128,6 +147,10 @@ class __$EventCopyWithImpl<$Res> extends _$EventCopyWithImpl<$Res>
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      creatorId: creatorId == freezed
+          ? _value.creatorId
+          : creatorId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -139,7 +162,8 @@ class _$_Event implements _Event {
       {required this.id,
       required this.name,
       required this.location,
-      required this.eventId});
+      required this.eventId,
+      required this.creatorId});
 
   @override
   final UniqueId id;
@@ -149,10 +173,12 @@ class _$_Event implements _Event {
   final Location location;
   @override
   final UniqueId eventId;
+  @override
+  final String creatorId;
 
   @override
   String toString() {
-    return 'Event(id: $id, name: $name, location: $location, eventId: $eventId)';
+    return 'Event(id: $id, name: $name, location: $location, eventId: $eventId, creatorId: $creatorId)';
   }
 
   @override
@@ -167,7 +193,11 @@ class _$_Event implements _Event {
                 const DeepCollectionEquality()
                     .equals(other.location, location)) &&
             (identical(other.eventId, eventId) ||
-                const DeepCollectionEquality().equals(other.eventId, eventId)));
+                const DeepCollectionEquality()
+                    .equals(other.eventId, eventId)) &&
+            (identical(other.creatorId, creatorId) ||
+                const DeepCollectionEquality()
+                    .equals(other.creatorId, creatorId)));
   }
 
   @override
@@ -176,7 +206,8 @@ class _$_Event implements _Event {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(eventId);
+      const DeepCollectionEquality().hash(eventId) ^
+      const DeepCollectionEquality().hash(creatorId);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +220,8 @@ abstract class _Event implements Event {
       {required UniqueId id,
       required Name name,
       required Location location,
-      required UniqueId eventId}) = _$_Event;
+      required UniqueId eventId,
+      required String creatorId}) = _$_Event;
 
   @override
   UniqueId get id => throw _privateConstructorUsedError;
@@ -199,6 +231,8 @@ abstract class _Event implements Event {
   Location get location => throw _privateConstructorUsedError;
   @override
   UniqueId get eventId => throw _privateConstructorUsedError;
+  @override
+  String get creatorId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$EventCopyWith<_Event> get copyWith => throw _privateConstructorUsedError;

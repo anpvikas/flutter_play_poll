@@ -1,8 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_play_poll/domain/auth/i_auth_facade.dart';
+import 'package:flutter_play_poll/domain/core/errors.dart';
 
 import 'package:flutter_play_poll/domain/core/value_objects.dart';
 import 'package:flutter_play_poll/domain/events/event.dart';
 import 'package:flutter_play_poll/domain/events/value_objects.dart';
+import 'package:flutter_play_poll/injection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'event_dtos.freezed.dart';
@@ -10,9 +14,12 @@ part 'event_dtos.g.dart';
 
 @freezed
 abstract class EventDto with _$EventDto {
+  // late final FirebaseAuth _firebaseAuth;
   factory EventDto(
       {@JsonKey(ignore: true) String? id,
+      // @JsonKey(ignore: true) String? eventId,
       required String eventId,
+      required String creatorId,
       required String name,
       required String location}) = _EventDto;
 
@@ -20,6 +27,7 @@ abstract class EventDto with _$EventDto {
     return EventDto(
       id: event.id.getOrCrash(),
       eventId: event.id.getOrCrash(),
+      creatorId: FirebaseAuth.instance.currentUser!.uid,
       name: event.name.getOrCrash(),
       location: event.location.getOrCrash(),
     );
@@ -40,6 +48,8 @@ extension EventDtoX on EventDto {
     return Event(
         id: UniqueId.fromUniqueString(id!),
         eventId: UniqueId.fromUniqueString(id!),
+        creatorId: FirebaseAuth.instance.currentUser!.uid,
+        // creatorId: ' ',
         name: Name(name),
         location: Location(location));
   }

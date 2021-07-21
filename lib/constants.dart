@@ -1,5 +1,25 @@
 import 'package:flutter/material.dart';
 
+BoxShadow boxTopShadow = BoxShadow(
+  color: Colors.grey.shade200,
+  blurRadius: 1.0, // soften the shadow
+  spreadRadius: 1.0, //extend the shadow
+  offset: Offset(
+    -1.0, // Move to right 10  horizontally
+    -1.0, // Move to bottom 10 Vertically
+  ),
+);
+
+BoxShadow boxBotomShadow = BoxShadow(
+  color: Colors.grey.shade400,
+  blurRadius: 1.0, // soften the shadow
+  spreadRadius: 1.0, //extend the shadow
+  offset: Offset(
+    1.0, // Move to right 10  horizontally
+    1.0, // Move to bottom 10 Vertically
+  ),
+);
+
 Gradient forContainerLinear = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

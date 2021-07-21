@@ -23,7 +23,15 @@ class EventRepository implements IEventRepository {
       final userDoc = await _firestore.userDocument();
       final eventDto = EventDto.fromDomain(event);
 
-      await userDoc.eventCollection.doc(eventDto.id).set(eventDto.toJson());
+      print('${eventDto.creatorId} CREATOR <----');
+      await _firestore
+          .collection('events')
+          .doc(eventDto.id)
+          .set(eventDto.toJson());
+
+      userDoc.createdEventCollection.doc(eventDto.id).set(eventDto.toJson());
+
+      // await userDoc.eventCollection.doc().set(eventDto.toJson());
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -124,8 +132,16 @@ class EventRepository implements IEventRepository {
     try {
       final userDoc = await _firestore.userDocument();
       final eventDto = EventDto.fromDomain(event);
+      final eventId = event.id.getOrCrash();
 
-      await userDoc.eventCollection.doc(eventDto.id).update(eventDto.toJson());
+      await userDoc.createdEventCollection
+          .doc(eventDto.id)
+          .update(eventDto.toJson());
+
+      await _firestore
+          .collection('events')
+          .doc(eventId)
+          .update(eventDto.toJson());
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -135,6 +151,65 @@ class EventRepository implements IEventRepository {
       } else {
         return left(const EventFailure.unexpected());
       }
+    }
+  }
+
+  @override
+  Future allEventsFetched() async {
+    List itemsList = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await _firestore
+          .collection('events')
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          print('${doc.data()} <-----REPO------');
+          itemsList.add(doc.data());
+        });
+      });
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future search(String inputText) async {
+    List itemsList = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await _firestore
+          .collection('events')
+          .where('name', isEqualTo: inputText)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          print('${doc.data()} <-----REPO------');
+          itemsList.add(doc.data());
+        });
+      });
+
+      // await _firestore
+      //     .collection('users')
+      //     .doc('${user!.uid}')
+      //     .collection('createdEvents')
+      //     .get()
+      //     .then((QuerySnapshot querySnapshot) {
+      //   querySnapshot.docs.forEach((doc) {
+      //     print('${doc.data()} <-----REPO------');
+      //     itemsList.add(doc.data());
+      //   });
+      // });
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
     }
   }
 
@@ -156,7 +231,8 @@ class EventRepository implements IEventRepository {
       final userDoc = await _firestore.userDocument();
       final eventId = event.id.getOrCrash();
 
-      await userDoc.eventCollection.doc(eventId).delete();
+      await userDoc.createdEventCollection.doc(eventId).delete();
+      await _firestore.collection('events').doc(eventId).delete();
 
       return right(unit);
     } on PlatformException catch (e) {

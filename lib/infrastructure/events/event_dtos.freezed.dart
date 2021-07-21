@@ -23,11 +23,13 @@ class _$EventDtoTearOff {
   _EventDto call(
       {@JsonKey(ignore: true) String? id,
       required String eventId,
+      required String creatorId,
       required String name,
       required String location}) {
     return _EventDto(
       id: id,
       eventId: eventId,
+      creatorId: creatorId,
       name: name,
       location: location,
     );
@@ -44,8 +46,10 @@ const $EventDto = _$EventDtoTearOff();
 /// @nodoc
 mixin _$EventDto {
   @JsonKey(ignore: true)
-  String? get id => throw _privateConstructorUsedError;
+  String? get id =>
+      throw _privateConstructorUsedError; // @JsonKey(ignore: true) String? eventId,
   String get eventId => throw _privateConstructorUsedError;
+  String get creatorId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
 
@@ -62,6 +66,7 @@ abstract class $EventDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String eventId,
+      String creatorId,
       String name,
       String location});
 }
@@ -78,6 +83,7 @@ class _$EventDtoCopyWithImpl<$Res> implements $EventDtoCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? eventId = freezed,
+    Object? creatorId = freezed,
     Object? name = freezed,
     Object? location = freezed,
   }) {
@@ -89,6 +95,10 @@ class _$EventDtoCopyWithImpl<$Res> implements $EventDtoCopyWith<$Res> {
       eventId: eventId == freezed
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
+              as String,
+      creatorId: creatorId == freezed
+          ? _value.creatorId
+          : creatorId // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -110,6 +120,7 @@ abstract class _$EventDtoCopyWith<$Res> implements $EventDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String eventId,
+      String creatorId,
       String name,
       String location});
 }
@@ -127,6 +138,7 @@ class __$EventDtoCopyWithImpl<$Res> extends _$EventDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? eventId = freezed,
+    Object? creatorId = freezed,
     Object? name = freezed,
     Object? location = freezed,
   }) {
@@ -138,6 +150,10 @@ class __$EventDtoCopyWithImpl<$Res> extends _$EventDtoCopyWithImpl<$Res>
       eventId: eventId == freezed
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
+              as String,
+      creatorId: creatorId == freezed
+          ? _value.creatorId
+          : creatorId // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -157,6 +173,7 @@ class _$_EventDto implements _EventDto {
   _$_EventDto(
       {@JsonKey(ignore: true) this.id,
       required this.eventId,
+      required this.creatorId,
       required this.name,
       required this.location});
 
@@ -166,8 +183,10 @@ class _$_EventDto implements _EventDto {
   @override
   @JsonKey(ignore: true)
   final String? id;
-  @override
+  @override // @JsonKey(ignore: true) String? eventId,
   final String eventId;
+  @override
+  final String creatorId;
   @override
   final String name;
   @override
@@ -175,7 +194,7 @@ class _$_EventDto implements _EventDto {
 
   @override
   String toString() {
-    return 'EventDto(id: $id, eventId: $eventId, name: $name, location: $location)';
+    return 'EventDto(id: $id, eventId: $eventId, creatorId: $creatorId, name: $name, location: $location)';
   }
 
   @override
@@ -187,6 +206,9 @@ class _$_EventDto implements _EventDto {
             (identical(other.eventId, eventId) ||
                 const DeepCollectionEquality()
                     .equals(other.eventId, eventId)) &&
+            (identical(other.creatorId, creatorId) ||
+                const DeepCollectionEquality()
+                    .equals(other.creatorId, creatorId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.location, location) ||
@@ -199,6 +221,7 @@ class _$_EventDto implements _EventDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(eventId) ^
+      const DeepCollectionEquality().hash(creatorId) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(location);
 
@@ -217,6 +240,7 @@ abstract class _EventDto implements EventDto {
   factory _EventDto(
       {@JsonKey(ignore: true) String? id,
       required String eventId,
+      required String creatorId,
       required String name,
       required String location}) = _$_EventDto;
 
@@ -225,8 +249,10 @@ abstract class _EventDto implements EventDto {
   @override
   @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
-  @override
+  @override // @JsonKey(ignore: true) String? eventId,
   String get eventId => throw _privateConstructorUsedError;
+  @override
+  String get creatorId => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override

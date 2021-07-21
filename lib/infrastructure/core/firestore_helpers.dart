@@ -16,6 +16,6 @@ extension FirestoreX on FirebaseFirestore {
 }
 
 extension DocumentReferenceX on DocumentReference {
-  CollectionReference get eventCollection => collection('createdEvents');
+  CollectionReference get createdEventCollection => collection('createdEvents');
   CollectionReference get joinedEventCollection => collection('joinedEvents');
 }

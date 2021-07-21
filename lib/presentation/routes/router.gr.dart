@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as _i2;
 import '../create_event/create_event_page.dart' as _i6;
 import '../home/user_home/user_home_page.dart' as _i5;
 import '../my_events/my_events_page.dart' as _i7;
+import '../search_event/serach_event_page.dart' as _i8;
 import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
 
@@ -43,6 +44,13 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i7.MyEventsPage();
+        }),
+    SearchEventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<SearchEventRouteArgs>(
+              orElse: () => const SearchEventRouteArgs());
+          return _i8.SearchEventPage(key: args.key);
         })
   };
 
@@ -52,7 +60,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(UserHomeRoute.name, path: '/user-home-page'),
         _i1.RouteConfig(CreateEventRoute.name, path: '/create-event-page'),
-        _i1.RouteConfig(MyEventsRoute.name, path: '/my-events-page')
+        _i1.RouteConfig(MyEventsRoute.name, path: '/my-events-page'),
+        _i1.RouteConfig(SearchEventRoute.name, path: '/search-event-page')
       ];
 }
 
@@ -84,4 +93,18 @@ class MyEventsRoute extends _i1.PageRouteInfo {
   const MyEventsRoute() : super(name, path: '/my-events-page');
 
   static const String name = 'MyEventsRoute';
+}
+
+class SearchEventRoute extends _i1.PageRouteInfo<SearchEventRouteArgs> {
+  SearchEventRoute({_i2.Key? key})
+      : super(name,
+            path: '/search-event-page', args: SearchEventRouteArgs(key: key));
+
+  static const String name = 'SearchEventRoute';
+}
+
+class SearchEventRouteArgs {
+  const SearchEventRouteArgs({this.key});
+
+  final _i2.Key? key;
 }

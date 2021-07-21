@@ -10,16 +10,17 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i14;
-import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i13;
-import 'application/create_event/create_bloc.dart' as _i15;
+import 'application/auth/auth_bloc.dart' as _i15;
+import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i14;
+import 'application/create_event/create_bloc.dart' as _i16;
 import 'application/home/home_bloc.dart' as _i7;
 import 'application/my_events/my_events_bloc.dart' as _i12;
+import 'application/search_event/search_event_bloc.dart' as _i13;
 import 'domain/auth/i_auth_facade.dart' as _i8;
 import 'domain/events/i_event_repository.dart' as _i10;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
 import 'infrastructure/auth/firebase_user_mapper.dart' as _i5;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i16;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i17;
 import 'infrastructure/events/event_repository.dart' as _i11;
 
 const String _prod = 'prod';
@@ -48,12 +49,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       registerFor: {_prod});
   gh.factory<_i12.MyEventsBloc>(
       () => _i12.MyEventsBloc(get<_i10.IEventRepository>()));
-  gh.factory<_i13.SignInFormBloc>(
-      () => _i13.SignInFormBloc(get<_i8.IAuthFacade>()));
-  gh.factory<_i14.AuthBloc>(() => _i14.AuthBloc(get<_i8.IAuthFacade>()));
-  gh.factory<_i15.CreateBloc>(
-      () => _i15.CreateBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i13.SearchEventBloc>(
+      () => _i13.SearchEventBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i14.SignInFormBloc>(
+      () => _i14.SignInFormBloc(get<_i8.IAuthFacade>()));
+  gh.factory<_i15.AuthBloc>(() => _i15.AuthBloc(get<_i8.IAuthFacade>()));
+  gh.factory<_i16.CreateBloc>(
+      () => _i16.CreateBloc(get<_i10.IEventRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i16.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i17.FirebaseInjectableModule {}

@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
+
 import 'package:flutter_play_poll/domain/events/event.dart';
 import 'package:flutter_play_poll/domain/events/i_event_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_play_poll/domain/events/event_failure.dart';
 
 part 'my_events_event.dart';
 part 'my_events_state.dart';
@@ -54,7 +53,8 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
               id: e.event.id,
               name: e.event.name,
               location: e.event.location,
-              eventId: e.event.eventId),
+              eventId: e.event.eventId,
+              creatorId: e.event.creatorId),
         );
         yield possibleFailure.fold(
           (f) => MyEventsState.deletedFailedState(),
@@ -62,7 +62,21 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
         );
         // yield MyEventsState.deletedEventState();
       },
-      updateEvent: (e) async* {},
+      updateEvent: (e) async* {
+        print('Updating Event');
+        final possibleFailure = await _eventRepository.update(
+          Event(
+              id: e.event.id,
+              name: e.event.name,
+              location: e.event.location,
+              eventId: e.event.eventId,
+              creatorId: e.event.creatorId),
+        );
+        yield possibleFailure.fold(
+          (f) => MyEventsState.updatedFailedState(),
+          (_) => const MyEventsState.updatedEventState(),
+        );
+      },
     );
   }
 }

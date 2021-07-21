@@ -7,6 +7,7 @@ import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
 import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
+import 'package:flutter_play_poll/application/search_event/search_event_bloc.dart';
 import 'package:flutter_play_poll/constants.dart';
 import 'package:flutter_play_poll/injection.dart';
 import 'package:flutter_play_poll/presentation/my_events/my_events_page.dart';
@@ -51,7 +52,13 @@ class UserHomePage extends StatelessWidget {
                 context.read<HomeBloc>().add(HomeEvent.onCreateEventPage());
                 AutoRouter.of(context).navigate(CreateEventRoute());
               },
-              navigatedToSearchEventPage: (_) {},
+              navigatedToSearchEventPage: (_) {
+                context
+                    .read<HomeBloc>()
+                    .add(HomeEvent.onSearchEventsPageEvent());
+                context.read<SearchEventBloc>().add(SearchEventEvent.started());
+                AutoRouter.of(context).navigate(SearchEventRoute());
+              },
               navigatedToMyEventPage: (_) {
                 context.read<HomeBloc>().add(HomeEvent.onMyEventsPageEvent());
                 // context.read<MyEventsBloc>().add(MyEventsEvent.onMyEventPage());
@@ -59,6 +66,7 @@ class UserHomePage extends StatelessWidget {
               },
               navigatedToJoinedEventPage: (_) {},
               onCreateEventPage: (_) {}, onMyEventsPage: (_) {},
+              onSearchEventsPage: (_) {},
 
               // onCreateEventPage: (_) {
               //   print('State Changed');
@@ -93,9 +101,7 @@ class UserHomePage extends StatelessWidget {
           ],
         ),
         body: Container(
-          decoration: BoxDecoration(
-            gradient: forPageDesignRadial,
-          ),
+          decoration: BoxDecoration(gradient: forPageDesignRadial),
           child: ListView(
             children: [
               SizedBox(height: height / 40),
@@ -174,10 +180,12 @@ class UserHomePage extends StatelessWidget {
                               height: height / 5,
                               width: width / 2,
                               decoration: BoxDecoration(
-                                color: Colors.blueGrey.withOpacity(0.3),
+                                color: Colors.white,
+                                // color: Colors.blueGrey.withOpacity(0.3),
                                 // border: Border.all(color: Colors.green, width: 2),
                                 borderRadius: BorderRadius.circular(20),
-                                gradient: forContainerLinear,
+                                // gradient: forContainerLinear,
+                                boxShadow: [boxTopShadow, boxBotomShadow],
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -203,29 +211,41 @@ class UserHomePage extends StatelessWidget {
                     ),
                     SizedBox(width: width / 20),
                     Expanded(
-                      child: Container(
-                        height: height / 5,
-                        width: width / 2,
-                        decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.blueAccent, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.search_outlined,
-                              size: 60,
-                              color: Colors.blueAccent,
-                            ),
-                            SizedBox(height: height / 20),
-                            Text(
-                              'Search Event',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w500),
-                            )
-                          ],
+                      child: GestureDetector(
+                        onTap: () {
+                          print('1-Search Event Pressed on HomePage<---- ');
+                          print(
+                              '2-Event added to the HomeBloc = searchEventClicked <----');
+                          context
+                              .read<HomeBloc>()
+                              .add(HomeEvent.searchEventClicked());
+                        },
+                        child: Container(
+                          height: height / 5,
+                          width: width / 2,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            // border:
+                            //     Border.all(color: Colors.blueAccent, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [boxTopShadow, boxBotomShadow],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.search_outlined,
+                                size: 60,
+                                color: Colors.blueAccent,
+                              ),
+                              SizedBox(height: height / 20),
+                              Text(
+                                'Search Event',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -256,10 +276,12 @@ class UserHomePage extends StatelessWidget {
                               height: height / 5,
                               width: width / 2,
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 // color: Colors.lightGreen,
-                                border:
-                                    Border.all(color: Colors.green, width: 2),
+                                // border:
+                                //     Border.all(color: Colors.green, width: 2),
                                 borderRadius: BorderRadius.circular(20),
+                                boxShadow: [boxTopShadow, boxBotomShadow],
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,

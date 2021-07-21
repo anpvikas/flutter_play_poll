@@ -36,6 +36,10 @@ class _$HomeEventTearOff {
     return const _SearchEventClicked();
   }
 
+  _OnSearchEventsPageEvent onSearchEventsPageEvent() {
+    return const _OnSearchEventsPageEvent();
+  }
+
   _MyEventClicked myEventClicked() {
     return const _MyEventClicked();
   }
@@ -57,6 +61,7 @@ mixin _$HomeEvent {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) =>
@@ -68,6 +73,7 @@ mixin _$HomeEvent {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -80,6 +86,8 @@ mixin _$HomeEvent {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) =>
@@ -91,6 +99,7 @@ mixin _$HomeEvent {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -157,6 +166,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -171,6 +181,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -189,6 +200,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -203,6 +216,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -263,6 +277,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -277,6 +292,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -295,6 +311,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -309,6 +327,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -369,6 +388,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -383,6 +403,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -401,6 +422,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -415,6 +438,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -475,6 +499,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -489,6 +514,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -507,6 +533,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -521,6 +549,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -581,6 +610,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -595,6 +625,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -613,6 +644,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -627,6 +660,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -640,6 +674,118 @@ class _$_SearchEventClicked implements _SearchEventClicked {
 
 abstract class _SearchEventClicked implements HomeEvent {
   const factory _SearchEventClicked() = _$_SearchEventClicked;
+}
+
+/// @nodoc
+abstract class _$OnSearchEventsPageEventCopyWith<$Res> {
+  factory _$OnSearchEventsPageEventCopyWith(_OnSearchEventsPageEvent value,
+          $Res Function(_OnSearchEventsPageEvent) then) =
+      __$OnSearchEventsPageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnSearchEventsPageEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$OnSearchEventsPageEventCopyWith<$Res> {
+  __$OnSearchEventsPageEventCopyWithImpl(_OnSearchEventsPageEvent _value,
+      $Res Function(_OnSearchEventsPageEvent) _then)
+      : super(_value, (v) => _then(v as _OnSearchEventsPageEvent));
+
+  @override
+  _OnSearchEventsPageEvent get _value =>
+      super._value as _OnSearchEventsPageEvent;
+}
+
+/// @nodoc
+
+class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
+  const _$_OnSearchEventsPageEvent();
+
+  @override
+  String toString() {
+    return 'HomeEvent.onSearchEventsPageEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnSearchEventsPageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageEvent,
+    required TResult Function() createEventClicked,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPageEvent,
+    required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
+    required TResult Function() myEventClicked,
+    required TResult Function() joinedEventClicked,
+  }) {
+    return onSearchEventsPageEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageEvent,
+    TResult Function()? createEventClicked,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPageEvent,
+    TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
+    TResult Function()? myEventClicked,
+    TResult Function()? joinedEventClicked,
+    required TResult orElse(),
+  }) {
+    if (onSearchEventsPageEvent != null) {
+      return onSearchEventsPageEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageEvent value) onHomePageEvent,
+    required TResult Function(_CreateEventClicked value) createEventClicked,
+    required TResult Function(_OnCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
+    required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
+    required TResult Function(_MyEventClicked value) myEventClicked,
+    required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+  }) {
+    return onSearchEventsPageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageEvent value)? onHomePageEvent,
+    TResult Function(_CreateEventClicked value)? createEventClicked,
+    TResult Function(_OnCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
+    TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
+    TResult Function(_MyEventClicked value)? myEventClicked,
+    TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    required TResult orElse(),
+  }) {
+    if (onSearchEventsPageEvent != null) {
+      return onSearchEventsPageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnSearchEventsPageEvent implements HomeEvent {
+  const factory _OnSearchEventsPageEvent() = _$_OnSearchEventsPageEvent;
 }
 
 /// @nodoc
@@ -686,6 +832,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -700,6 +847,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -718,6 +866,8 @@ class _$_MyEventClicked implements _MyEventClicked {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -732,6 +882,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -792,6 +943,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPageEvent,
     required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
   }) {
@@ -806,6 +958,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPageEvent,
     TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     required TResult orElse(),
@@ -824,6 +977,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     required TResult Function(_OnCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
     required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
   }) {
@@ -838,6 +993,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function(_OnCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
     TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     required TResult orElse(),
@@ -873,12 +1029,16 @@ class _$HomeStateTearOff {
     return const _OnMyEventsPage();
   }
 
+  _NavigatedToMyEventPage navigatedToMyEventPage() {
+    return const _NavigatedToMyEventPage();
+  }
+
   _NavigatedToSearchEventPage navigatedToSearchEventPage() {
     return const _NavigatedToSearchEventPage();
   }
 
-  _NavigatedToMyEventPage navigatedToMyEventPage() {
-    return const _NavigatedToMyEventPage();
+  _OnSearchEventsPage onSearchEventsPage() {
+    return const _OnSearchEventsPage();
   }
 
   _NavigatedToJoinedEventPage navigatedToJoinedEventPage() {
@@ -897,8 +1057,9 @@ mixin _$HomeState {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) =>
       throw _privateConstructorUsedError;
@@ -908,8 +1069,9 @@ mixin _$HomeState {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) =>
@@ -921,10 +1083,11 @@ mixin _$HomeState {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) =>
@@ -936,9 +1099,10 @@ mixin _$HomeState {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1004,8 +1168,9 @@ class _$_OnHomePageState implements _OnHomePageState {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return onHomePageState();
@@ -1018,8 +1183,9 @@ class _$_OnHomePageState implements _OnHomePageState {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1037,10 +1203,11 @@ class _$_OnHomePageState implements _OnHomePageState {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1055,9 +1222,10 @@ class _$_OnHomePageState implements _OnHomePageState {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1119,8 +1287,9 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return navigatedToCreateEventPage();
@@ -1133,8 +1302,9 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1152,10 +1322,11 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1170,9 +1341,10 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1232,8 +1404,9 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return onCreateEventPage();
@@ -1246,8 +1419,9 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1265,10 +1439,11 @@ class _$_onCreateEventPage implements _onCreateEventPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1283,9 +1458,10 @@ class _$_onCreateEventPage implements _onCreateEventPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1344,8 +1520,9 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return onMyEventsPage();
@@ -1358,8 +1535,9 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1377,10 +1555,11 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1395,9 +1574,10 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1411,6 +1591,123 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
 
 abstract class _OnMyEventsPage implements HomeState {
   const factory _OnMyEventsPage() = _$_OnMyEventsPage;
+}
+
+/// @nodoc
+abstract class _$NavigatedToMyEventPageCopyWith<$Res> {
+  factory _$NavigatedToMyEventPageCopyWith(_NavigatedToMyEventPage value,
+          $Res Function(_NavigatedToMyEventPage) then) =
+      __$NavigatedToMyEventPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NavigatedToMyEventPageCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$NavigatedToMyEventPageCopyWith<$Res> {
+  __$NavigatedToMyEventPageCopyWithImpl(_NavigatedToMyEventPage _value,
+      $Res Function(_NavigatedToMyEventPage) _then)
+      : super(_value, (v) => _then(v as _NavigatedToMyEventPage));
+
+  @override
+  _NavigatedToMyEventPage get _value => super._value as _NavigatedToMyEventPage;
+}
+
+/// @nodoc
+
+class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
+  const _$_NavigatedToMyEventPage();
+
+  @override
+  String toString() {
+    return 'HomeState.navigatedToMyEventPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NavigatedToMyEventPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageState,
+    required TResult Function() navigatedToCreateEventPage,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPage,
+    required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
+    required TResult Function() navigatedToJoinedEventPage,
+  }) {
+    return navigatedToMyEventPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageState,
+    TResult Function()? navigatedToCreateEventPage,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPage,
+    TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
+    TResult Function()? navigatedToJoinedEventPage,
+    required TResult orElse(),
+  }) {
+    if (navigatedToMyEventPage != null) {
+      return navigatedToMyEventPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageState value) onHomePageState,
+    required TResult Function(_NavigatedToCreateEventPage value)
+        navigatedToCreateEventPage,
+    required TResult Function(_onCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPage value) onMyEventsPage,
+    required TResult Function(_NavigatedToMyEventPage value)
+        navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
+    required TResult Function(_NavigatedToJoinedEventPage value)
+        navigatedToJoinedEventPage,
+  }) {
+    return navigatedToMyEventPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageState value)? onHomePageState,
+    TResult Function(_NavigatedToCreateEventPage value)?
+        navigatedToCreateEventPage,
+    TResult Function(_onCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_NavigatedToSearchEventPage value)?
+        navigatedToSearchEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
+    TResult Function(_NavigatedToJoinedEventPage value)?
+        navigatedToJoinedEventPage,
+    required TResult orElse(),
+  }) {
+    if (navigatedToMyEventPage != null) {
+      return navigatedToMyEventPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NavigatedToMyEventPage implements HomeState {
+  const factory _NavigatedToMyEventPage() = _$_NavigatedToMyEventPage;
 }
 
 /// @nodoc
@@ -1459,8 +1756,9 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return navigatedToSearchEventPage();
@@ -1473,8 +1771,9 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1492,10 +1791,11 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1510,9 +1810,10 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
@@ -1529,37 +1830,37 @@ abstract class _NavigatedToSearchEventPage implements HomeState {
 }
 
 /// @nodoc
-abstract class _$NavigatedToMyEventPageCopyWith<$Res> {
-  factory _$NavigatedToMyEventPageCopyWith(_NavigatedToMyEventPage value,
-          $Res Function(_NavigatedToMyEventPage) then) =
-      __$NavigatedToMyEventPageCopyWithImpl<$Res>;
+abstract class _$OnSearchEventsPageCopyWith<$Res> {
+  factory _$OnSearchEventsPageCopyWith(
+          _OnSearchEventsPage value, $Res Function(_OnSearchEventsPage) then) =
+      __$OnSearchEventsPageCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NavigatedToMyEventPageCopyWithImpl<$Res>
+class __$OnSearchEventsPageCopyWithImpl<$Res>
     extends _$HomeStateCopyWithImpl<$Res>
-    implements _$NavigatedToMyEventPageCopyWith<$Res> {
-  __$NavigatedToMyEventPageCopyWithImpl(_NavigatedToMyEventPage _value,
-      $Res Function(_NavigatedToMyEventPage) _then)
-      : super(_value, (v) => _then(v as _NavigatedToMyEventPage));
+    implements _$OnSearchEventsPageCopyWith<$Res> {
+  __$OnSearchEventsPageCopyWithImpl(
+      _OnSearchEventsPage _value, $Res Function(_OnSearchEventsPage) _then)
+      : super(_value, (v) => _then(v as _OnSearchEventsPage));
 
   @override
-  _NavigatedToMyEventPage get _value => super._value as _NavigatedToMyEventPage;
+  _OnSearchEventsPage get _value => super._value as _OnSearchEventsPage;
 }
 
 /// @nodoc
 
-class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
-  const _$_NavigatedToMyEventPage();
+class _$_OnSearchEventsPage implements _OnSearchEventsPage {
+  const _$_OnSearchEventsPage();
 
   @override
   String toString() {
-    return 'HomeState.navigatedToMyEventPage()';
+    return 'HomeState.onSearchEventsPage()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NavigatedToMyEventPage);
+    return identical(this, other) || (other is _OnSearchEventsPage);
   }
 
   @override
@@ -1572,11 +1873,12 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
-    return navigatedToMyEventPage();
+    return onSearchEventsPage();
   }
 
   @override
@@ -1586,13 +1888,14 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
-    if (navigatedToMyEventPage != null) {
-      return navigatedToMyEventPage();
+    if (onSearchEventsPage != null) {
+      return onSearchEventsPage();
     }
     return orElse();
   }
@@ -1605,14 +1908,15 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
-    return navigatedToMyEventPage(this);
+    return onSearchEventsPage(this);
   }
 
   @override
@@ -1623,22 +1927,23 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
-    if (navigatedToMyEventPage != null) {
-      return navigatedToMyEventPage(this);
+    if (onSearchEventsPage != null) {
+      return onSearchEventsPage(this);
     }
     return orElse();
   }
 }
 
-abstract class _NavigatedToMyEventPage implements HomeState {
-  const factory _NavigatedToMyEventPage() = _$_NavigatedToMyEventPage;
+abstract class _OnSearchEventsPage implements HomeState {
+  const factory _OnSearchEventsPage() = _$_OnSearchEventsPage;
 }
 
 /// @nodoc
@@ -1687,8 +1992,9 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     required TResult Function() navigatedToCreateEventPage,
     required TResult Function() onCreateEventPage,
     required TResult Function() onMyEventsPage,
-    required TResult Function() navigatedToSearchEventPage,
     required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
   }) {
     return navigatedToJoinedEventPage();
@@ -1701,8 +2007,9 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     TResult Function()? navigatedToCreateEventPage,
     TResult Function()? onCreateEventPage,
     TResult Function()? onMyEventsPage,
-    TResult Function()? navigatedToSearchEventPage,
     TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     required TResult orElse(),
   }) {
@@ -1720,10 +2027,11 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
         navigatedToCreateEventPage,
     required TResult Function(_onCreateEventPage value) onCreateEventPage,
     required TResult Function(_OnMyEventsPage value) onMyEventsPage,
-    required TResult Function(_NavigatedToSearchEventPage value)
-        navigatedToSearchEventPage,
     required TResult Function(_NavigatedToMyEventPage value)
         navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
   }) {
@@ -1738,9 +2046,10 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
         navigatedToCreateEventPage,
     TResult Function(_onCreateEventPage value)? onCreateEventPage,
     TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
     TResult Function(_NavigatedToSearchEventPage value)?
         navigatedToSearchEventPage,
-    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     required TResult orElse(),

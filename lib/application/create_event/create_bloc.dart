@@ -55,21 +55,18 @@ class CreateBloc extends Bloc<CreateEvent, CreateState> {
       create: (e) async* {
         Either<EventFailure, Unit> failureOrSuccess;
         print('CREATE <----');
-        // if (eventName == null && eventLocation == null) {
-        //   yield CreateState.eventCreationFailed();
-        // } else {
+
         failureOrSuccess = await _eventRepository.create(Event(
-          id: UniqueId(),
-          name: eventName!,
-          location: eventLocation!,
-          eventId: UniqueId(),
-        ));
+            id: UniqueId(),
+            name: eventName!,
+            location: eventLocation!,
+            eventId: UniqueId(),
+            creatorId: ''));
 
         eventLocation = Location('');
         eventName = Name('');
         yield CreateState.eventCreated();
       },
-      // },
     );
   }
 }

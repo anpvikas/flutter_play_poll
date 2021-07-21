@@ -63,6 +63,7 @@ class CreateEventPage extends StatelessWidget {
             navigatedToMyEventPage: (_) {},
             navigatedToJoinedEventPage: (_) {},
             onMyEventsPage: (_) {},
+            onSearchEventsPage: (_) {},
           );
         })
       ],
