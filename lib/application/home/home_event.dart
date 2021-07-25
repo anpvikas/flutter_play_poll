@@ -11,4 +11,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.onSearchEventsPageEvent() = _OnSearchEventsPageEvent;
   const factory HomeEvent.myEventClicked() = _MyEventClicked;
   const factory HomeEvent.joinedEventClicked() = _JoinedEventClicked;
+  const factory HomeEvent.onJoinedEventsPageEvent() = _OnJoinedEventsPageEvent;
 }

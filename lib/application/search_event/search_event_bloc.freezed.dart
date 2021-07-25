@@ -40,6 +40,12 @@ class _$SearchEventEventTearOff {
   _NoDataFetchedEvent noDataFetchedEvent() {
     return const _NoDataFetchedEvent();
   }
+
+  _JoinEvent joinEvent(dynamic data) {
+    return _JoinEvent(
+      data,
+    );
+  }
 }
 
 /// @nodoc
@@ -54,6 +60,7 @@ mixin _$SearchEventEvent {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +70,7 @@ mixin _$SearchEventEvent {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +82,7 @@ mixin _$SearchEventEvent {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +93,7 @@ mixin _$SearchEventEvent {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +158,7 @@ class _$_Started implements _Started {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) {
     return started();
   }
@@ -160,6 +171,7 @@ class _$_Started implements _Started {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -177,6 +189,7 @@ class _$_Started implements _Started {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) {
     return started(this);
   }
@@ -190,6 +203,7 @@ class _$_Started implements _Started {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -275,6 +289,7 @@ class _$_SearchButtonClicked implements _SearchButtonClicked {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) {
     return searchButtonClicked(queryString);
   }
@@ -287,6 +302,7 @@ class _$_SearchButtonClicked implements _SearchButtonClicked {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) {
     if (searchButtonClicked != null) {
@@ -304,6 +320,7 @@ class _$_SearchButtonClicked implements _SearchButtonClicked {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) {
     return searchButtonClicked(this);
   }
@@ -317,6 +334,7 @@ class _$_SearchButtonClicked implements _SearchButtonClicked {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) {
     if (searchButtonClicked != null) {
@@ -411,6 +429,7 @@ class _$_SearchQueryStringExistsEvent implements _SearchQueryStringExistsEvent {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) {
     return searchQueryStringExistsEvent(queryString);
   }
@@ -423,6 +442,7 @@ class _$_SearchQueryStringExistsEvent implements _SearchQueryStringExistsEvent {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) {
     if (searchQueryStringExistsEvent != null) {
@@ -440,6 +460,7 @@ class _$_SearchQueryStringExistsEvent implements _SearchQueryStringExistsEvent {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) {
     return searchQueryStringExistsEvent(this);
   }
@@ -453,6 +474,7 @@ class _$_SearchQueryStringExistsEvent implements _SearchQueryStringExistsEvent {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) {
     if (searchQueryStringExistsEvent != null) {
@@ -517,6 +539,7 @@ class _$_EmptySearchEvent implements _EmptySearchEvent {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) {
     return emptySearchEvent();
   }
@@ -529,6 +552,7 @@ class _$_EmptySearchEvent implements _EmptySearchEvent {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) {
     if (emptySearchEvent != null) {
@@ -546,6 +570,7 @@ class _$_EmptySearchEvent implements _EmptySearchEvent {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) {
     return emptySearchEvent(this);
   }
@@ -559,6 +584,7 @@ class _$_EmptySearchEvent implements _EmptySearchEvent {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) {
     if (emptySearchEvent != null) {
@@ -617,6 +643,7 @@ class _$_NoDataFetchedEvent implements _NoDataFetchedEvent {
     required TResult Function(String queryString) searchQueryStringExistsEvent,
     required TResult Function() emptySearchEvent,
     required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
   }) {
     return noDataFetchedEvent();
   }
@@ -629,6 +656,7 @@ class _$_NoDataFetchedEvent implements _NoDataFetchedEvent {
     TResult Function(String queryString)? searchQueryStringExistsEvent,
     TResult Function()? emptySearchEvent,
     TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
     required TResult orElse(),
   }) {
     if (noDataFetchedEvent != null) {
@@ -646,6 +674,7 @@ class _$_NoDataFetchedEvent implements _NoDataFetchedEvent {
         searchQueryStringExistsEvent,
     required TResult Function(_EmptySearchEvent value) emptySearchEvent,
     required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
   }) {
     return noDataFetchedEvent(this);
   }
@@ -659,6 +688,7 @@ class _$_NoDataFetchedEvent implements _NoDataFetchedEvent {
         searchQueryStringExistsEvent,
     TResult Function(_EmptySearchEvent value)? emptySearchEvent,
     TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
     required TResult orElse(),
   }) {
     if (noDataFetchedEvent != null) {
@@ -670,6 +700,136 @@ class _$_NoDataFetchedEvent implements _NoDataFetchedEvent {
 
 abstract class _NoDataFetchedEvent implements SearchEventEvent {
   const factory _NoDataFetchedEvent() = _$_NoDataFetchedEvent;
+}
+
+/// @nodoc
+abstract class _$JoinEventCopyWith<$Res> {
+  factory _$JoinEventCopyWith(
+          _JoinEvent value, $Res Function(_JoinEvent) then) =
+      __$JoinEventCopyWithImpl<$Res>;
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$JoinEventCopyWithImpl<$Res>
+    extends _$SearchEventEventCopyWithImpl<$Res>
+    implements _$JoinEventCopyWith<$Res> {
+  __$JoinEventCopyWithImpl(_JoinEvent _value, $Res Function(_JoinEvent) _then)
+      : super(_value, (v) => _then(v as _JoinEvent));
+
+  @override
+  _JoinEvent get _value => super._value as _JoinEvent;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_JoinEvent(
+      data == freezed ? _value.data : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_JoinEvent implements _JoinEvent {
+  const _$_JoinEvent(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'SearchEventEvent.joinEvent(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _JoinEvent &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$JoinEventCopyWith<_JoinEvent> get copyWith =>
+      __$JoinEventCopyWithImpl<_JoinEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String queryString) searchButtonClicked,
+    required TResult Function(String queryString) searchQueryStringExistsEvent,
+    required TResult Function() emptySearchEvent,
+    required TResult Function() noDataFetchedEvent,
+    required TResult Function(dynamic data) joinEvent,
+  }) {
+    return joinEvent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String queryString)? searchButtonClicked,
+    TResult Function(String queryString)? searchQueryStringExistsEvent,
+    TResult Function()? emptySearchEvent,
+    TResult Function()? noDataFetchedEvent,
+    TResult Function(dynamic data)? joinEvent,
+    required TResult orElse(),
+  }) {
+    if (joinEvent != null) {
+      return joinEvent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SearchButtonClicked value) searchButtonClicked,
+    required TResult Function(_SearchQueryStringExistsEvent value)
+        searchQueryStringExistsEvent,
+    required TResult Function(_EmptySearchEvent value) emptySearchEvent,
+    required TResult Function(_NoDataFetchedEvent value) noDataFetchedEvent,
+    required TResult Function(_JoinEvent value) joinEvent,
+  }) {
+    return joinEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SearchButtonClicked value)? searchButtonClicked,
+    TResult Function(_SearchQueryStringExistsEvent value)?
+        searchQueryStringExistsEvent,
+    TResult Function(_EmptySearchEvent value)? emptySearchEvent,
+    TResult Function(_NoDataFetchedEvent value)? noDataFetchedEvent,
+    TResult Function(_JoinEvent value)? joinEvent,
+    required TResult orElse(),
+  }) {
+    if (joinEvent != null) {
+      return joinEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _JoinEvent implements SearchEventEvent {
+  const factory _JoinEvent(dynamic data) = _$_JoinEvent;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$JoinEventCopyWith<_JoinEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -706,6 +866,10 @@ class _$SearchEventStateTearOff {
   _NoDataFetchedState noDataFetchedState() {
     return const _NoDataFetchedState();
   }
+
+  _JoinState joinState() {
+    return const _JoinState();
+  }
 }
 
 /// @nodoc
@@ -721,6 +885,7 @@ mixin _$SearchEventState {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -731,6 +896,7 @@ mixin _$SearchEventState {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -744,6 +910,7 @@ mixin _$SearchEventState {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -755,6 +922,7 @@ mixin _$SearchEventState {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -820,6 +988,7 @@ class _$_Initial implements _Initial {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return initial();
   }
@@ -833,6 +1002,7 @@ class _$_Initial implements _Initial {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -852,6 +1022,7 @@ class _$_Initial implements _Initial {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return initial(this);
   }
@@ -866,6 +1037,7 @@ class _$_Initial implements _Initial {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -950,6 +1122,7 @@ class _$_ShowAllEvents implements _ShowAllEvents {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return showAllEvents(data);
   }
@@ -963,6 +1136,7 @@ class _$_ShowAllEvents implements _ShowAllEvents {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (showAllEvents != null) {
@@ -982,6 +1156,7 @@ class _$_ShowAllEvents implements _ShowAllEvents {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return showAllEvents(this);
   }
@@ -996,6 +1171,7 @@ class _$_ShowAllEvents implements _ShowAllEvents {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (showAllEvents != null) {
@@ -1086,6 +1262,7 @@ class _$_SearchResultsDisplayed implements _SearchResultsDisplayed {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return searchResultsDisplayed(data);
   }
@@ -1099,6 +1276,7 @@ class _$_SearchResultsDisplayed implements _SearchResultsDisplayed {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (searchResultsDisplayed != null) {
@@ -1118,6 +1296,7 @@ class _$_SearchResultsDisplayed implements _SearchResultsDisplayed {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return searchResultsDisplayed(this);
   }
@@ -1132,6 +1311,7 @@ class _$_SearchResultsDisplayed implements _SearchResultsDisplayed {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (searchResultsDisplayed != null) {
@@ -1227,6 +1407,7 @@ class _$_SearchQueryStringExistsState implements _SearchQueryStringExistsState {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return searchQueryStringExistsState(queryString);
   }
@@ -1240,6 +1421,7 @@ class _$_SearchQueryStringExistsState implements _SearchQueryStringExistsState {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (searchQueryStringExistsState != null) {
@@ -1259,6 +1441,7 @@ class _$_SearchQueryStringExistsState implements _SearchQueryStringExistsState {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return searchQueryStringExistsState(this);
   }
@@ -1273,6 +1456,7 @@ class _$_SearchQueryStringExistsState implements _SearchQueryStringExistsState {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (searchQueryStringExistsState != null) {
@@ -1338,6 +1522,7 @@ class _$_EmptySearchState implements _EmptySearchState {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return emptySearchState();
   }
@@ -1351,6 +1536,7 @@ class _$_EmptySearchState implements _EmptySearchState {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (emptySearchState != null) {
@@ -1370,6 +1556,7 @@ class _$_EmptySearchState implements _EmptySearchState {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return emptySearchState(this);
   }
@@ -1384,6 +1571,7 @@ class _$_EmptySearchState implements _EmptySearchState {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (emptySearchState != null) {
@@ -1443,6 +1631,7 @@ class _$_NoDataFetchedState implements _NoDataFetchedState {
     required TResult Function(String queryString) searchQueryStringExistsState,
     required TResult Function() emptySearchState,
     required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
   }) {
     return noDataFetchedState();
   }
@@ -1456,6 +1645,7 @@ class _$_NoDataFetchedState implements _NoDataFetchedState {
     TResult Function(String queryString)? searchQueryStringExistsState,
     TResult Function()? emptySearchState,
     TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
     required TResult orElse(),
   }) {
     if (noDataFetchedState != null) {
@@ -1475,6 +1665,7 @@ class _$_NoDataFetchedState implements _NoDataFetchedState {
         searchQueryStringExistsState,
     required TResult Function(_EmptySearchState value) emptySearchState,
     required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
   }) {
     return noDataFetchedState(this);
   }
@@ -1489,6 +1680,7 @@ class _$_NoDataFetchedState implements _NoDataFetchedState {
         searchQueryStringExistsState,
     TResult Function(_EmptySearchState value)? emptySearchState,
     TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
     required TResult orElse(),
   }) {
     if (noDataFetchedState != null) {
@@ -1500,4 +1692,112 @@ class _$_NoDataFetchedState implements _NoDataFetchedState {
 
 abstract class _NoDataFetchedState implements SearchEventState {
   const factory _NoDataFetchedState() = _$_NoDataFetchedState;
+}
+
+/// @nodoc
+abstract class _$JoinStateCopyWith<$Res> {
+  factory _$JoinStateCopyWith(
+          _JoinState value, $Res Function(_JoinState) then) =
+      __$JoinStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$JoinStateCopyWithImpl<$Res>
+    extends _$SearchEventStateCopyWithImpl<$Res>
+    implements _$JoinStateCopyWith<$Res> {
+  __$JoinStateCopyWithImpl(_JoinState _value, $Res Function(_JoinState) _then)
+      : super(_value, (v) => _then(v as _JoinState));
+
+  @override
+  _JoinState get _value => super._value as _JoinState;
+}
+
+/// @nodoc
+
+class _$_JoinState implements _JoinState {
+  const _$_JoinState();
+
+  @override
+  String toString() {
+    return 'SearchEventState.joinState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _JoinState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic data) showAllEvents,
+    required TResult Function(dynamic data) searchResultsDisplayed,
+    required TResult Function(String queryString) searchQueryStringExistsState,
+    required TResult Function() emptySearchState,
+    required TResult Function() noDataFetchedState,
+    required TResult Function() joinState,
+  }) {
+    return joinState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic data)? showAllEvents,
+    TResult Function(dynamic data)? searchResultsDisplayed,
+    TResult Function(String queryString)? searchQueryStringExistsState,
+    TResult Function()? emptySearchState,
+    TResult Function()? noDataFetchedState,
+    TResult Function()? joinState,
+    required TResult orElse(),
+  }) {
+    if (joinState != null) {
+      return joinState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowAllEvents value) showAllEvents,
+    required TResult Function(_SearchResultsDisplayed value)
+        searchResultsDisplayed,
+    required TResult Function(_SearchQueryStringExistsState value)
+        searchQueryStringExistsState,
+    required TResult Function(_EmptySearchState value) emptySearchState,
+    required TResult Function(_NoDataFetchedState value) noDataFetchedState,
+    required TResult Function(_JoinState value) joinState,
+  }) {
+    return joinState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowAllEvents value)? showAllEvents,
+    TResult Function(_SearchResultsDisplayed value)? searchResultsDisplayed,
+    TResult Function(_SearchQueryStringExistsState value)?
+        searchQueryStringExistsState,
+    TResult Function(_EmptySearchState value)? emptySearchState,
+    TResult Function(_NoDataFetchedState value)? noDataFetchedState,
+    TResult Function(_JoinState value)? joinState,
+    required TResult orElse(),
+  }) {
+    if (joinState != null) {
+      return joinState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _JoinState implements SearchEventState {
+  const factory _JoinState() = _$_JoinState;
 }

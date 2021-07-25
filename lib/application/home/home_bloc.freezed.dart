@@ -47,6 +47,10 @@ class _$HomeEventTearOff {
   _JoinedEventClicked joinedEventClicked() {
     return const _JoinedEventClicked();
   }
+
+  _OnJoinedEventsPageEvent onJoinedEventsPageEvent() {
+    return const _OnJoinedEventsPageEvent();
+  }
 }
 
 /// @nodoc
@@ -64,6 +68,7 @@ mixin _$HomeEvent {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +81,7 @@ mixin _$HomeEvent {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +96,8 @@ mixin _$HomeEvent {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,6 +110,7 @@ mixin _$HomeEvent {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +178,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return onHomePageEvent();
   }
@@ -184,6 +194,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onHomePageEvent != null) {
@@ -204,6 +215,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return onHomePageEvent(this);
   }
@@ -219,6 +232,7 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onHomePageEvent != null) {
@@ -280,6 +294,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return createEventClicked();
   }
@@ -295,6 +310,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (createEventClicked != null) {
@@ -315,6 +331,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return createEventClicked(this);
   }
@@ -330,6 +348,7 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (createEventClicked != null) {
@@ -391,6 +410,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return onCreateEventPage();
   }
@@ -406,6 +426,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -426,6 +447,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return onCreateEventPage(this);
   }
@@ -441,6 +464,7 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -502,6 +526,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return onMyEventsPageEvent();
   }
@@ -517,6 +542,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onMyEventsPageEvent != null) {
@@ -537,6 +563,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return onMyEventsPageEvent(this);
   }
@@ -552,6 +580,7 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onMyEventsPageEvent != null) {
@@ -613,6 +642,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return searchEventClicked();
   }
@@ -628,6 +658,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (searchEventClicked != null) {
@@ -648,6 +679,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return searchEventClicked(this);
   }
@@ -663,6 +696,7 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (searchEventClicked != null) {
@@ -725,6 +759,7 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return onSearchEventsPageEvent();
   }
@@ -740,6 +775,7 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onSearchEventsPageEvent != null) {
@@ -760,6 +796,8 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return onSearchEventsPageEvent(this);
   }
@@ -775,6 +813,7 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (onSearchEventsPageEvent != null) {
@@ -835,6 +874,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return myEventClicked();
   }
@@ -850,6 +890,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (myEventClicked != null) {
@@ -870,6 +911,8 @@ class _$_MyEventClicked implements _MyEventClicked {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return myEventClicked(this);
   }
@@ -885,6 +928,7 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (myEventClicked != null) {
@@ -946,6 +990,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     required TResult Function() onSearchEventsPageEvent,
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
   }) {
     return joinedEventClicked();
   }
@@ -961,6 +1006,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function()? onSearchEventsPageEvent,
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (joinedEventClicked != null) {
@@ -981,6 +1027,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
         onSearchEventsPageEvent,
     required TResult Function(_MyEventClicked value) myEventClicked,
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
   }) {
     return joinedEventClicked(this);
   }
@@ -996,6 +1044,7 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
     required TResult orElse(),
   }) {
     if (joinedEventClicked != null) {
@@ -1007,6 +1056,123 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
 
 abstract class _JoinedEventClicked implements HomeEvent {
   const factory _JoinedEventClicked() = _$_JoinedEventClicked;
+}
+
+/// @nodoc
+abstract class _$OnJoinedEventsPageEventCopyWith<$Res> {
+  factory _$OnJoinedEventsPageEventCopyWith(_OnJoinedEventsPageEvent value,
+          $Res Function(_OnJoinedEventsPageEvent) then) =
+      __$OnJoinedEventsPageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnJoinedEventsPageEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$OnJoinedEventsPageEventCopyWith<$Res> {
+  __$OnJoinedEventsPageEventCopyWithImpl(_OnJoinedEventsPageEvent _value,
+      $Res Function(_OnJoinedEventsPageEvent) _then)
+      : super(_value, (v) => _then(v as _OnJoinedEventsPageEvent));
+
+  @override
+  _OnJoinedEventsPageEvent get _value =>
+      super._value as _OnJoinedEventsPageEvent;
+}
+
+/// @nodoc
+
+class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
+  const _$_OnJoinedEventsPageEvent();
+
+  @override
+  String toString() {
+    return 'HomeEvent.onJoinedEventsPageEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnJoinedEventsPageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageEvent,
+    required TResult Function() createEventClicked,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPageEvent,
+    required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
+    required TResult Function() myEventClicked,
+    required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
+  }) {
+    return onJoinedEventsPageEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageEvent,
+    TResult Function()? createEventClicked,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPageEvent,
+    TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
+    TResult Function()? myEventClicked,
+    TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
+    required TResult orElse(),
+  }) {
+    if (onJoinedEventsPageEvent != null) {
+      return onJoinedEventsPageEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageEvent value) onHomePageEvent,
+    required TResult Function(_CreateEventClicked value) createEventClicked,
+    required TResult Function(_OnCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
+    required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
+    required TResult Function(_MyEventClicked value) myEventClicked,
+    required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
+  }) {
+    return onJoinedEventsPageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageEvent value)? onHomePageEvent,
+    TResult Function(_CreateEventClicked value)? createEventClicked,
+    TResult Function(_OnCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
+    TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
+    TResult Function(_MyEventClicked value)? myEventClicked,
+    TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    required TResult orElse(),
+  }) {
+    if (onJoinedEventsPageEvent != null) {
+      return onJoinedEventsPageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnJoinedEventsPageEvent implements HomeEvent {
+  const factory _OnJoinedEventsPageEvent() = _$_OnJoinedEventsPageEvent;
 }
 
 /// @nodoc
@@ -1044,6 +1210,10 @@ class _$HomeStateTearOff {
   _NavigatedToJoinedEventPage navigatedToJoinedEventPage() {
     return const _NavigatedToJoinedEventPage();
   }
+
+  _OnJoinedEventPage onJoinedEventPage() {
+    return const _OnJoinedEventPage();
+  }
 }
 
 /// @nodoc
@@ -1061,6 +1231,7 @@ mixin _$HomeState {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1073,6 +1244,7 @@ mixin _$HomeState {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1090,6 +1262,7 @@ mixin _$HomeState {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1105,6 +1278,7 @@ mixin _$HomeState {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1172,6 +1346,7 @@ class _$_OnHomePageState implements _OnHomePageState {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return onHomePageState();
   }
@@ -1187,6 +1362,7 @@ class _$_OnHomePageState implements _OnHomePageState {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onHomePageState != null) {
@@ -1210,6 +1386,7 @@ class _$_OnHomePageState implements _OnHomePageState {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return onHomePageState(this);
   }
@@ -1228,6 +1405,7 @@ class _$_OnHomePageState implements _OnHomePageState {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onHomePageState != null) {
@@ -1291,6 +1469,7 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return navigatedToCreateEventPage();
   }
@@ -1306,6 +1485,7 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToCreateEventPage != null) {
@@ -1329,6 +1509,7 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return navigatedToCreateEventPage(this);
   }
@@ -1347,6 +1528,7 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToCreateEventPage != null) {
@@ -1408,6 +1590,7 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return onCreateEventPage();
   }
@@ -1423,6 +1606,7 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -1446,6 +1630,7 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return onCreateEventPage(this);
   }
@@ -1464,6 +1649,7 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -1524,6 +1710,7 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return onMyEventsPage();
   }
@@ -1539,6 +1726,7 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onMyEventsPage != null) {
@@ -1562,6 +1750,7 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return onMyEventsPage(this);
   }
@@ -1580,6 +1769,7 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onMyEventsPage != null) {
@@ -1641,6 +1831,7 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return navigatedToMyEventPage();
   }
@@ -1656,6 +1847,7 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToMyEventPage != null) {
@@ -1679,6 +1871,7 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return navigatedToMyEventPage(this);
   }
@@ -1697,6 +1890,7 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToMyEventPage != null) {
@@ -1760,6 +1954,7 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return navigatedToSearchEventPage();
   }
@@ -1775,6 +1970,7 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToSearchEventPage != null) {
@@ -1798,6 +1994,7 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return navigatedToSearchEventPage(this);
   }
@@ -1816,6 +2013,7 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToSearchEventPage != null) {
@@ -1877,6 +2075,7 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return onSearchEventsPage();
   }
@@ -1892,6 +2091,7 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onSearchEventsPage != null) {
@@ -1915,6 +2115,7 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return onSearchEventsPage(this);
   }
@@ -1933,6 +2134,7 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (onSearchEventsPage != null) {
@@ -1996,6 +2198,7 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     required TResult Function() navigatedToSearchEventPage,
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
   }) {
     return navigatedToJoinedEventPage();
   }
@@ -2011,6 +2214,7 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     TResult Function()? navigatedToSearchEventPage,
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToJoinedEventPage != null) {
@@ -2034,6 +2238,7 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
   }) {
     return navigatedToJoinedEventPage(this);
   }
@@ -2052,6 +2257,7 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToJoinedEventPage != null) {
@@ -2063,4 +2269,125 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
 
 abstract class _NavigatedToJoinedEventPage implements HomeState {
   const factory _NavigatedToJoinedEventPage() = _$_NavigatedToJoinedEventPage;
+}
+
+/// @nodoc
+abstract class _$OnJoinedEventPageCopyWith<$Res> {
+  factory _$OnJoinedEventPageCopyWith(
+          _OnJoinedEventPage value, $Res Function(_OnJoinedEventPage) then) =
+      __$OnJoinedEventPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnJoinedEventPageCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$OnJoinedEventPageCopyWith<$Res> {
+  __$OnJoinedEventPageCopyWithImpl(
+      _OnJoinedEventPage _value, $Res Function(_OnJoinedEventPage) _then)
+      : super(_value, (v) => _then(v as _OnJoinedEventPage));
+
+  @override
+  _OnJoinedEventPage get _value => super._value as _OnJoinedEventPage;
+}
+
+/// @nodoc
+
+class _$_OnJoinedEventPage implements _OnJoinedEventPage {
+  const _$_OnJoinedEventPage();
+
+  @override
+  String toString() {
+    return 'HomeState.onJoinedEventPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnJoinedEventPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageState,
+    required TResult Function() navigatedToCreateEventPage,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPage,
+    required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
+    required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
+  }) {
+    return onJoinedEventPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageState,
+    TResult Function()? navigatedToCreateEventPage,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPage,
+    TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
+    TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
+    required TResult orElse(),
+  }) {
+    if (onJoinedEventPage != null) {
+      return onJoinedEventPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageState value) onHomePageState,
+    required TResult Function(_NavigatedToCreateEventPage value)
+        navigatedToCreateEventPage,
+    required TResult Function(_onCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPage value) onMyEventsPage,
+    required TResult Function(_NavigatedToMyEventPage value)
+        navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
+    required TResult Function(_NavigatedToJoinedEventPage value)
+        navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+  }) {
+    return onJoinedEventPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageState value)? onHomePageState,
+    TResult Function(_NavigatedToCreateEventPage value)?
+        navigatedToCreateEventPage,
+    TResult Function(_onCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_NavigatedToSearchEventPage value)?
+        navigatedToSearchEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
+    TResult Function(_NavigatedToJoinedEventPage value)?
+        navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    required TResult orElse(),
+  }) {
+    if (onJoinedEventPage != null) {
+      return onJoinedEventPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnJoinedEventPage implements HomeState {
+  const factory _OnJoinedEventPage() = _$_OnJoinedEventPage;
 }

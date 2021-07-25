@@ -9,4 +9,5 @@ class SearchEventEvent with _$SearchEventEvent {
       String queryString) = _SearchQueryStringExistsEvent;
   const factory SearchEventEvent.emptySearchEvent() = _EmptySearchEvent;
   const factory SearchEventEvent.noDataFetchedEvent() = _NoDataFetchedEvent;
+  const factory SearchEventEvent.joinEvent(data) = _JoinEvent;
 }

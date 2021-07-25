@@ -1,15 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz_unsafe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
-
 import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/domain/core/value_objects.dart';
 import 'package:flutter_play_poll/domain/events/event.dart';
-import 'package:flutter_play_poll/domain/events/i_event_repository.dart';
 import 'package:flutter_play_poll/domain/events/value_objects.dart';
-import 'package:flutter_play_poll/injection.dart';
 
 class MyEventsPage extends StatelessWidget {
   const MyEventsPage({
@@ -49,6 +45,7 @@ class MyEventsPage extends StatelessWidget {
               onHomePageState: (_) {},
               onMyEventsPage: (_) {},
               onSearchEventsPage: (_) {},
+              onJoinedEventPage: (_) {},
             );
           },
         ),
@@ -72,7 +69,11 @@ class MyEventsPage extends StatelessWidget {
                         child: ListTile(
                           title: Text('${received.data[index]['name']}'),
                           subtitle: Text('${received.data[index]['location']}'),
-                          leading: Icon(Icons.date_range_outlined),
+                          leading: Icon(
+                            Icons.date_range_outlined,
+                            color: Colors.blue,
+                            size: 40,
+                          ),
                           trailing: IconButton(
                               onPressed: () {
                                 showDialog(
@@ -189,7 +190,11 @@ class MyEventsPage extends StatelessWidget {
                                       );
                                     });
                               },
-                              icon: Icon(Icons.edit)),
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.redAccent,
+                                size: 30,
+                              )),
                           onTap: () {
                             print(received.data[index]['eventId']);
                           },

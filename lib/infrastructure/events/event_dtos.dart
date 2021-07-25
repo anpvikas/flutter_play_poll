@@ -14,14 +14,14 @@ part 'event_dtos.g.dart';
 
 @freezed
 abstract class EventDto with _$EventDto {
-  // late final FirebaseAuth _firebaseAuth;
-  factory EventDto(
-      {@JsonKey(ignore: true) String? id,
-      // @JsonKey(ignore: true) String? eventId,
-      required String eventId,
-      required String creatorId,
-      required String name,
-      required String location}) = _EventDto;
+  factory EventDto({
+    @JsonKey(ignore: true) String? id,
+    // @JsonKey(ignore: true) String? eventId,
+    required String eventId,
+    required String creatorId,
+    required String name,
+    required String location,
+  }) = _EventDto;
 
   factory EventDto.fromDomain(Event event) {
     return EventDto(

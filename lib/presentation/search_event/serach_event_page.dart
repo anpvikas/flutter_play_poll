@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz_unsafe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_play_poll/application/search_event/search_event_bloc.dar
 import 'package:flutter_play_poll/constants.dart';
 import 'package:flutter_play_poll/domain/events/i_event_repository.dart';
 import 'package:flutter_play_poll/injection.dart';
+import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
 class SearchEventPage extends StatelessWidget {
   SearchEventPage({Key? key}) : super(key: key);
@@ -42,6 +44,9 @@ class SearchEventPage extends StatelessWidget {
                     .read<SearchEventBloc>()
                     .add(SearchEventEvent.searchButtonClicked(_.queryString));
               },
+              joinState: (_) {
+                AutoRouter.of(context).navigate(EventRoute());
+              },
             );
           },
         ),
@@ -56,6 +61,7 @@ class SearchEventPage extends StatelessWidget {
               onHomePageState: (_) {},
               onMyEventsPage: (_) {},
               onSearchEventsPage: (_) {},
+              onJoinedEventPage: (_) {},
             );
           },
         ),
@@ -92,7 +98,11 @@ class SearchEventPage extends StatelessWidget {
                             ),
                             trailing: IconButton(
                               onPressed: () {
-                                print('Button to join event');
+                                print(
+                                    '${searchResults.data[index]} Button to join event');
+                                context.read<SearchEventBloc>().add(
+                                    SearchEventEvent.joinEvent(
+                                        searchResults.data[index]));
                               },
                               icon: Icon(
                                 Icons.add_circle_outline_outlined,
@@ -119,7 +129,7 @@ class SearchEventPage extends StatelessWidget {
                     return Center(
                         child: Text(
                       'No data fetched for the input event name. \n Try with different event name.',
-                      style: TextStyle(color: Colors.red.shade500),
+                      // style: TextStyle(color: Colors.red.shade500),
                     ));
                   },
                   searchResultsDisplayed: (searchResults) {
@@ -132,15 +142,30 @@ class SearchEventPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return Card(
                           child: ListTile(
-                            title: Text('${searchResults.data[index]['name']}'),
+                            title: Text(
+                              '${searchResults.data[index]['name']}',
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
                             subtitle: Text(
                                 '${searchResults.data[index]['location']}'),
-                            leading: Icon(Icons.date_range_outlined),
+                            leading: Icon(
+                              Icons.date_range_outlined,
+                              color: Colors.blue,
+                              size: 40,
+                            ),
                             trailing: IconButton(
                               onPressed: () {
-                                print('Button to join event');
+                                print(
+                                    '${searchResults.data[index]} Button to join event in searchResultsDisplayed state.map');
+                                context.read<SearchEventBloc>().add(
+                                    SearchEventEvent.joinEvent(
+                                        searchResults.data[index]));
                               },
-                              icon: Icon(Icons.add_circle_outline_outlined),
+                              icon: Icon(
+                                Icons.add_circle_outline_outlined,
+                                color: Colors.green,
+                                size: 35,
+                              ),
                             ),
                             onTap: () {
                               print(searchResults.data[index]['eventId']);
@@ -161,6 +186,9 @@ class SearchEventPage extends StatelessWidget {
                     // }
                   },
                   orElse: () {
+                    context
+                        .read<SearchEventBloc>()
+                        .add(SearchEventEvent.started());
                     return Text('No Events Created by any user');
                   },
                 ),
@@ -186,6 +214,7 @@ class SearchEventPage extends StatelessWidget {
         onChanged: (value) {
           print(value);
           queryString = value;
+          checkInputQueryString(queryString, context);
         },
         onSubmitted: (queryString) {
           // context
@@ -246,8 +275,8 @@ class SearchEventPage extends StatelessWidget {
         }
       }
     } else {
-      context.read<SearchEventBloc>().add(SearchEventEvent.emptySearchEvent());
-      // context.read<SearchEventBloc>().add(SearchEventEvent.started());
+      // context.read<SearchEventBloc>().add(SearchEventEvent.emptySearchEvent());
+      context.read<SearchEventBloc>().add(SearchEventEvent.started());
     }
   }
 }

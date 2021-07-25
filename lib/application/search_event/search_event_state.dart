@@ -10,4 +10,5 @@ class SearchEventState with _$SearchEventState {
       String queryString) = _SearchQueryStringExistsState;
   const factory SearchEventState.emptySearchState() = _EmptySearchState;
   const factory SearchEventState.noDataFetchedState() = _NoDataFetchedState;
+  const factory SearchEventState.joinState() = _JoinState;
 }

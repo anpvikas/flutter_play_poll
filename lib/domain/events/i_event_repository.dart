@@ -6,6 +6,7 @@ abstract class IEventRepository {
   Future<Either<EventFailure, Unit>> create(Event event);
   // Future<Either<EventFailure, Unit>> myEvents();
   Future myEvents();
+  Future joinedEvents();
   // Future<Either<EventFailure, Unit>> search(String event);
   Future allEventsFetched();
   Future search(String event);

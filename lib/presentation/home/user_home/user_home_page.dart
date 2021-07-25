@@ -64,9 +64,14 @@ class UserHomePage extends StatelessWidget {
                 // context.read<MyEventsBloc>().add(MyEventsEvent.onMyEventPage());
                 AutoRouter.of(context).navigate(MyEventsRoute());
               },
-              navigatedToJoinedEventPage: (_) {},
+              navigatedToJoinedEventPage: (_) {
+                context
+                    .read<HomeBloc>()
+                    .add(HomeEvent.onJoinedEventsPageEvent());
+                AutoRouter.of(context).navigate(JoinedEventsRoute());
+              },
               onCreateEventPage: (_) {}, onMyEventsPage: (_) {},
-              onSearchEventsPage: (_) {},
+              onSearchEventsPage: (_) {}, onJoinedEventPage: (_) {},
 
               // onCreateEventPage: (_) {
               //   print('State Changed');
@@ -307,29 +312,38 @@ class UserHomePage extends StatelessWidget {
                     ),
                     SizedBox(width: width / 20),
                     Expanded(
-                      child: Container(
-                        height: height / 5,
-                        width: width / 2,
-                        decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.blueAccent, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.event_available_outlined,
-                              size: 60,
-                              color: Colors.blueAccent,
-                            ),
-                            SizedBox(height: height / 20),
-                            Text(
-                              'Joined Events',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w500),
-                            )
-                          ],
+                      child: GestureDetector(
+                        onTap: () {
+                          context
+                              .read<HomeBloc>()
+                              .add(HomeEvent.joinedEventClicked());
+                        },
+                        child: Container(
+                          height: height / 5,
+                          width: width / 2,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            // border:
+                            // Border.all(color: Colors.blueAccent, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [boxTopShadow, boxBotomShadow],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.event_available_outlined,
+                                size: 60,
+                                color: Colors.blueAccent,
+                              ),
+                              SizedBox(height: height / 20),
+                              Text(
+                                'Joined Events',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),

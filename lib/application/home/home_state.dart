@@ -14,4 +14,5 @@ class HomeState with _$HomeState {
 
   const factory HomeState.navigatedToJoinedEventPage() =
       _NavigatedToJoinedEventPage;
+  const factory HomeState.onJoinedEventPage() = _OnJoinedEventPage;
 }

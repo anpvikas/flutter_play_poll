@@ -40,7 +40,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         print('Home Bloc My Event Bloc <----');
         yield HomeState.navigatedToMyEventPage();
       },
-      joinedEventClicked: (e) async* {},
+      joinedEventClicked: (e) async* {
+        yield HomeState.navigatedToJoinedEventPage();
+      },
       onCreateEventPage: (e) async* {
         yield HomeState.onCreateEventPage();
       },
@@ -50,6 +52,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       },
       onSearchEventsPageEvent: (e) async* {
         yield HomeState.onSearchEventsPage();
+      },
+      onJoinedEventsPageEvent: (e) async* {
+        yield HomeState.onJoinedEventPage();
       },
     );
   }
