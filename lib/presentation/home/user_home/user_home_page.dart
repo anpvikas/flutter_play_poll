@@ -13,6 +13,7 @@ import 'package:flutter_play_poll/injection.dart';
 import 'package:flutter_play_poll/presentation/my_events/my_events_page.dart';
 
 import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
+import 'package:flutter_play_poll/presentation/upload_event/upload_event_page.dart';
 
 class UserHomePage extends StatelessWidget {
   const UserHomePage({Key? key}) : super(key: key);
@@ -70,12 +71,15 @@ class UserHomePage extends StatelessWidget {
                     .add(HomeEvent.onJoinedEventsPageEvent());
                 AutoRouter.of(context).navigate(JoinedEventsRoute());
               },
-              onCreateEventPage: (_) {}, onMyEventsPage: (_) {},
-              onSearchEventsPage: (_) {}, onJoinedEventPage: (_) {},
-
-              // onCreateEventPage: (_) {
-              //   print('State Changed');
-              // },
+              onCreateEventPage: (_) {},
+              onMyEventsPage: (_) {},
+              onSearchEventsPage: (_) {},
+              onJoinedEventPage: (_) {},
+              navigatedToUploadEventPage: (_) {
+                context.read<HomeBloc>().add(HomeEvent.onUploadPageEvent());
+                AutoRouter.of(context).navigate(UploadEventRoute());
+              },
+              onUploadEventPage: (_) {},
             );
           },
         ),
@@ -109,7 +113,7 @@ class UserHomePage extends StatelessWidget {
           decoration: BoxDecoration(gradient: forPageDesignRadial),
           child: ListView(
             children: [
-              SizedBox(height: height / 40),
+              SizedBox(height: height / 200),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -339,6 +343,99 @@ class UserHomePage extends StatelessWidget {
                               SizedBox(height: height / 20),
                               Text(
                                 'Joined Events',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: BlocBuilder<HomeBloc, HomeState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              print('1-My Event Pressed on HomePage<---- ');
+                              print(
+                                  '2-Event added to the HomeBloc = uploadEventClicked <----');
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.uploadEventClicked());
+
+                              // context
+                              //     .read<MyEventsBloc>()
+                              //     .add(MyEventsEvent.started());
+                            },
+                            child: Container(
+                              height: height / 5,
+                              width: width / 2,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                // color: Colors.lightGreen,
+                                // border:
+                                //     Border.all(color: Colors.green, width: 2),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [boxTopShadow, boxBotomShadow],
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.my_library_music_outlined,
+                                    size: 60,
+                                    color: Colors.deepPurpleAccent,
+                                  ),
+                                  SizedBox(height: height / 20),
+                                  Text(
+                                    'Upload Songs',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(width: width / 20),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          context
+                              .read<HomeBloc>()
+                              .add(HomeEvent.joinedEventClicked());
+                        },
+                        child: Container(
+                          height: height / 5,
+                          width: width / 2,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            // border:
+                            // Border.all(color: Colors.blueAccent, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [boxTopShadow, boxBotomShadow],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.stacked_bar_chart_outlined,
+                                size: 60,
+                                color: Colors.blueAccent,
+                              ),
+                              SizedBox(height: height / 20),
+                              Text(
+                                'View Report',
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w500),
                               )

@@ -25,8 +25,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         // final userOption = await _authFacade.signInWithGoogle();
         final userOption = await _authFacade.getSignedInUser();
         yield userOption.fold(
-          () => const AuthState.unauthenticated(),
-          (user) => AuthState.authenticated(user),
+          () {
+            return const AuthState.unauthenticated();
+          },
+          (user) {
+            print('test - authenticated');
+            return AuthState.authenticated(user);
+          },
         );
       },
       signedOut: (e) async* {

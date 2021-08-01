@@ -22,40 +22,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> mapEventToState(
     HomeEvent event,
   ) async* {
-    yield* event.map(
-      onHomePageEvent: (e) async* {
-        print('Back on HomePage');
-        yield HomeState.onHomePageState();
-      },
-      createEventClicked: (e) async* {
-        // yield AutoRoute(page: )
-        print('Home Bloc Create Event Bloc <----');
-        yield HomeState.navigatedToCreateEventPage();
-      },
-      searchEventClicked: (e) async* {
-        print('Home Bloc Search Event');
-        yield HomeState.navigatedToSearchEventPage();
-      },
-      myEventClicked: (e) async* {
-        print('Home Bloc My Event Bloc <----');
-        yield HomeState.navigatedToMyEventPage();
-      },
-      joinedEventClicked: (e) async* {
-        yield HomeState.navigatedToJoinedEventPage();
-      },
-      onCreateEventPage: (e) async* {
-        yield HomeState.onCreateEventPage();
-      },
-      onMyEventsPageEvent: (e) async* {
-        print('GUESS-1');
-        yield HomeState.onMyEventsPage();
-      },
-      onSearchEventsPageEvent: (e) async* {
-        yield HomeState.onSearchEventsPage();
-      },
-      onJoinedEventsPageEvent: (e) async* {
-        yield HomeState.onJoinedEventPage();
-      },
-    );
+    yield* event.map(onHomePageEvent: (e) async* {
+      print('Back on HomePage');
+      yield HomeState.onHomePageState();
+    }, createEventClicked: (e) async* {
+      // yield AutoRoute(page: )
+      print('Home Bloc Create Event Bloc <----');
+      yield HomeState.navigatedToCreateEventPage();
+    }, searchEventClicked: (e) async* {
+      print('Home Bloc Search Event');
+      yield HomeState.navigatedToSearchEventPage();
+    }, myEventClicked: (e) async* {
+      print('Home Bloc My Event Bloc <----');
+      yield HomeState.navigatedToMyEventPage();
+    }, joinedEventClicked: (e) async* {
+      yield HomeState.navigatedToJoinedEventPage();
+    }, onCreateEventPage: (e) async* {
+      yield HomeState.onCreateEventPage();
+    }, onMyEventsPageEvent: (e) async* {
+      print('GUESS-1');
+      yield HomeState.onMyEventsPage();
+    }, onSearchEventsPageEvent: (e) async* {
+      yield HomeState.onSearchEventsPage();
+    }, onJoinedEventsPageEvent: (e) async* {
+      yield HomeState.onJoinedEventPage();
+    }, uploadEventClicked: (e) async* {
+      yield HomeState.navigatedToUploadEventPage();
+    }, onUploadPageEvent: (e) async* {
+      yield HomeState.onUploadEventPage();
+    });
   }
 }

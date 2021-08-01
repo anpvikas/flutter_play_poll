@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:flutter/services.dart';
 
@@ -18,6 +22,7 @@ class EventRepository implements IEventRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;
   final FirebaseUserMapper _firebaseUserMapper;
+  // final FirebaseStorage _firebaseStorage;
 
   var id;
 
@@ -28,7 +33,10 @@ class EventRepository implements IEventRepository {
   var photoUrl;
 
   EventRepository(
-      this._firestore, this._firebaseAuth, this._firebaseUserMapper);
+    this._firestore,
+    this._firebaseAuth,
+    this._firebaseUserMapper,
+  );
 
   @override
   Future<Either<EventFailure, Unit>> create(Event event) async {
@@ -309,17 +317,6 @@ class EventRepository implements IEventRepository {
         });
       });
 
-      // await _firestore
-      //     .collection('users')
-      //     .doc('${user!.uid}')
-      //     .collection('createdEvents')
-      //     .get()
-      //     .then((QuerySnapshot querySnapshot) {
-      //   querySnapshot.docs.forEach((doc) {
-      //     print('${doc.data()} <-----REPO------');
-      //     itemsList.add(doc.data());
-      //   });
-      // });
       return itemsList;
     } catch (e) {
       print(e.toString());
@@ -334,6 +331,52 @@ class EventRepository implements IEventRepository {
   }
 
   @override
+  Future<Either<EventFailure, Unit>> unjoin(Event event) async {
+    try {
+      final userDoc = await _firestore.userDocument();
+      final eventId = event.id.getOrCrash();
+      final user = _firebaseAuth.currentUser;
+
+      await _firestore
+          .collection('users')
+          .doc(user!.uid)
+          .collection('joinedEvents')
+          .where('eventId', isEqualTo: eventId)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((element) {
+          print('${element.id} <<<<-UNJOIN_AFTERDELETE----');
+          _firestore
+              .collection('users')
+              .doc(user.uid)
+              .collection('joinedEvents')
+              .doc(element.id)
+              .delete();
+        });
+      });
+
+      /// --------------------------------------------------------------------
+      /// Delete the members of the deleted event
+      /// --------------------------------------------------------------------
+      await _firestore
+          .collection('events')
+          .doc(eventId)
+          .collection('members')
+          .doc(user.uid)
+          .delete();
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const EventFailure.insufficientPermissions());
+      } else {
+        return left(const EventFailure.unexpected());
+      }
+    }
+  }
+
+  @override
   Future<Either<EventFailure, Unit>> delete(Event event) async {
     try {
       final userDoc = await _firestore.userDocument();
@@ -345,7 +388,7 @@ class EventRepository implements IEventRepository {
 //                2. createdEvents collection for the creator
 //                3. from users collection joined events for other users
       /// --------------------------------------------------------------------
-      /// Delete the event from createdEvent collection
+      /// 2-Delete the event from createdEvent collection
       /// --------------------------------------------------------------------
       // await userDoc.createdEventCollection.doc(eventId).delete();
       await _firestore
@@ -366,13 +409,8 @@ class EventRepository implements IEventRepository {
         });
       });
 
-      // await userDoc.createdEventCollection
-      //     .doc(eventId)
-      //     .get()
-      //     .then((value) => print('${value.data()} <----DELETE----'));
-
       /// --------------------------------------------------------------------
-      /// Delete the event from joinedEvent collection for other users/members
+      /// 3-Delete the event from joinedEvent collection for other users/members
       /// --------------------------------------------------------------------
 
       await _firestore
@@ -393,7 +431,9 @@ class EventRepository implements IEventRepository {
         });
       });
 
+      /// --------------------------------------------------------------------
       /// Delete the members of the deleted event
+      /// --------------------------------------------------------------------
       await _firestore
           .collection('events')
           .doc(eventId)
@@ -414,24 +454,6 @@ class EventRepository implements IEventRepository {
 
       /// Delete the event from the events collection
       await _firestore.collection('events').doc(eventId).delete();
-      // await _firestore.collection('events')
-      //   ..where('eventId', isEqualTo: eventId)
-      //       .get()
-      //       .then((QuerySnapshot querySnapshot) {
-      //     querySnapshot.docs.forEach((element) {
-      //       print('${element.id} <<<<-AFTERDELETE2222----');
-      //     });
-      //   });
-
-      // await userDoc.createdEventCollection.doc(eventId).delete();
-      // await userDoc.joinedEventCollection.doc(eventId).delete();
-      // await _firestore
-      //     .collection('events')
-      //     .doc(eventId)
-      //     .collection('members')
-      //     .doc()
-      //     .delete();
-      // await _firestore.collection('events').doc(eventId).delete();
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -444,16 +466,3 @@ class EventRepository implements IEventRepository {
     }
   }
 }
-
-// final userDoc = _firestore
-      //     .collection('users')
-      //     .doc('events')
-      //     .collection('eventCollection');
-
-      // /${_firebaseAuth.currentUser!.uid}/
-
-      // userDoc.add(
-      //   {'event': _firebaseAuth.currentUser!.uid},
-      // );
-
-      // print(optionOf(_firebaseAuth!.currentUser!.uid));

@@ -15,6 +15,7 @@ import '../my_events/my_events_page.dart' as _i7;
 import '../search_event/serach_event_page.dart' as _i8;
 import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
+import '../upload_event/upload_event_page.dart' as _i11;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -63,6 +64,13 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i10.JoinedEventsPage();
+        }),
+    UploadEventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<UploadEventRouteArgs>(
+              orElse: () => const UploadEventRouteArgs());
+          return _i11.UploadEventPage(key: args.key);
         })
   };
 
@@ -75,7 +83,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(MyEventsRoute.name, path: '/my-events-page'),
         _i1.RouteConfig(SearchEventRoute.name, path: '/search-event-page'),
         _i1.RouteConfig(EventRoute.name, path: '/event-page'),
-        _i1.RouteConfig(JoinedEventsRoute.name, path: '/joined-events-page')
+        _i1.RouteConfig(JoinedEventsRoute.name, path: '/joined-events-page'),
+        _i1.RouteConfig(UploadEventRoute.name, path: '/upload-event-page')
       ];
 }
 
@@ -133,4 +142,18 @@ class JoinedEventsRoute extends _i1.PageRouteInfo {
   const JoinedEventsRoute() : super(name, path: '/joined-events-page');
 
   static const String name = 'JoinedEventsRoute';
+}
+
+class UploadEventRoute extends _i1.PageRouteInfo<UploadEventRouteArgs> {
+  UploadEventRoute({_i2.Key? key})
+      : super(name,
+            path: '/upload-event-page', args: UploadEventRouteArgs(key: key));
+
+  static const String name = 'UploadEventRoute';
+}
+
+class UploadEventRouteArgs {
+  const UploadEventRouteArgs({this.key});
+
+  final _i2.Key? key;
 }

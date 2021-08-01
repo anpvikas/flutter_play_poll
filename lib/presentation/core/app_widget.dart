@@ -7,6 +7,7 @@ import 'package:flutter_play_poll/application/home/home_bloc.dart';
 import 'package:flutter_play_poll/application/joined_events/joined_events_bloc.dart';
 import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/application/search_event/search_event_bloc.dart';
+import 'package:flutter_play_poll/application/upload_event/upload_event_bloc.dart';
 import 'package:flutter_play_poll/injection.dart';
 
 import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
@@ -37,7 +38,10 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<JoinedEventsBloc>(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => getIt<UploadEventBloc>(),
+        ),
       ],
       child: MaterialApp.router(
         title: 'Play Poll',

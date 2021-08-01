@@ -14,4 +14,5 @@ abstract class IEventRepository {
   Future<Either<EventFailure, Unit>> join(Event event);
   Future<Either<EventFailure, Unit>> update(Event event);
   Future<Either<EventFailure, Unit>> delete(Event event);
+  Future<Either<EventFailure, Unit>> unjoin(Event event);
 }

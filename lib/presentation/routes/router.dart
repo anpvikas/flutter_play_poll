@@ -10,6 +10,7 @@ import 'package:flutter_play_poll/presentation/search_event/serach_event_page.da
 
 import 'package:flutter_play_poll/presentation/sign_in/sign_in_page.dart';
 import 'package:flutter_play_poll/presentation/splash/splash_page.dart';
+import 'package:flutter_play_poll/presentation/upload_event/upload_event_page.dart';
 
 @MaterialAutoRouter(
     // generateNavigationHelperExtension: true,
@@ -23,5 +24,6 @@ import 'package:flutter_play_poll/presentation/splash/splash_page.dart';
       AutoRoute(page: SearchEventPage),
       AutoRoute(page: EventPage),
       AutoRoute(page: JoinedEventsPage),
+      AutoRoute(page: UploadEventPage),
     ])
 class $AppRouter {}

@@ -23,6 +23,18 @@ class _$JoinedEventsEventTearOff {
   _OnJoinedEventsPageEvent onJoinedEventsPageEvent() {
     return const _OnJoinedEventsPageEvent();
   }
+
+  _UnjoinEvent unjoinEvent(dynamic data) {
+    return _UnjoinEvent(
+      data,
+    );
+  }
+
+  _ViewSelectedEvent viewSelectedEvent(dynamic data) {
+    return _ViewSelectedEvent(
+      data,
+    );
+  }
 }
 
 /// @nodoc
@@ -34,12 +46,16 @@ mixin _$JoinedEventsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function(dynamic data) unjoinEvent,
+    required TResult Function(dynamic data) viewSelectedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function(dynamic data)? unjoinEvent,
+    TResult Function(dynamic data)? viewSelectedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,12 +64,16 @@ mixin _$JoinedEventsEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UnjoinEvent value) unjoinEvent,
+    required TResult Function(_ViewSelectedEvent value) viewSelectedEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UnjoinEvent value)? unjoinEvent,
+    TResult Function(_ViewSelectedEvent value)? viewSelectedEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,6 +135,8 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function(dynamic data) unjoinEvent,
+    required TResult Function(dynamic data) viewSelectedEvent,
   }) {
     return started();
   }
@@ -124,6 +146,8 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function(dynamic data)? unjoinEvent,
+    TResult Function(dynamic data)? viewSelectedEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -138,6 +162,8 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UnjoinEvent value) unjoinEvent,
+    required TResult Function(_ViewSelectedEvent value) viewSelectedEvent,
   }) {
     return started(this);
   }
@@ -147,6 +173,8 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UnjoinEvent value)? unjoinEvent,
+    TResult Function(_ViewSelectedEvent value)? viewSelectedEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -203,6 +231,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function(dynamic data) unjoinEvent,
+    required TResult Function(dynamic data) viewSelectedEvent,
   }) {
     return onJoinedEventsPageEvent();
   }
@@ -212,6 +242,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function(dynamic data)? unjoinEvent,
+    TResult Function(dynamic data)? viewSelectedEvent,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageEvent != null) {
@@ -226,6 +258,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UnjoinEvent value) unjoinEvent,
+    required TResult Function(_ViewSelectedEvent value) viewSelectedEvent,
   }) {
     return onJoinedEventsPageEvent(this);
   }
@@ -235,6 +269,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UnjoinEvent value)? unjoinEvent,
+    TResult Function(_ViewSelectedEvent value)? viewSelectedEvent,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageEvent != null) {
@@ -246,6 +282,256 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
 
 abstract class _OnJoinedEventsPageEvent implements JoinedEventsEvent {
   const factory _OnJoinedEventsPageEvent() = _$_OnJoinedEventsPageEvent;
+}
+
+/// @nodoc
+abstract class _$UnjoinEventCopyWith<$Res> {
+  factory _$UnjoinEventCopyWith(
+          _UnjoinEvent value, $Res Function(_UnjoinEvent) then) =
+      __$UnjoinEventCopyWithImpl<$Res>;
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$UnjoinEventCopyWithImpl<$Res>
+    extends _$JoinedEventsEventCopyWithImpl<$Res>
+    implements _$UnjoinEventCopyWith<$Res> {
+  __$UnjoinEventCopyWithImpl(
+      _UnjoinEvent _value, $Res Function(_UnjoinEvent) _then)
+      : super(_value, (v) => _then(v as _UnjoinEvent));
+
+  @override
+  _UnjoinEvent get _value => super._value as _UnjoinEvent;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_UnjoinEvent(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnjoinEvent implements _UnjoinEvent {
+  const _$_UnjoinEvent(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'JoinedEventsEvent.unjoinEvent(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UnjoinEvent &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnjoinEventCopyWith<_UnjoinEvent> get copyWith =>
+      __$UnjoinEventCopyWithImpl<_UnjoinEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function(dynamic data) unjoinEvent,
+    required TResult Function(dynamic data) viewSelectedEvent,
+  }) {
+    return unjoinEvent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? onJoinedEventsPageEvent,
+    TResult Function(dynamic data)? unjoinEvent,
+    TResult Function(dynamic data)? viewSelectedEvent,
+    required TResult orElse(),
+  }) {
+    if (unjoinEvent != null) {
+      return unjoinEvent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
+    required TResult Function(_UnjoinEvent value) unjoinEvent,
+    required TResult Function(_ViewSelectedEvent value) viewSelectedEvent,
+  }) {
+    return unjoinEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UnjoinEvent value)? unjoinEvent,
+    TResult Function(_ViewSelectedEvent value)? viewSelectedEvent,
+    required TResult orElse(),
+  }) {
+    if (unjoinEvent != null) {
+      return unjoinEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnjoinEvent implements JoinedEventsEvent {
+  const factory _UnjoinEvent(dynamic data) = _$_UnjoinEvent;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UnjoinEventCopyWith<_UnjoinEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ViewSelectedEventCopyWith<$Res> {
+  factory _$ViewSelectedEventCopyWith(
+          _ViewSelectedEvent value, $Res Function(_ViewSelectedEvent) then) =
+      __$ViewSelectedEventCopyWithImpl<$Res>;
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$ViewSelectedEventCopyWithImpl<$Res>
+    extends _$JoinedEventsEventCopyWithImpl<$Res>
+    implements _$ViewSelectedEventCopyWith<$Res> {
+  __$ViewSelectedEventCopyWithImpl(
+      _ViewSelectedEvent _value, $Res Function(_ViewSelectedEvent) _then)
+      : super(_value, (v) => _then(v as _ViewSelectedEvent));
+
+  @override
+  _ViewSelectedEvent get _value => super._value as _ViewSelectedEvent;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_ViewSelectedEvent(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ViewSelectedEvent implements _ViewSelectedEvent {
+  const _$_ViewSelectedEvent(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'JoinedEventsEvent.viewSelectedEvent(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ViewSelectedEvent &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ViewSelectedEventCopyWith<_ViewSelectedEvent> get copyWith =>
+      __$ViewSelectedEventCopyWithImpl<_ViewSelectedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function(dynamic data) unjoinEvent,
+    required TResult Function(dynamic data) viewSelectedEvent,
+  }) {
+    return viewSelectedEvent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? onJoinedEventsPageEvent,
+    TResult Function(dynamic data)? unjoinEvent,
+    TResult Function(dynamic data)? viewSelectedEvent,
+    required TResult orElse(),
+  }) {
+    if (viewSelectedEvent != null) {
+      return viewSelectedEvent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
+    required TResult Function(_UnjoinEvent value) unjoinEvent,
+    required TResult Function(_ViewSelectedEvent value) viewSelectedEvent,
+  }) {
+    return viewSelectedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UnjoinEvent value)? unjoinEvent,
+    TResult Function(_ViewSelectedEvent value)? viewSelectedEvent,
+    required TResult orElse(),
+  }) {
+    if (viewSelectedEvent != null) {
+      return viewSelectedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ViewSelectedEvent implements JoinedEventsEvent {
+  const factory _ViewSelectedEvent(dynamic data) = _$_ViewSelectedEvent;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ViewSelectedEventCopyWith<_ViewSelectedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -265,6 +551,18 @@ class _$JoinedEventsStateTearOff {
   _OnJoinedEventsPageState onJoinedEventsPageState() {
     return const _OnJoinedEventsPageState();
   }
+
+  _UnjoinState unjoinState(dynamic data) {
+    return _UnjoinState(
+      data,
+    );
+  }
+
+  _ViewSelectedEventState viewSelectedEventState(dynamic data) {
+    return _ViewSelectedEventState(
+      data,
+    );
+  }
 }
 
 /// @nodoc
@@ -277,6 +575,8 @@ mixin _$JoinedEventsState {
     required TResult Function() initial,
     required TResult Function(dynamic data) showJoinedEvents,
     required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -284,6 +584,8 @@ mixin _$JoinedEventsState {
     TResult Function()? initial,
     TResult Function(dynamic data)? showJoinedEvents,
     TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -293,6 +595,9 @@ mixin _$JoinedEventsState {
     required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
     required TResult Function(_OnJoinedEventsPageState value)
         onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -300,6 +605,8 @@ mixin _$JoinedEventsState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
     TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -362,6 +669,8 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(dynamic data) showJoinedEvents,
     required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
   }) {
     return initial();
   }
@@ -372,6 +681,8 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(dynamic data)? showJoinedEvents,
     TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -387,6 +698,9 @@ class _$_Initial implements _Initial {
     required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
     required TResult Function(_OnJoinedEventsPageState value)
         onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
   }) {
     return initial(this);
   }
@@ -397,6 +711,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
     TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -478,6 +794,8 @@ class _$_ShowJoinedEvents implements _ShowJoinedEvents {
     required TResult Function() initial,
     required TResult Function(dynamic data) showJoinedEvents,
     required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
   }) {
     return showJoinedEvents(data);
   }
@@ -488,6 +806,8 @@ class _$_ShowJoinedEvents implements _ShowJoinedEvents {
     TResult Function()? initial,
     TResult Function(dynamic data)? showJoinedEvents,
     TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (showJoinedEvents != null) {
@@ -503,6 +823,9 @@ class _$_ShowJoinedEvents implements _ShowJoinedEvents {
     required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
     required TResult Function(_OnJoinedEventsPageState value)
         onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
   }) {
     return showJoinedEvents(this);
   }
@@ -513,6 +836,8 @@ class _$_ShowJoinedEvents implements _ShowJoinedEvents {
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
     TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (showJoinedEvents != null) {
@@ -575,6 +900,8 @@ class _$_OnJoinedEventsPageState implements _OnJoinedEventsPageState {
     required TResult Function() initial,
     required TResult Function(dynamic data) showJoinedEvents,
     required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
   }) {
     return onJoinedEventsPageState();
   }
@@ -585,6 +912,8 @@ class _$_OnJoinedEventsPageState implements _OnJoinedEventsPageState {
     TResult Function()? initial,
     TResult Function(dynamic data)? showJoinedEvents,
     TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageState != null) {
@@ -600,6 +929,9 @@ class _$_OnJoinedEventsPageState implements _OnJoinedEventsPageState {
     required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
     required TResult Function(_OnJoinedEventsPageState value)
         onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
   }) {
     return onJoinedEventsPageState(this);
   }
@@ -610,6 +942,8 @@ class _$_OnJoinedEventsPageState implements _OnJoinedEventsPageState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
     TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageState != null) {
@@ -621,4 +955,266 @@ class _$_OnJoinedEventsPageState implements _OnJoinedEventsPageState {
 
 abstract class _OnJoinedEventsPageState implements JoinedEventsState {
   const factory _OnJoinedEventsPageState() = _$_OnJoinedEventsPageState;
+}
+
+/// @nodoc
+abstract class _$UnjoinStateCopyWith<$Res> {
+  factory _$UnjoinStateCopyWith(
+          _UnjoinState value, $Res Function(_UnjoinState) then) =
+      __$UnjoinStateCopyWithImpl<$Res>;
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$UnjoinStateCopyWithImpl<$Res>
+    extends _$JoinedEventsStateCopyWithImpl<$Res>
+    implements _$UnjoinStateCopyWith<$Res> {
+  __$UnjoinStateCopyWithImpl(
+      _UnjoinState _value, $Res Function(_UnjoinState) _then)
+      : super(_value, (v) => _then(v as _UnjoinState));
+
+  @override
+  _UnjoinState get _value => super._value as _UnjoinState;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_UnjoinState(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UnjoinState implements _UnjoinState {
+  const _$_UnjoinState(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'JoinedEventsState.unjoinState(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UnjoinState &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UnjoinStateCopyWith<_UnjoinState> get copyWith =>
+      __$UnjoinStateCopyWithImpl<_UnjoinState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic data) showJoinedEvents,
+    required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
+  }) {
+    return unjoinState(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic data)? showJoinedEvents,
+    TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
+    required TResult orElse(),
+  }) {
+    if (unjoinState != null) {
+      return unjoinState(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
+    required TResult Function(_OnJoinedEventsPageState value)
+        onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
+  }) {
+    return unjoinState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
+    TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
+    required TResult orElse(),
+  }) {
+    if (unjoinState != null) {
+      return unjoinState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnjoinState implements JoinedEventsState {
+  const factory _UnjoinState(dynamic data) = _$_UnjoinState;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UnjoinStateCopyWith<_UnjoinState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ViewSelectedEventStateCopyWith<$Res> {
+  factory _$ViewSelectedEventStateCopyWith(_ViewSelectedEventState value,
+          $Res Function(_ViewSelectedEventState) then) =
+      __$ViewSelectedEventStateCopyWithImpl<$Res>;
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$ViewSelectedEventStateCopyWithImpl<$Res>
+    extends _$JoinedEventsStateCopyWithImpl<$Res>
+    implements _$ViewSelectedEventStateCopyWith<$Res> {
+  __$ViewSelectedEventStateCopyWithImpl(_ViewSelectedEventState _value,
+      $Res Function(_ViewSelectedEventState) _then)
+      : super(_value, (v) => _then(v as _ViewSelectedEventState));
+
+  @override
+  _ViewSelectedEventState get _value => super._value as _ViewSelectedEventState;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_ViewSelectedEventState(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ViewSelectedEventState implements _ViewSelectedEventState {
+  const _$_ViewSelectedEventState(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'JoinedEventsState.viewSelectedEventState(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ViewSelectedEventState &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ViewSelectedEventStateCopyWith<_ViewSelectedEventState> get copyWith =>
+      __$ViewSelectedEventStateCopyWithImpl<_ViewSelectedEventState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic data) showJoinedEvents,
+    required TResult Function() onJoinedEventsPageState,
+    required TResult Function(dynamic data) unjoinState,
+    required TResult Function(dynamic data) viewSelectedEventState,
+  }) {
+    return viewSelectedEventState(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic data)? showJoinedEvents,
+    TResult Function()? onJoinedEventsPageState,
+    TResult Function(dynamic data)? unjoinState,
+    TResult Function(dynamic data)? viewSelectedEventState,
+    required TResult orElse(),
+  }) {
+    if (viewSelectedEventState != null) {
+      return viewSelectedEventState(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowJoinedEvents value) showJoinedEvents,
+    required TResult Function(_OnJoinedEventsPageState value)
+        onJoinedEventsPageState,
+    required TResult Function(_UnjoinState value) unjoinState,
+    required TResult Function(_ViewSelectedEventState value)
+        viewSelectedEventState,
+  }) {
+    return viewSelectedEventState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowJoinedEvents value)? showJoinedEvents,
+    TResult Function(_OnJoinedEventsPageState value)? onJoinedEventsPageState,
+    TResult Function(_UnjoinState value)? unjoinState,
+    TResult Function(_ViewSelectedEventState value)? viewSelectedEventState,
+    required TResult orElse(),
+  }) {
+    if (viewSelectedEventState != null) {
+      return viewSelectedEventState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ViewSelectedEventState implements JoinedEventsState {
+  const factory _ViewSelectedEventState(dynamic data) =
+      _$_ViewSelectedEventState;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ViewSelectedEventStateCopyWith<_ViewSelectedEventState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

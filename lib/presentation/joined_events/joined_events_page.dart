@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/joined_events/joined_events_bloc.dart';
 import 'package:flutter_play_poll/presentation/event/event_page.dart';
+import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
 class JoinedEventsPage extends StatelessWidget {
   const JoinedEventsPage({Key? key}) : super(key: key);
@@ -12,7 +13,13 @@ class JoinedEventsPage extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<JoinedEventsBloc, JoinedEventsState>(
-            listener: (context, state) {})
+            listener: (context, state) {
+          state.maybeMap(
+              viewSelectedEventState: (data) {
+                AutoRouter.of(context).navigate(EventRoute());
+              },
+              orElse: () {});
+        })
       ],
       child: Scaffold(
         appBar: AppBar(
@@ -22,6 +29,9 @@ class JoinedEventsPage extends StatelessWidget {
           builder: (context, state) {
             context.read<JoinedEventsBloc>().add(JoinedEventsEvent.started());
             return context.read<JoinedEventsBloc>().state.maybeMap(
+              // viewSelectedEventState: (selectedEvent) {
+
+              // },
               showJoinedEvents: (received) {
                 if (received.data.length > 0) {
                   return ListView.builder(
@@ -38,11 +48,11 @@ class JoinedEventsPage extends StatelessWidget {
                           ),
                           trailing: IconButton(
                               onPressed: () {
-                                AutoRouter(
-                                  builder: (BuildContext, Widget) {
-                                    return Text('test');
-                                  },
-                                );
+                                print(
+                                    '${received.data[index]} Button to join event');
+                                context.read<JoinedEventsBloc>().add(
+                                    JoinedEventsEvent.unjoinEvent(
+                                        received.data[index]));
                               },
                               icon: Icon(
                                 Icons.cancel,
@@ -51,6 +61,9 @@ class JoinedEventsPage extends StatelessWidget {
                               )),
                           onTap: () {
                             print(received.data[index]['eventId']);
+                            context.read<JoinedEventsBloc>().add(
+                                JoinedEventsEvent.viewSelectedEvent(
+                                    received.data[index]));
                           },
                         ),
                       );

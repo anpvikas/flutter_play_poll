@@ -51,6 +51,14 @@ class _$HomeEventTearOff {
   _OnJoinedEventsPageEvent onJoinedEventsPageEvent() {
     return const _OnJoinedEventsPageEvent();
   }
+
+  _UploadEventClicked uploadEventClicked() {
+    return const _UploadEventClicked();
+  }
+
+  _OnUploadPageEvent onUploadPageEvent() {
+    return const _OnUploadPageEvent();
+  }
 }
 
 /// @nodoc
@@ -69,6 +77,8 @@ mixin _$HomeEvent {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +92,8 @@ mixin _$HomeEvent {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,6 +110,8 @@ mixin _$HomeEvent {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +125,8 @@ mixin _$HomeEvent {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +195,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return onHomePageEvent();
   }
@@ -195,6 +213,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onHomePageEvent != null) {
@@ -217,6 +237,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return onHomePageEvent(this);
   }
@@ -233,6 +255,8 @@ class _$_OnHomePageEvent implements _OnHomePageEvent {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onHomePageEvent != null) {
@@ -295,6 +319,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return createEventClicked();
   }
@@ -311,6 +337,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (createEventClicked != null) {
@@ -333,6 +361,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return createEventClicked(this);
   }
@@ -349,6 +379,8 @@ class _$_CreateEventClicked implements _CreateEventClicked {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (createEventClicked != null) {
@@ -411,6 +443,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return onCreateEventPage();
   }
@@ -427,6 +461,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -449,6 +485,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return onCreateEventPage(this);
   }
@@ -465,6 +503,8 @@ class _$_OnCreateEventPage implements _OnCreateEventPage {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -527,6 +567,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return onMyEventsPageEvent();
   }
@@ -543,6 +585,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onMyEventsPageEvent != null) {
@@ -565,6 +609,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return onMyEventsPageEvent(this);
   }
@@ -581,6 +627,8 @@ class _$_OnMyEventsPageEvent implements _OnMyEventsPageEvent {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onMyEventsPageEvent != null) {
@@ -643,6 +691,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return searchEventClicked();
   }
@@ -659,6 +709,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (searchEventClicked != null) {
@@ -681,6 +733,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return searchEventClicked(this);
   }
@@ -697,6 +751,8 @@ class _$_SearchEventClicked implements _SearchEventClicked {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (searchEventClicked != null) {
@@ -760,6 +816,8 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return onSearchEventsPageEvent();
   }
@@ -776,6 +834,8 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onSearchEventsPageEvent != null) {
@@ -798,6 +858,8 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return onSearchEventsPageEvent(this);
   }
@@ -814,6 +876,8 @@ class _$_OnSearchEventsPageEvent implements _OnSearchEventsPageEvent {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onSearchEventsPageEvent != null) {
@@ -875,6 +939,8 @@ class _$_MyEventClicked implements _MyEventClicked {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return myEventClicked();
   }
@@ -891,6 +957,8 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (myEventClicked != null) {
@@ -913,6 +981,8 @@ class _$_MyEventClicked implements _MyEventClicked {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return myEventClicked(this);
   }
@@ -929,6 +999,8 @@ class _$_MyEventClicked implements _MyEventClicked {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (myEventClicked != null) {
@@ -991,6 +1063,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return joinedEventClicked();
   }
@@ -1007,6 +1081,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (joinedEventClicked != null) {
@@ -1029,6 +1105,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return joinedEventClicked(this);
   }
@@ -1045,6 +1123,8 @@ class _$_JoinedEventClicked implements _JoinedEventClicked {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (joinedEventClicked != null) {
@@ -1108,6 +1188,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
     required TResult Function() myEventClicked,
     required TResult Function() joinedEventClicked,
     required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
   }) {
     return onJoinedEventsPageEvent();
   }
@@ -1124,6 +1206,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
     TResult Function()? myEventClicked,
     TResult Function()? joinedEventClicked,
     TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageEvent != null) {
@@ -1146,6 +1230,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
     required TResult Function(_JoinedEventClicked value) joinedEventClicked,
     required TResult Function(_OnJoinedEventsPageEvent value)
         onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
   }) {
     return onJoinedEventsPageEvent(this);
   }
@@ -1162,6 +1248,8 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
     TResult Function(_MyEventClicked value)? myEventClicked,
     TResult Function(_JoinedEventClicked value)? joinedEventClicked,
     TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
     required TResult orElse(),
   }) {
     if (onJoinedEventsPageEvent != null) {
@@ -1173,6 +1261,254 @@ class _$_OnJoinedEventsPageEvent implements _OnJoinedEventsPageEvent {
 
 abstract class _OnJoinedEventsPageEvent implements HomeEvent {
   const factory _OnJoinedEventsPageEvent() = _$_OnJoinedEventsPageEvent;
+}
+
+/// @nodoc
+abstract class _$UploadEventClickedCopyWith<$Res> {
+  factory _$UploadEventClickedCopyWith(
+          _UploadEventClicked value, $Res Function(_UploadEventClicked) then) =
+      __$UploadEventClickedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UploadEventClickedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$UploadEventClickedCopyWith<$Res> {
+  __$UploadEventClickedCopyWithImpl(
+      _UploadEventClicked _value, $Res Function(_UploadEventClicked) _then)
+      : super(_value, (v) => _then(v as _UploadEventClicked));
+
+  @override
+  _UploadEventClicked get _value => super._value as _UploadEventClicked;
+}
+
+/// @nodoc
+
+class _$_UploadEventClicked implements _UploadEventClicked {
+  const _$_UploadEventClicked();
+
+  @override
+  String toString() {
+    return 'HomeEvent.uploadEventClicked()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _UploadEventClicked);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageEvent,
+    required TResult Function() createEventClicked,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPageEvent,
+    required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
+    required TResult Function() myEventClicked,
+    required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
+  }) {
+    return uploadEventClicked();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageEvent,
+    TResult Function()? createEventClicked,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPageEvent,
+    TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
+    TResult Function()? myEventClicked,
+    TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
+    required TResult orElse(),
+  }) {
+    if (uploadEventClicked != null) {
+      return uploadEventClicked();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageEvent value) onHomePageEvent,
+    required TResult Function(_CreateEventClicked value) createEventClicked,
+    required TResult Function(_OnCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
+    required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
+    required TResult Function(_MyEventClicked value) myEventClicked,
+    required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
+  }) {
+    return uploadEventClicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageEvent value)? onHomePageEvent,
+    TResult Function(_CreateEventClicked value)? createEventClicked,
+    TResult Function(_OnCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
+    TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
+    TResult Function(_MyEventClicked value)? myEventClicked,
+    TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
+    required TResult orElse(),
+  }) {
+    if (uploadEventClicked != null) {
+      return uploadEventClicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadEventClicked implements HomeEvent {
+  const factory _UploadEventClicked() = _$_UploadEventClicked;
+}
+
+/// @nodoc
+abstract class _$OnUploadPageEventCopyWith<$Res> {
+  factory _$OnUploadPageEventCopyWith(
+          _OnUploadPageEvent value, $Res Function(_OnUploadPageEvent) then) =
+      __$OnUploadPageEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnUploadPageEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$OnUploadPageEventCopyWith<$Res> {
+  __$OnUploadPageEventCopyWithImpl(
+      _OnUploadPageEvent _value, $Res Function(_OnUploadPageEvent) _then)
+      : super(_value, (v) => _then(v as _OnUploadPageEvent));
+
+  @override
+  _OnUploadPageEvent get _value => super._value as _OnUploadPageEvent;
+}
+
+/// @nodoc
+
+class _$_OnUploadPageEvent implements _OnUploadPageEvent {
+  const _$_OnUploadPageEvent();
+
+  @override
+  String toString() {
+    return 'HomeEvent.onUploadPageEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnUploadPageEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageEvent,
+    required TResult Function() createEventClicked,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPageEvent,
+    required TResult Function() searchEventClicked,
+    required TResult Function() onSearchEventsPageEvent,
+    required TResult Function() myEventClicked,
+    required TResult Function() joinedEventClicked,
+    required TResult Function() onJoinedEventsPageEvent,
+    required TResult Function() uploadEventClicked,
+    required TResult Function() onUploadPageEvent,
+  }) {
+    return onUploadPageEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageEvent,
+    TResult Function()? createEventClicked,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPageEvent,
+    TResult Function()? searchEventClicked,
+    TResult Function()? onSearchEventsPageEvent,
+    TResult Function()? myEventClicked,
+    TResult Function()? joinedEventClicked,
+    TResult Function()? onJoinedEventsPageEvent,
+    TResult Function()? uploadEventClicked,
+    TResult Function()? onUploadPageEvent,
+    required TResult orElse(),
+  }) {
+    if (onUploadPageEvent != null) {
+      return onUploadPageEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageEvent value) onHomePageEvent,
+    required TResult Function(_CreateEventClicked value) createEventClicked,
+    required TResult Function(_OnCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPageEvent value) onMyEventsPageEvent,
+    required TResult Function(_SearchEventClicked value) searchEventClicked,
+    required TResult Function(_OnSearchEventsPageEvent value)
+        onSearchEventsPageEvent,
+    required TResult Function(_MyEventClicked value) myEventClicked,
+    required TResult Function(_JoinedEventClicked value) joinedEventClicked,
+    required TResult Function(_OnJoinedEventsPageEvent value)
+        onJoinedEventsPageEvent,
+    required TResult Function(_UploadEventClicked value) uploadEventClicked,
+    required TResult Function(_OnUploadPageEvent value) onUploadPageEvent,
+  }) {
+    return onUploadPageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageEvent value)? onHomePageEvent,
+    TResult Function(_CreateEventClicked value)? createEventClicked,
+    TResult Function(_OnCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPageEvent value)? onMyEventsPageEvent,
+    TResult Function(_SearchEventClicked value)? searchEventClicked,
+    TResult Function(_OnSearchEventsPageEvent value)? onSearchEventsPageEvent,
+    TResult Function(_MyEventClicked value)? myEventClicked,
+    TResult Function(_JoinedEventClicked value)? joinedEventClicked,
+    TResult Function(_OnJoinedEventsPageEvent value)? onJoinedEventsPageEvent,
+    TResult Function(_UploadEventClicked value)? uploadEventClicked,
+    TResult Function(_OnUploadPageEvent value)? onUploadPageEvent,
+    required TResult orElse(),
+  }) {
+    if (onUploadPageEvent != null) {
+      return onUploadPageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUploadPageEvent implements HomeEvent {
+  const factory _OnUploadPageEvent() = _$_OnUploadPageEvent;
 }
 
 /// @nodoc
@@ -1214,6 +1550,14 @@ class _$HomeStateTearOff {
   _OnJoinedEventPage onJoinedEventPage() {
     return const _OnJoinedEventPage();
   }
+
+  _NavigatedToUploadEventPage navigatedToUploadEventPage() {
+    return const _NavigatedToUploadEventPage();
+  }
+
+  _OnUploadEventPage onUploadEventPage() {
+    return const _OnUploadEventPage();
+  }
 }
 
 /// @nodoc
@@ -1232,6 +1576,8 @@ mixin _$HomeState {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1245,6 +1591,8 @@ mixin _$HomeState {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1263,6 +1611,9 @@ mixin _$HomeState {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1279,6 +1630,9 @@ mixin _$HomeState {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1347,6 +1701,8 @@ class _$_OnHomePageState implements _OnHomePageState {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return onHomePageState();
   }
@@ -1363,6 +1719,8 @@ class _$_OnHomePageState implements _OnHomePageState {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onHomePageState != null) {
@@ -1387,6 +1745,9 @@ class _$_OnHomePageState implements _OnHomePageState {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return onHomePageState(this);
   }
@@ -1406,6 +1767,9 @@ class _$_OnHomePageState implements _OnHomePageState {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onHomePageState != null) {
@@ -1470,6 +1834,8 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return navigatedToCreateEventPage();
   }
@@ -1486,6 +1852,8 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToCreateEventPage != null) {
@@ -1510,6 +1878,9 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return navigatedToCreateEventPage(this);
   }
@@ -1529,6 +1900,9 @@ class _$_NavigatedToCreateEventPage implements _NavigatedToCreateEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToCreateEventPage != null) {
@@ -1591,6 +1965,8 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return onCreateEventPage();
   }
@@ -1607,6 +1983,8 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -1631,6 +2009,9 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return onCreateEventPage(this);
   }
@@ -1650,6 +2031,9 @@ class _$_onCreateEventPage implements _onCreateEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onCreateEventPage != null) {
@@ -1711,6 +2095,8 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return onMyEventsPage();
   }
@@ -1727,6 +2113,8 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onMyEventsPage != null) {
@@ -1751,6 +2139,9 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return onMyEventsPage(this);
   }
@@ -1770,6 +2161,9 @@ class _$_OnMyEventsPage implements _OnMyEventsPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onMyEventsPage != null) {
@@ -1832,6 +2226,8 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return navigatedToMyEventPage();
   }
@@ -1848,6 +2244,8 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToMyEventPage != null) {
@@ -1872,6 +2270,9 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return navigatedToMyEventPage(this);
   }
@@ -1891,6 +2292,9 @@ class _$_NavigatedToMyEventPage implements _NavigatedToMyEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToMyEventPage != null) {
@@ -1955,6 +2359,8 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return navigatedToSearchEventPage();
   }
@@ -1971,6 +2377,8 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToSearchEventPage != null) {
@@ -1995,6 +2403,9 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return navigatedToSearchEventPage(this);
   }
@@ -2014,6 +2425,9 @@ class _$_NavigatedToSearchEventPage implements _NavigatedToSearchEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToSearchEventPage != null) {
@@ -2076,6 +2490,8 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return onSearchEventsPage();
   }
@@ -2092,6 +2508,8 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onSearchEventsPage != null) {
@@ -2116,6 +2534,9 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return onSearchEventsPage(this);
   }
@@ -2135,6 +2556,9 @@ class _$_OnSearchEventsPage implements _OnSearchEventsPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onSearchEventsPage != null) {
@@ -2199,6 +2623,8 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return navigatedToJoinedEventPage();
   }
@@ -2215,6 +2641,8 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToJoinedEventPage != null) {
@@ -2239,6 +2667,9 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return navigatedToJoinedEventPage(this);
   }
@@ -2258,6 +2689,9 @@ class _$_NavigatedToJoinedEventPage implements _NavigatedToJoinedEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (navigatedToJoinedEventPage != null) {
@@ -2320,6 +2754,8 @@ class _$_OnJoinedEventPage implements _OnJoinedEventPage {
     required TResult Function() onSearchEventsPage,
     required TResult Function() navigatedToJoinedEventPage,
     required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
   }) {
     return onJoinedEventPage();
   }
@@ -2336,6 +2772,8 @@ class _$_OnJoinedEventPage implements _OnJoinedEventPage {
     TResult Function()? onSearchEventsPage,
     TResult Function()? navigatedToJoinedEventPage,
     TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onJoinedEventPage != null) {
@@ -2360,6 +2798,9 @@ class _$_OnJoinedEventPage implements _OnJoinedEventPage {
     required TResult Function(_NavigatedToJoinedEventPage value)
         navigatedToJoinedEventPage,
     required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
   }) {
     return onJoinedEventPage(this);
   }
@@ -2379,6 +2820,9 @@ class _$_OnJoinedEventPage implements _OnJoinedEventPage {
     TResult Function(_NavigatedToJoinedEventPage value)?
         navigatedToJoinedEventPage,
     TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
     required TResult orElse(),
   }) {
     if (onJoinedEventPage != null) {
@@ -2390,4 +2834,268 @@ class _$_OnJoinedEventPage implements _OnJoinedEventPage {
 
 abstract class _OnJoinedEventPage implements HomeState {
   const factory _OnJoinedEventPage() = _$_OnJoinedEventPage;
+}
+
+/// @nodoc
+abstract class _$NavigatedToUploadEventPageCopyWith<$Res> {
+  factory _$NavigatedToUploadEventPageCopyWith(
+          _NavigatedToUploadEventPage value,
+          $Res Function(_NavigatedToUploadEventPage) then) =
+      __$NavigatedToUploadEventPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NavigatedToUploadEventPageCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$NavigatedToUploadEventPageCopyWith<$Res> {
+  __$NavigatedToUploadEventPageCopyWithImpl(_NavigatedToUploadEventPage _value,
+      $Res Function(_NavigatedToUploadEventPage) _then)
+      : super(_value, (v) => _then(v as _NavigatedToUploadEventPage));
+
+  @override
+  _NavigatedToUploadEventPage get _value =>
+      super._value as _NavigatedToUploadEventPage;
+}
+
+/// @nodoc
+
+class _$_NavigatedToUploadEventPage implements _NavigatedToUploadEventPage {
+  const _$_NavigatedToUploadEventPage();
+
+  @override
+  String toString() {
+    return 'HomeState.navigatedToUploadEventPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NavigatedToUploadEventPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageState,
+    required TResult Function() navigatedToCreateEventPage,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPage,
+    required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
+    required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
+  }) {
+    return navigatedToUploadEventPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageState,
+    TResult Function()? navigatedToCreateEventPage,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPage,
+    TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
+    TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
+    required TResult orElse(),
+  }) {
+    if (navigatedToUploadEventPage != null) {
+      return navigatedToUploadEventPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageState value) onHomePageState,
+    required TResult Function(_NavigatedToCreateEventPage value)
+        navigatedToCreateEventPage,
+    required TResult Function(_onCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPage value) onMyEventsPage,
+    required TResult Function(_NavigatedToMyEventPage value)
+        navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
+    required TResult Function(_NavigatedToJoinedEventPage value)
+        navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
+  }) {
+    return navigatedToUploadEventPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageState value)? onHomePageState,
+    TResult Function(_NavigatedToCreateEventPage value)?
+        navigatedToCreateEventPage,
+    TResult Function(_onCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_NavigatedToSearchEventPage value)?
+        navigatedToSearchEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
+    TResult Function(_NavigatedToJoinedEventPage value)?
+        navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
+    required TResult orElse(),
+  }) {
+    if (navigatedToUploadEventPage != null) {
+      return navigatedToUploadEventPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NavigatedToUploadEventPage implements HomeState {
+  const factory _NavigatedToUploadEventPage() = _$_NavigatedToUploadEventPage;
+}
+
+/// @nodoc
+abstract class _$OnUploadEventPageCopyWith<$Res> {
+  factory _$OnUploadEventPageCopyWith(
+          _OnUploadEventPage value, $Res Function(_OnUploadEventPage) then) =
+      __$OnUploadEventPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$OnUploadEventPageCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$OnUploadEventPageCopyWith<$Res> {
+  __$OnUploadEventPageCopyWithImpl(
+      _OnUploadEventPage _value, $Res Function(_OnUploadEventPage) _then)
+      : super(_value, (v) => _then(v as _OnUploadEventPage));
+
+  @override
+  _OnUploadEventPage get _value => super._value as _OnUploadEventPage;
+}
+
+/// @nodoc
+
+class _$_OnUploadEventPage implements _OnUploadEventPage {
+  const _$_OnUploadEventPage();
+
+  @override
+  String toString() {
+    return 'HomeState.onUploadEventPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _OnUploadEventPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() onHomePageState,
+    required TResult Function() navigatedToCreateEventPage,
+    required TResult Function() onCreateEventPage,
+    required TResult Function() onMyEventsPage,
+    required TResult Function() navigatedToMyEventPage,
+    required TResult Function() navigatedToSearchEventPage,
+    required TResult Function() onSearchEventsPage,
+    required TResult Function() navigatedToJoinedEventPage,
+    required TResult Function() onJoinedEventPage,
+    required TResult Function() navigatedToUploadEventPage,
+    required TResult Function() onUploadEventPage,
+  }) {
+    return onUploadEventPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? onHomePageState,
+    TResult Function()? navigatedToCreateEventPage,
+    TResult Function()? onCreateEventPage,
+    TResult Function()? onMyEventsPage,
+    TResult Function()? navigatedToMyEventPage,
+    TResult Function()? navigatedToSearchEventPage,
+    TResult Function()? onSearchEventsPage,
+    TResult Function()? navigatedToJoinedEventPage,
+    TResult Function()? onJoinedEventPage,
+    TResult Function()? navigatedToUploadEventPage,
+    TResult Function()? onUploadEventPage,
+    required TResult orElse(),
+  }) {
+    if (onUploadEventPage != null) {
+      return onUploadEventPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnHomePageState value) onHomePageState,
+    required TResult Function(_NavigatedToCreateEventPage value)
+        navigatedToCreateEventPage,
+    required TResult Function(_onCreateEventPage value) onCreateEventPage,
+    required TResult Function(_OnMyEventsPage value) onMyEventsPage,
+    required TResult Function(_NavigatedToMyEventPage value)
+        navigatedToMyEventPage,
+    required TResult Function(_NavigatedToSearchEventPage value)
+        navigatedToSearchEventPage,
+    required TResult Function(_OnSearchEventsPage value) onSearchEventsPage,
+    required TResult Function(_NavigatedToJoinedEventPage value)
+        navigatedToJoinedEventPage,
+    required TResult Function(_OnJoinedEventPage value) onJoinedEventPage,
+    required TResult Function(_NavigatedToUploadEventPage value)
+        navigatedToUploadEventPage,
+    required TResult Function(_OnUploadEventPage value) onUploadEventPage,
+  }) {
+    return onUploadEventPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnHomePageState value)? onHomePageState,
+    TResult Function(_NavigatedToCreateEventPage value)?
+        navigatedToCreateEventPage,
+    TResult Function(_onCreateEventPage value)? onCreateEventPage,
+    TResult Function(_OnMyEventsPage value)? onMyEventsPage,
+    TResult Function(_NavigatedToMyEventPage value)? navigatedToMyEventPage,
+    TResult Function(_NavigatedToSearchEventPage value)?
+        navigatedToSearchEventPage,
+    TResult Function(_OnSearchEventsPage value)? onSearchEventsPage,
+    TResult Function(_NavigatedToJoinedEventPage value)?
+        navigatedToJoinedEventPage,
+    TResult Function(_OnJoinedEventPage value)? onJoinedEventPage,
+    TResult Function(_NavigatedToUploadEventPage value)?
+        navigatedToUploadEventPage,
+    TResult Function(_OnUploadEventPage value)? onUploadEventPage,
+    required TResult orElse(),
+  }) {
+    if (onUploadEventPage != null) {
+      return onUploadEventPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUploadEventPage implements HomeState {
+  const factory _OnUploadEventPage() = _$_OnUploadEventPage;
 }

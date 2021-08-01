@@ -12,4 +12,6 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.myEventClicked() = _MyEventClicked;
   const factory HomeEvent.joinedEventClicked() = _JoinedEventClicked;
   const factory HomeEvent.onJoinedEventsPageEvent() = _OnJoinedEventsPageEvent;
+  const factory HomeEvent.uploadEventClicked() = _UploadEventClicked;
+  const factory HomeEvent.onUploadPageEvent() = _OnUploadPageEvent;
 }
