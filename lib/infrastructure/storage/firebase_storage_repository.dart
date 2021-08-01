@@ -60,10 +60,21 @@ class FirebaseStorageRepository implements IStorageRepository {
       // fileObj!.delete();
       // fileUploadStatus(uploadFileTask!);
 
-      final widgetOutput = fileUploadStatus(FirebaseStorage.instance
+      // uploadFileTask = FirebaseStorage.instance
+      //     .ref('$uid/songs/$fileName')
+      //     .putFile(fileObj!);
+
+      final snapshot = await (FirebaseStorage.instance
+              .ref('$uid/songs/$fileName')
+              .putFile(fileObj!))
+          .whenComplete(() {});
+
+      final widgetOutput = await fileUploadStatus(FirebaseStorage.instance
           .ref('$uid/songs/$fileName')
           .putFile(fileObj!));
-      final snapshot = await uploadFileTask!.whenComplete(() {});
+
+      // final snapshot = await (uploadFileTask)!.whenComplete(() {});
+
       final downloadUrl = await snapshot.ref.getDownloadURL();
       print('$downloadUrl <---- DOWNLOAD URL');
 
@@ -86,8 +97,8 @@ class FirebaseStorageRepository implements IStorageRepository {
     return StreamBuilder<TaskSnapshot>(
       stream: uploadFileTask!.snapshotEvents,
       builder: (context, snapshot) {
-        print('inside <----');
         if (snapshot.hasData) {
+          print('inside <----');
           print('${snapshot.data} <---- HAS DATA');
           final fileData = snapshot.data;
           final status =

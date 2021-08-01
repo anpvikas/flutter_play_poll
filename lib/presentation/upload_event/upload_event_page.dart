@@ -6,14 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/upload_event/upload_event_bloc.dart';
 
 class UploadEventPage extends StatelessWidget {
-  UploadEventPage({Key? key}) : super(key: key);
-  File? fileObj;
-  String? fileName = 'No Files Selected';
-  String? fileSize = '0';
-  UploadTask? uploadFileTask;
+  const UploadEventPage({Key? key}) : super(key: key);
+  // File? fileObj;
+  // String? fileName = 'No Files Selected';
+  // String? fileSize = '0';
+  // UploadTask? uploadFileTask;
 
   @override
   Widget build(BuildContext context) {
+    File? fileObj;
+    String? fileName = 'No Files Selected';
+    String? fileSize = '0';
+    UploadTask? uploadFileTask;
     context.read<UploadEventBloc>().add(UploadEventEvent.started());
 
     return MultiBlocListener(
@@ -25,12 +29,10 @@ class UploadEventPage extends StatelessWidget {
               selectSongFileState: (recieved) {
                 print(recieved.filePath.files.single.extension);
 
-                this.fileName = recieved.filePath.files.single.name;
-                this.fileObj =
-                    File(recieved.filePath.files.single.path.toString());
-                this.fileSize =
-                    ((recieved.filePath.files.single.size) / 1000000)
-                        .toStringAsPrecision(3);
+                fileName = recieved.filePath.files.single.name;
+                fileObj = File(recieved.filePath.files.single.path.toString());
+                fileSize = ((recieved.filePath.files.single.size) / 1000000)
+                    .toStringAsPrecision(3);
               },
               fileSelectedForUploadState: (_) {
                 print('$_ <---- UPLOAD STATUS');
@@ -114,35 +116,7 @@ class UploadEventPage extends StatelessWidget {
                     context.read<UploadEventBloc>().state.maybeMap(
                       uploadFileState: (rec) {
                         return rec.uploadStatusCurrent;
-                        // return StreamBuilder<TaskSnapshot>(
-                        //     stream: rec.uploadStatusCurrent,
-                        //     builder: (context, snapshot) {
-                        //       print(snapshot.data);
-                        //       return Text(rec.uploadStatusCurrent.toString());
-                        //     });
                       },
-                      // uploadFileState: (received) {
-                      //   return StreamBuilder<TaskSnapshot>(
-                      //     stream: received.uploadStatusCurrent,
-                      //     builder: (context, snapshot) {
-                      //       if (snapshot.hasData) {
-                      //         final snap = snapshot.data!;
-                      //         final progress =
-                      //             snap.bytesTransferred / snap.totalBytes;
-                      //         final percentage =
-                      //             (progress * 100).toStringAsFixed(2);
-
-                      //         return Text(
-                      //           '$percentage %',
-                      //           style: TextStyle(
-                      //               fontSize: 20, fontWeight: FontWeight.bold),
-                      //         );
-                      //       } else {
-                      //         return Container();
-                      //       }
-                      //     },
-                      //   );
-                      // },
                       orElse: () {
                         return Container();
                       },
@@ -154,63 +128,6 @@ class UploadEventPage extends StatelessWidget {
           },
         ),
       ),
-    );
-  }
-
-  // Text displayMessage(fileObj) {
-  //   if (fileObj == null) {
-  //     return Text('No files selected for upload');
-  //   } else {
-  //     return Text(fileObj.toString());
-  //   }
-  // }
-  // Widget fileUploadStatus(UploadTask uploadFileTask) =>
-  //     StreamBuilder<TaskSnapshot>(
-  //       stream: uploadFileTask.snapshotEvents,
-  //       builder: (context, snapshot) {
-  //         if (snapshot.hasData) {
-  //           final fileData = snapshot.data;
-  //           final status =
-  //               ((fileData!.bytesTransferred / fileData.totalBytes) * 100)
-  //                   .toStringAsPrecision(2);
-  //           return Text('$status %');
-  //         } else {
-  //           return Container();
-  //         }
-  //       },
-  //     );
-
-  Widget buildStatus(UploadTask? uploadFileTask) => StreamBuilder<TaskSnapshot>(
-        stream: uploadFileTask!.snapshotEvents,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            print('${snapshot.data} HAS DATA <----');
-            final snap = snapshot.data;
-            final progress = snap!.bytesTransferred / snap.totalBytes;
-            final percentage = (progress * 100).toStringAsFixed(2);
-            return Text('$percentage %');
-          }
-
-          return Text('TEST');
-        },
-      );
-
-  Future fileUploadStatus(UploadTask uploadFileTask) async {
-    return StreamBuilder<TaskSnapshot>(
-      stream: uploadFileTask.snapshotEvents,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          print('${snapshot.data} <---- HAS DATA');
-          final fileData = snapshot.data;
-          final status =
-              ((fileData!.bytesTransferred / fileData.totalBytes) * 100)
-                  .toStringAsPrecision(2);
-          print('$status <---- STATUS PERCENTAGE');
-          return Text('$status %');
-        } else {
-          return Text('');
-        }
-      },
     );
   }
 }
