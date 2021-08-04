@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_play_poll/domain/core/value_objects.dart';
 import 'package:flutter_play_poll/domain/storage/i_storage_repository.dart';
 import 'package:flutter_play_poll/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -64,13 +66,19 @@ class FirebaseStorageRepository implements IStorageRepository {
       //     .ref('$uid/songs/$fileName')
       //     .putFile(fileObj!);
 
+      UniqueId uniqueSongId = UniqueId();
+
+      String songId = uniqueSongId.value.fold((l) => (l.failedValue), (r) => r);
+
       final snapshot = await (FirebaseStorage.instance
-              .ref('$uid/songs/$fileName')
+              // .ref('$uid/songs/$fileName')
+              .ref('$uid/songs/$songId')
               .putFile(fileObj!))
           .whenComplete(() {});
 
       final widgetOutput = await fileUploadStatus(FirebaseStorage.instance
-          .ref('$uid/songs/$fileName')
+          // .ref('$uid/songs/$fileName')
+          .ref('$uid/songs/$songId')
           .putFile(fileObj!));
 
       // final snapshot = await (uploadFileTask)!.whenComplete(() {});
@@ -79,13 +87,16 @@ class FirebaseStorageRepository implements IStorageRepository {
       print('$downloadUrl <---- DOWNLOAD URL');
 
       await _firestore
-          // .collection('users')
-          // .doc(uid)
+          .collection('users')
+          .doc(uid)
           .collection('songs')
-          .doc()
+          .doc(songId)
           .set({
+        'songId': songId,
         'songUrl': downloadUrl,
+        'title': fileName,
         'uid': uid,
+        'votes': []
       });
       // return uploadFileTask!;
       return widgetOutput;

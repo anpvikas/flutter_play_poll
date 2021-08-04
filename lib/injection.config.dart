@@ -13,6 +13,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'application/auth/auth_bloc.dart' as _i19;
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i17;
 import 'application/create_event/create_bloc.dart' as _i20;
+import 'application/event/event_bloc.dart' as _i21;
 import 'application/home/home_bloc.dart' as _i7;
 import 'application/joined_events/joined_events_bloc.dart' as _i14;
 import 'application/my_events/my_events_bloc.dart' as _i15;
@@ -23,7 +24,7 @@ import 'domain/events/i_event_repository.dart' as _i10;
 import 'domain/storage/i_storage_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
 import 'infrastructure/auth/firebase_user_mapper.dart' as _i5;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i21;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i22;
 import 'infrastructure/events/event_repository.dart' as _i11;
 import 'infrastructure/storage/firebase_storage_repository.dart' as _i13;
 
@@ -71,7 +72,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i19.AuthBloc>(() => _i19.AuthBloc(get<_i8.IAuthFacade>()));
   gh.factory<_i20.CreateBloc>(
       () => _i20.CreateBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i21.EventBloc>(
+      () => _i21.EventBloc(get<_i10.IEventRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i21.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i22.FirebaseInjectableModule {}

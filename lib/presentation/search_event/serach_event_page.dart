@@ -12,6 +12,7 @@ import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
 class SearchEventPage extends StatelessWidget {
   SearchEventPage({Key? key}) : super(key: key);
+
   dynamic allEventsData;
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,8 @@ class SearchEventPage extends StatelessWidget {
                     .read<SearchEventBloc>()
                     .add(SearchEventEvent.searchButtonClicked(_.queryString));
               },
-              joinState: (_) {
-                AutoRouter.of(context).navigate(EventRoute());
+              joinState: (eventData) {
+                AutoRouter.of(context).navigate(EventRoute(data: eventData));
               },
             );
           },

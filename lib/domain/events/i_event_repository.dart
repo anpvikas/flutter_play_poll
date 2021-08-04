@@ -7,6 +7,13 @@ abstract class IEventRepository {
   // Future<Either<EventFailure, Unit>> myEvents();
   Future myEvents();
   Future joinedEvents();
+  Future fetchCreatorSongs(String creatorId);
+  Future incrementSongVote(String currentVoteCount, String songId, String uid);
+
+  Future registerVote(String songId, String uid);
+
+  String getCurrentUserId();
+
   // Future<Either<EventFailure, Unit>> search(String event);
   Future allEventsFetched();
   Future search(String event);

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -113,6 +115,7 @@ class UploadEventPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 20),
                     context.read<UploadEventBloc>().state.maybeMap(
                       uploadFileState: (rec) {
                         return rec.uploadStatusCurrent;
@@ -120,6 +123,13 @@ class UploadEventPage extends StatelessWidget {
                       orElse: () {
                         return Container();
                       },
+                    ),
+                    SizedBox(height: 20),
+                    OutlinedButton(
+                      onPressed: () {
+                        AutoRouter.of(context).pop();
+                      },
+                      child: Text('Back'),
                     ),
                   ],
                 ),

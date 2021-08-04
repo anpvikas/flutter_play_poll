@@ -5,7 +5,9 @@ import 'package:flutter_play_poll/application/auth/auth_bloc.dart';
 import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

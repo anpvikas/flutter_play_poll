@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/auth/auth_bloc.dart';
 import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
+import 'package:flutter_play_poll/application/event/event_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
 import 'package:flutter_play_poll/application/joined_events/joined_events_bloc.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_play_poll/presentation/routes/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
   AppWidget({Key? key}) : super(key: key);
+
   final _appRouter = AppRouter();
 
   @override
@@ -41,6 +43,9 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<UploadEventBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<EventBloc>(),
         ),
       ],
       child: MaterialApp.router(

@@ -57,8 +57,9 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     EventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return const _i9.EventPage();
+        builder: (data) {
+          final args = data.argsAs<EventRouteArgs>();
+          return _i9.EventPage(key: args.key, data: args.data);
         }),
     JoinedEventsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -67,10 +68,8 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     UploadEventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<UploadEventRouteArgs>(
-              orElse: () => const UploadEventRouteArgs());
-          return _i11.UploadEventPage(key: args.key);
+        builder: (_) {
+          return const _i11.UploadEventPage();
         })
   };
 
@@ -132,10 +131,20 @@ class SearchEventRouteArgs {
   final _i2.Key? key;
 }
 
-class EventRoute extends _i1.PageRouteInfo {
-  const EventRoute() : super(name, path: '/event-page');
+class EventRoute extends _i1.PageRouteInfo<EventRouteArgs> {
+  EventRoute({_i2.Key? key, required dynamic data})
+      : super(name,
+            path: '/event-page', args: EventRouteArgs(key: key, data: data));
 
   static const String name = 'EventRoute';
+}
+
+class EventRouteArgs {
+  const EventRouteArgs({this.key, required this.data});
+
+  final _i2.Key? key;
+
+  final dynamic data;
 }
 
 class JoinedEventsRoute extends _i1.PageRouteInfo {
@@ -144,16 +153,8 @@ class JoinedEventsRoute extends _i1.PageRouteInfo {
   static const String name = 'JoinedEventsRoute';
 }
 
-class UploadEventRoute extends _i1.PageRouteInfo<UploadEventRouteArgs> {
-  UploadEventRoute({_i2.Key? key})
-      : super(name,
-            path: '/upload-event-page', args: UploadEventRouteArgs(key: key));
+class UploadEventRoute extends _i1.PageRouteInfo {
+  const UploadEventRoute() : super(name, path: '/upload-event-page');
 
   static const String name = 'UploadEventRoute';
-}
-
-class UploadEventRouteArgs {
-  const UploadEventRouteArgs({this.key});
-
-  final _i2.Key? key;
 }

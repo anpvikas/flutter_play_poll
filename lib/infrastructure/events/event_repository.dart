@@ -212,6 +212,86 @@ class EventRepository implements IEventRepository {
     }
   }
 
+  @override
+  Future fetchCreatorSongs(String creatorId) async {
+    List itemsList = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      await _firestore
+          .collection('users')
+          .doc(creatorId)
+          .collection('songs')
+          .orderBy('votes', descending: true)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          print('${doc.data()} <-----fetching SONGS------');
+          itemsList.add(doc.data());
+        });
+      });
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future incrementSongVote(
+      String currentVoteCount, String songId, String uid) async {
+    List updatedCountList = [];
+    try {
+      String updatedCount = '0';
+      updatedCount = (int.parse(currentVoteCount) + 1).toString();
+      updatedCountList.add(updatedCount);
+
+      await _firestore
+          .collection('users')
+          .doc(uid)
+          .collection('songs')
+          .doc(songId)
+          .update({'votes': updatedCount});
+      return updatedCountList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future registerVote(String songId, String uid) async {
+    List updatedCountList = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      String updatedCount = '0';
+      // updatedCount = (int.parse(currentVoteCount) + 1).toString();
+      updatedCountList.add(updatedCount);
+      print('INSIDE registerVote method <----');
+      await _firestore
+          .collection('users')
+          .doc(uid)
+          .collection('songs')
+          .doc(songId)
+          .update({
+        'votes': FieldValue.arrayUnion(['${user!.uid}'])
+        // 'votes': FieldValue.arrayUnion(['Test1'])
+      });
+      return updatedCountList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  String getCurrentUserId() {
+    User? user = FirebaseAuth.instance.currentUser;
+    print('${user!.uid} <---- INSIDE METHOD - getCurrentUserId');
+    return user.uid.toString();
+  }
+
   // @override
   // // Future<Either<EventFailure, Unit>> myEvents() async {
   // Future myEvents() async {

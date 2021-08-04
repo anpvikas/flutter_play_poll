@@ -15,8 +15,8 @@ class JoinedEventsPage extends StatelessWidget {
         BlocListener<JoinedEventsBloc, JoinedEventsState>(
             listener: (context, state) {
           state.maybeMap(
-              viewSelectedEventState: (data) {
-                AutoRouter.of(context).navigate(EventRoute());
+              viewSelectedEventState: (eventData) {
+                AutoRouter.of(context).navigate(EventRoute(data: eventData));
               },
               orElse: () {});
         })
