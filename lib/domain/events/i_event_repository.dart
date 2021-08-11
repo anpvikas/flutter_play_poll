@@ -11,6 +11,7 @@ abstract class IEventRepository {
   Future incrementSongVote(String currentVoteCount, String songId, String uid);
 
   Future registerVote(String songId, String uid);
+  Future resetVoteToZero(String songId, String uid);
 
   String getCurrentUserId();
 

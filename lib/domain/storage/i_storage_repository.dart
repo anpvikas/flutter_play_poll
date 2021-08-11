@@ -4,5 +4,7 @@ import 'package:flutter/material.dart';
 abstract class IStorageRepository {
   Future selectSong();
   Future uploadSong();
+  Future uploadArtistSong();
+  Future fetchArtistSongs();
   Future fileUploadStatus(UploadTask uploadFileTask);
 }

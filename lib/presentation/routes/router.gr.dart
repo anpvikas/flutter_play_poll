@@ -4,18 +4,21 @@
 // AutoRouteGenerator
 // **************************************************************************
 
+import 'package:audioplayers/audioplayers.dart' as _i14;
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
 import '../create_event/create_event_page.dart' as _i6;
 import '../event/event_page.dart' as _i9;
+import '../event/songs_player/songs_player.dart' as _i10;
 import '../home/user_home/user_home_page.dart' as _i5;
-import '../joined_events/joined_events_page.dart' as _i10;
+import '../joined_events/joined_events_page.dart' as _i11;
 import '../my_events/my_events_page.dart' as _i7;
 import '../search_event/serach_event_page.dart' as _i8;
 import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
-import '../upload_event/upload_event_page.dart' as _i11;
+import '../upload_artist/upload_artist_page.dart' as _i13;
+import '../upload_event/upload_event_page.dart' as _i12;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -61,15 +64,29 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<EventRouteArgs>();
           return _i9.EventPage(key: args.key, data: args.data);
         }),
+    SongsPlayer.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<SongsPlayerArgs>();
+          return _i10.SongsPlayer(
+              key: args.key,
+              audioPlayer: args.audioPlayer,
+              songList: args.songList);
+        }),
     JoinedEventsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i10.JoinedEventsPage();
+          return const _i11.JoinedEventsPage();
         }),
     UploadEventRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i11.UploadEventPage();
+          return const _i12.UploadEventPage();
+        }),
+    UploadArtistRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i13.UploadArtistPage();
         })
   };
 
@@ -82,8 +99,10 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(MyEventsRoute.name, path: '/my-events-page'),
         _i1.RouteConfig(SearchEventRoute.name, path: '/search-event-page'),
         _i1.RouteConfig(EventRoute.name, path: '/event-page'),
+        _i1.RouteConfig(SongsPlayer.name, path: '/songs-player'),
         _i1.RouteConfig(JoinedEventsRoute.name, path: '/joined-events-page'),
-        _i1.RouteConfig(UploadEventRoute.name, path: '/upload-event-page')
+        _i1.RouteConfig(UploadEventRoute.name, path: '/upload-event-page'),
+        _i1.RouteConfig(UploadArtistRoute.name, path: '/upload-artist-page')
       ];
 }
 
@@ -147,6 +166,30 @@ class EventRouteArgs {
   final dynamic data;
 }
 
+class SongsPlayer extends _i1.PageRouteInfo<SongsPlayerArgs> {
+  SongsPlayer(
+      {_i2.Key? key,
+      required _i14.AudioPlayer audioPlayer,
+      required List<dynamic> songList})
+      : super(name,
+            path: '/songs-player',
+            args: SongsPlayerArgs(
+                key: key, audioPlayer: audioPlayer, songList: songList));
+
+  static const String name = 'SongsPlayer';
+}
+
+class SongsPlayerArgs {
+  const SongsPlayerArgs(
+      {this.key, required this.audioPlayer, required this.songList});
+
+  final _i2.Key? key;
+
+  final _i14.AudioPlayer audioPlayer;
+
+  final List<dynamic> songList;
+}
+
 class JoinedEventsRoute extends _i1.PageRouteInfo {
   const JoinedEventsRoute() : super(name, path: '/joined-events-page');
 
@@ -157,4 +200,10 @@ class UploadEventRoute extends _i1.PageRouteInfo {
   const UploadEventRoute() : super(name, path: '/upload-event-page');
 
   static const String name = 'UploadEventRoute';
+}
+
+class UploadArtistRoute extends _i1.PageRouteInfo {
+  const UploadArtistRoute() : super(name, path: '/upload-artist-page');
+
+  static const String name = 'UploadArtistRoute';
 }

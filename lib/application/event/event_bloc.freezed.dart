@@ -22,8 +22,10 @@ class _$EventEventTearOff {
     );
   }
 
-  _DisplaySongs displaySongs() {
-    return const _DisplaySongs();
+  _DisplaySongs displaySongs(dynamic data) {
+    return _DisplaySongs(
+      data,
+    );
   }
 
   _IncrementVoteCount incrementVoteCount(String songId, String uid) {
@@ -46,7 +48,7 @@ mixin _$EventEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic data) started,
-    required TResult Function() displaySongs,
+    required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
   }) =>
@@ -54,7 +56,7 @@ mixin _$EventEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic data)? started,
-    TResult Function()? displaySongs,
+    TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
     required TResult orElse(),
@@ -158,7 +160,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic data) started,
-    required TResult Function() displaySongs,
+    required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
   }) {
@@ -169,7 +171,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic data)? started,
-    TResult Function()? displaySongs,
+    TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
     required TResult orElse(),
@@ -221,6 +223,7 @@ abstract class _$DisplaySongsCopyWith<$Res> {
   factory _$DisplaySongsCopyWith(
           _DisplaySongs value, $Res Function(_DisplaySongs) then) =
       __$DisplaySongsCopyWithImpl<$Res>;
+  $Res call({dynamic data});
 }
 
 /// @nodoc
@@ -232,48 +235,72 @@ class __$DisplaySongsCopyWithImpl<$Res> extends _$EventEventCopyWithImpl<$Res>
 
   @override
   _DisplaySongs get _value => super._value as _DisplaySongs;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_DisplaySongs(
+      data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_DisplaySongs implements _DisplaySongs {
-  const _$_DisplaySongs();
+  const _$_DisplaySongs(this.data);
+
+  @override
+  final dynamic data;
 
   @override
   String toString() {
-    return 'EventEvent.displaySongs()';
+    return 'EventEvent.displaySongs(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DisplaySongs);
+    return identical(this, other) ||
+        (other is _DisplaySongs &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DisplaySongsCopyWith<_DisplaySongs> get copyWith =>
+      __$DisplaySongsCopyWithImpl<_DisplaySongs>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic data) started,
-    required TResult Function() displaySongs,
+    required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
   }) {
-    return displaySongs();
+    return displaySongs(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic data)? started,
-    TResult Function()? displaySongs,
+    TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
     required TResult orElse(),
   }) {
     if (displaySongs != null) {
-      return displaySongs();
+      return displaySongs(data);
     }
     return orElse();
   }
@@ -306,7 +333,12 @@ class _$_DisplaySongs implements _DisplaySongs {
 }
 
 abstract class _DisplaySongs implements EventEvent {
-  const factory _DisplaySongs() = _$_DisplaySongs;
+  const factory _DisplaySongs(dynamic data) = _$_DisplaySongs;
+
+  dynamic get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$DisplaySongsCopyWith<_DisplaySongs> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -386,7 +418,7 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic data) started,
-    required TResult Function() displaySongs,
+    required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
   }) {
@@ -397,7 +429,7 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic data)? started,
-    TResult Function()? displaySongs,
+    TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
     required TResult orElse(),
@@ -487,7 +519,7 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(dynamic data) started,
-    required TResult Function() displaySongs,
+    required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
   }) {
@@ -498,7 +530,7 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic data)? started,
-    TResult Function()? displaySongs,
+    TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
     required TResult orElse(),
@@ -554,6 +586,12 @@ class _$EventStateTearOff {
     );
   }
 
+  _DisplayFetchedSongs displayFetchedSongs(dynamic displayFetchedSongs) {
+    return _DisplayFetchedSongs(
+      displayFetchedSongs,
+    );
+  }
+
   _IncrementedVoteCount incrementedVoteCount(String updatedVoteCount) {
     return _IncrementedVoteCount(
       updatedVoteCount,
@@ -576,6 +614,7 @@ mixin _$EventState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
   }) =>
@@ -584,6 +623,7 @@ mixin _$EventState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
     required TResult orElse(),
@@ -593,6 +633,7 @@ mixin _$EventState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
   }) =>
@@ -601,6 +642,7 @@ mixin _$EventState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
     required TResult orElse(),
@@ -663,6 +705,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
   }) {
@@ -674,6 +717,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
     required TResult orElse(),
@@ -689,6 +733,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
   }) {
@@ -700,6 +745,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
     required TResult orElse(),
@@ -784,6 +830,7 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
   }) {
@@ -795,6 +842,7 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
     required TResult orElse(),
@@ -810,6 +858,7 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
   }) {
@@ -821,6 +870,7 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
     required TResult orElse(),
@@ -839,6 +889,138 @@ abstract class _ShowFetchedSongs implements EventState {
   dynamic get showFetchedSongs => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ShowFetchedSongsCopyWith<_ShowFetchedSongs> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$DisplayFetchedSongsCopyWith<$Res> {
+  factory _$DisplayFetchedSongsCopyWith(_DisplayFetchedSongs value,
+          $Res Function(_DisplayFetchedSongs) then) =
+      __$DisplayFetchedSongsCopyWithImpl<$Res>;
+  $Res call({dynamic displayFetchedSongs});
+}
+
+/// @nodoc
+class __$DisplayFetchedSongsCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$DisplayFetchedSongsCopyWith<$Res> {
+  __$DisplayFetchedSongsCopyWithImpl(
+      _DisplayFetchedSongs _value, $Res Function(_DisplayFetchedSongs) _then)
+      : super(_value, (v) => _then(v as _DisplayFetchedSongs));
+
+  @override
+  _DisplayFetchedSongs get _value => super._value as _DisplayFetchedSongs;
+
+  @override
+  $Res call({
+    Object? displayFetchedSongs = freezed,
+  }) {
+    return _then(_DisplayFetchedSongs(
+      displayFetchedSongs == freezed
+          ? _value.displayFetchedSongs
+          : displayFetchedSongs // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DisplayFetchedSongs implements _DisplayFetchedSongs {
+  const _$_DisplayFetchedSongs(this.displayFetchedSongs);
+
+  @override
+  final dynamic displayFetchedSongs;
+
+  @override
+  String toString() {
+    return 'EventState.displayFetchedSongs(displayFetchedSongs: $displayFetchedSongs)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DisplayFetchedSongs &&
+            (identical(other.displayFetchedSongs, displayFetchedSongs) ||
+                const DeepCollectionEquality()
+                    .equals(other.displayFetchedSongs, displayFetchedSongs)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(displayFetchedSongs);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DisplayFetchedSongsCopyWith<_DisplayFetchedSongs> get copyWith =>
+      __$DisplayFetchedSongsCopyWithImpl<_DisplayFetchedSongs>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+  }) {
+    return displayFetchedSongs(this.displayFetchedSongs);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    required TResult orElse(),
+  }) {
+    if (displayFetchedSongs != null) {
+      return displayFetchedSongs(this.displayFetchedSongs);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+  }) {
+    return displayFetchedSongs(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    required TResult orElse(),
+  }) {
+    if (displayFetchedSongs != null) {
+      return displayFetchedSongs(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DisplayFetchedSongs implements EventState {
+  const factory _DisplayFetchedSongs(dynamic displayFetchedSongs) =
+      _$_DisplayFetchedSongs;
+
+  dynamic get displayFetchedSongs => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$DisplayFetchedSongsCopyWith<_DisplayFetchedSongs> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -912,6 +1094,7 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
   }) {
@@ -923,6 +1106,7 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
     required TResult orElse(),
@@ -938,6 +1122,7 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
   }) {
@@ -949,6 +1134,7 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
     required TResult orElse(),
@@ -1038,6 +1224,7 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
   }) {
@@ -1049,6 +1236,7 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
     required TResult orElse(),
@@ -1064,6 +1252,7 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
   }) {
@@ -1075,6 +1264,7 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
     required TResult orElse(),

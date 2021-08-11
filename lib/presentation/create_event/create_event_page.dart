@@ -67,6 +67,8 @@ class CreateEventPage extends StatelessWidget {
             onJoinedEventPage: (_) {},
             navigatedToUploadEventPage: (_) {},
             onUploadEventPage: (_) {},
+            navigatedToUploadArtistEventPage: (_) {},
+            onUploadArtistEventPage: (_) {},
           );
         })
       ],

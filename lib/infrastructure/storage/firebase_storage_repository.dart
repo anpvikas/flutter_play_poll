@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -135,5 +135,108 @@ class FirebaseStorageRepository implements IStorageRepository {
         }
       },
     );
+  }
+
+  @override
+  Future uploadArtistSong() async {
+    if (result != null) {
+      String fileName = result!.files.first.name;
+      String uid = _firebaseAuth.currentUser!.uid;
+      final user = _firebaseAuth.currentUser!;
+
+      String fileType = result!.files.first.extension.toString();
+
+      print('$fileType <---- FILE TYPE FOR ARTIST');
+
+      UniqueId uniqueSongId = UniqueId();
+
+      String songId = uniqueSongId.value.fold((l) => (l.failedValue), (r) => r);
+
+      final snapshot = await (FirebaseStorage.instance
+              .ref('$uid/songs/$songId')
+              .putFile(fileObj!))
+          .whenComplete(() {});
+
+      final widgetOutput = await fileUploadStatus(
+          FirebaseStorage.instance.ref('$uid/songs/$songId').putFile(fileObj!));
+
+      final downloadUrl = await snapshot.ref.getDownloadURL();
+      print('$downloadUrl <---- DOWNLOAD URL');
+
+      await _firestore.collection('artists').doc(uid).set({
+        'displayName': user.displayName,
+        'email': user.email,
+        'uid': user.uid,
+        'photoUrl': user.photoURL
+      });
+
+      await _firestore
+          .collection('artists')
+          .doc(uid)
+          .collection('songs')
+          .doc(songId)
+          .set({
+        'songId': songId,
+        'songUrl': downloadUrl,
+        'title': fileName,
+        'artistUid': uid,
+        'votes': [{}],
+        'appearedInOption': 0
+      });
+
+      return widgetOutput;
+    } else
+      return null;
+  }
+
+  @override
+  Future fetchArtistSongs() async {
+    List itemsList = [];
+    List items = [];
+    List artistUid = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      await _firestore
+          .collection('artists')
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) async {
+          print('${doc.data()} <-----REPO-ARTISTS-SONGS------');
+          items.add(doc.data());
+        });
+      });
+
+      for (var item in items) {
+        print('$item <---- PRINTING ITEM');
+        artistUid.add(item['uid']);
+      }
+
+      print('$artistUid <---- ARTIST UID ');
+
+      for (var artist in artistUid) {
+        await _firestore
+            .collection('artists')
+            .doc(artist)
+            .collection('songs')
+            .get()
+            .then(
+          (QuerySnapshot _querySnapshot) {
+            _querySnapshot.docs.forEach(
+              (doc) {
+                print('${doc.data()} <-----REPO------');
+                itemsList.add(doc.data());
+              },
+            );
+          },
+        );
+      }
+
+      print('$itemsList <---- ITEMS RETURNED ----');
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 }

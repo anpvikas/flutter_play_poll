@@ -201,7 +201,7 @@ class EventRepository implements IEventRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         querySnapshot.docs.forEach((doc) {
-          print('${doc.data()} <-----REPO------');
+          // print('${doc.data()} <-----REPO------');
           itemsList.add(doc.data());
         });
       });
@@ -226,7 +226,7 @@ class EventRepository implements IEventRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         querySnapshot.docs.forEach((doc) {
-          print('${doc.data()} <-----fetching SONGS------');
+          // print('${doc.data()} <-----fetching SONGS------');
           itemsList.add(doc.data());
         });
       });
@@ -279,6 +279,27 @@ class EventRepository implements IEventRepository {
         // 'votes': FieldValue.arrayUnion(['Test1'])
       });
       return updatedCountList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future resetVoteToZero(String songId, String uid) async {
+    print('DATABASE <----');
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      String updatedCount = '0';
+
+      print('INSIDE resetVoteToZero method <----');
+      await _firestore
+          .collection('users')
+          .doc(uid)
+          .collection('songs')
+          .doc(songId)
+          .update({'votes': []});
     } catch (e) {
       print(e.toString());
       return null;

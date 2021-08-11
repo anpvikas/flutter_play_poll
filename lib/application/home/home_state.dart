@@ -18,4 +18,7 @@ class HomeState with _$HomeState {
   const factory HomeState.navigatedToUploadEventPage() =
       _NavigatedToUploadEventPage;
   const factory HomeState.onUploadEventPage() = _OnUploadEventPage;
+  const factory HomeState.navigatedToUploadArtistEventPage() =
+      _NavigatedToUploadArtistEventPage;
+  const factory HomeState.onUploadArtistEventPage() = _OnUploadArtistEventPage;
 }

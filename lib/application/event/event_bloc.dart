@@ -16,6 +16,8 @@ class EventBloc extends Bloc<EventEvent, EventState> {
 
   EventBloc(this._eventRepository) : super(_Initial());
 
+  // static get fetchEventSongs => fetchEventSongs;
+
   @override
   Stream<EventState> mapEventToState(
     EventEvent event,
@@ -25,9 +27,12 @@ class EventBloc extends Bloc<EventEvent, EventState> {
         print('On Main Event page ${e.data}');
         dynamic received = await _eventRepository.fetchCreatorSongs(e.data);
         print('$received <---- INSIDE Bloc');
+        // yield EventState.initial();
         yield EventState.showFetchedSongs(received);
       },
-      displaySongs: (e) async* {},
+      displaySongs: (e) async* {
+        yield EventState.displayFetchedSongs(e.data);
+      },
       incrementVoteCount: (e) async* {
         // print('${e.currentVoteCount} INSIDE Increment <----');
 

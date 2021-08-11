@@ -80,6 +80,18 @@ class UserHomePage extends StatelessWidget {
                 AutoRouter.of(context).navigate(UploadEventRoute());
               },
               onUploadEventPage: (_) {},
+              navigatedToUploadArtistEventPage: (_) {
+                context
+                    .read<HomeBloc>()
+                    .add(HomeEvent.onUploadArtistPageEvent());
+                AutoRouter.of(context).navigate(UploadArtistRoute());
+              },
+              onUploadArtistEventPage: (_) {
+                context
+                    .read<HomeBloc>()
+                    .add(HomeEvent.onUploadArtistPageEvent());
+                AutoRouter.of(context).navigate(UploadArtistRoute());
+              },
             );
           },
         ),
@@ -444,6 +456,64 @@ class UserHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: BlocBuilder<HomeBloc, HomeState>(
+                        builder: (context, state) {
+                          return GestureDetector(
+                            onTap: () {
+                              print(
+                                  '1-uploadArtistEventClicked Pressed on HomePage<---- ');
+                              print(
+                                  '2-Event added to the HomeBloc = uploadArtistEventClicked <----');
+                              context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.uploadArtistEventClicked());
+
+                              // context
+                              //     .read<MyEventsBloc>()
+                              //     .add(MyEventsEvent.started());
+                            },
+                            child: Container(
+                              height: height / 5,
+                              width: width / 2,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                // color: Colors.lightGreen,
+                                // border:
+                                //     Border.all(color: Colors.green, width: 2),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [boxTopShadow, boxBotomShadow],
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.my_library_music_outlined,
+                                    size: 60,
+                                    color: Colors.deepOrange,
+                                  ),
+                                  SizedBox(height: height / 20),
+                                  Text(
+                                    'Upload Artist Songs',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(width: width / 20),
                   ],
                 ),
               ),

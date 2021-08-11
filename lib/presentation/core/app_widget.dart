@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/auth/auth_bloc.dart';
 import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 import 'package:flutter_play_poll/application/event/event_bloc.dart';
+import 'package:flutter_play_poll/application/event/songs_player/songs_player_bloc.dart';
 
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
 import 'package:flutter_play_poll/application/joined_events/joined_events_bloc.dart';
 import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/application/search_event/search_event_bloc.dart';
+import 'package:flutter_play_poll/application/upload_artist/upload_artist_bloc.dart';
 import 'package:flutter_play_poll/application/upload_event/upload_event_bloc.dart';
 import 'package:flutter_play_poll/injection.dart';
 
@@ -46,6 +48,12 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<EventBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SongsPlayerBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<UploadArtistBloc>(),
         ),
       ],
       child: MaterialApp.router(
