@@ -112,8 +112,8 @@ class EventPage extends StatelessWidget {
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500),
                                       ),
-                                      subtitle: Text(
-                                          '${received.showFetchedSongs[index]['songId']} \n ${received.showFetchedSongs[index]['songUrl']}'),
+                                      // subtitle: Text(
+                                      //     '${received.showFetchedSongs[index]['songId']} \n ${received.showFetchedSongs[index]['songUrl']}'),
                                       trailing: Column(
                                         children: [
                                           IconButton(
@@ -169,15 +169,26 @@ class EventPage extends StatelessWidget {
                                             //     : Icon(Icons.thumb_up,
                                             //         color: Colors.green[900]),
                                           ),
-                                          BlocBuilder<EventBloc, EventState>(
-                                            builder: (context, state) {
-                                              return Text(
-                                                '${received.showFetchedSongs[index]['votes'].length}',
-                                                style: TextStyle(fontSize: 7),
-                                              );
-                                            },
-                                          ),
+                                          // BlocBuilder<EventBloc, EventState>(
+                                          //   builder: (context, state) {
+                                          //     return Text(
+                                          //       '${received.showFetchedSongs[index]['votes'].length}',
+                                          //       style: TextStyle(fontSize: 7),
+                                          //     );
+                                          //   },
+                                          // ),
                                         ],
+                                      ),
+                                      leading:
+                                          BlocBuilder<EventBloc, EventState>(
+                                        builder: (context, state) {
+                                          return CircleAvatar(
+                                            child: Text(
+                                              '${received.showFetchedSongs[index]['votes'].length}',
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          );
+                                        },
                                       ),
                                       onTap: () {},
                                     ),

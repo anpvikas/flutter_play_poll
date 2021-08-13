@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -180,7 +181,7 @@ class FirebaseStorageRepository implements IStorageRepository {
         'songUrl': downloadUrl,
         'title': fileName,
         'artistUid': uid,
-        'votes': [{}],
+        'votes': [],
         'appearedInOption': 0
       });
 
@@ -233,6 +234,31 @@ class FirebaseStorageRepository implements IStorageRepository {
       }
 
       print('$itemsList <---- ITEMS RETURNED ----');
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future generateSongOptions(gameModeFullSongList) async {
+    List itemsList = [];
+    Random random = Random();
+
+    try {
+      // print('----------> INSIDE STORAGE REPO $gameModeFullSongList ');
+
+      itemsList = List.generate(
+          2,
+          (_) => gameModeFullSongList[
+              random.nextInt(gameModeFullSongList.length)]);
+
+      // for (var song in gameModeFullSongList) {
+      //   print('${song['votes'].length} <---- PRINTING ITEM Length');
+      // }
+      print('------> FINAL SONG OPTIONS $itemsList ');
+
       return itemsList;
     } catch (e) {
       print(e.toString());

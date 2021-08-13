@@ -407,7 +407,7 @@ class UserHomePage extends StatelessWidget {
                                   ),
                                   SizedBox(height: height / 20),
                                   Text(
-                                    'Upload Songs',
+                                    'Event Songs',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w500),

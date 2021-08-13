@@ -6,5 +6,6 @@ abstract class IStorageRepository {
   Future uploadSong();
   Future uploadArtistSong();
   Future fetchArtistSongs();
+  Future generateSongOptions(dynamic gameModeFullSongList);
   Future fileUploadStatus(UploadTask uploadFileTask);
 }

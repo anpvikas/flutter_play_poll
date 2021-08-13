@@ -12,4 +12,6 @@ class SongsPlayerState with _$SongsPlayerState {
       _OnPlayerCompletionState;
   const factory SongsPlayerState.fetchArtistSongsState(dynamic artistSongs) =
       _FetchArtistSongsState;
+  const factory SongsPlayerState.generateOptionsState(dynamic songOptions) =
+      _GenerateOptionsState;
 }

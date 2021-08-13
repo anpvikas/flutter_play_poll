@@ -23,7 +23,9 @@ class SongsPlayerBloc extends Bloc<SongsPlayerEvent, SongsPlayerState> {
     SongsPlayerEvent event,
   ) async* {
     yield* event.map(
-      started: (e) async* {},
+      started: (e) async* {
+        yield SongsPlayerState.initial();
+      },
       onAudioPositionChangedEvent: (e) async* {
         yield SongsPlayerState.onAudioPositionChangedState(e.position);
       },
@@ -40,6 +42,12 @@ class SongsPlayerBloc extends Bloc<SongsPlayerEvent, SongsPlayerState> {
 
         print('\n HERE \n $received <----');
         yield SongsPlayerState.fetchArtistSongsState(received);
+      },
+      generateOptionsEvent: (e) async* {
+        print('\n INSIDE generateOptionsEvent Bloc Event <---- \n');
+        dynamic received = await _iStorageRepository
+            .generateSongOptions(e.gameModeFullSongList);
+        yield SongsPlayerState.generateOptionsState(received);
       },
     );
   }

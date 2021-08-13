@@ -42,6 +42,12 @@ class _$SongsPlayerEventTearOff {
   _FetchArtistSongsEvent fetchArtistSongsEvent() {
     return const _FetchArtistSongsEvent();
   }
+
+  _GenerateOptionsEvent generateOptionsEvent(dynamic gameModeFullSongList) {
+    return _GenerateOptionsEvent(
+      gameModeFullSongList,
+    );
+  }
 }
 
 /// @nodoc
@@ -57,6 +63,8 @@ mixin _$SongsPlayerEvent {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +74,7 @@ mixin _$SongsPlayerEvent {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,6 +89,7 @@ mixin _$SongsPlayerEvent {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +100,7 @@ mixin _$SongsPlayerEvent {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +166,8 @@ class _$_Started implements _Started {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) {
     return started();
   }
@@ -167,6 +180,7 @@ class _$_Started implements _Started {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -187,6 +201,7 @@ class _$_Started implements _Started {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) {
     return started(this);
   }
@@ -200,6 +215,7 @@ class _$_Started implements _Started {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -286,6 +302,8 @@ class _$_OnDurationChangedEvent implements _OnDurationChangedEvent {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) {
     return onDurationChangedEvent(duration);
   }
@@ -298,6 +316,7 @@ class _$_OnDurationChangedEvent implements _OnDurationChangedEvent {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onDurationChangedEvent != null) {
@@ -318,6 +337,7 @@ class _$_OnDurationChangedEvent implements _OnDurationChangedEvent {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) {
     return onDurationChangedEvent(this);
   }
@@ -331,6 +351,7 @@ class _$_OnDurationChangedEvent implements _OnDurationChangedEvent {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onDurationChangedEvent != null) {
@@ -426,6 +447,8 @@ class _$_OnAudioPositionChangedEvent implements _OnAudioPositionChangedEvent {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) {
     return onAudioPositionChangedEvent(position);
   }
@@ -438,6 +461,7 @@ class _$_OnAudioPositionChangedEvent implements _OnAudioPositionChangedEvent {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onAudioPositionChangedEvent != null) {
@@ -458,6 +482,7 @@ class _$_OnAudioPositionChangedEvent implements _OnAudioPositionChangedEvent {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) {
     return onAudioPositionChangedEvent(this);
   }
@@ -471,6 +496,7 @@ class _$_OnAudioPositionChangedEvent implements _OnAudioPositionChangedEvent {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onAudioPositionChangedEvent != null) {
@@ -574,6 +600,8 @@ class _$_OnPlayerCompletionEvent implements _OnPlayerCompletionEvent {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) {
     return onPlayerCompletionEvent(songId, uid);
   }
@@ -586,6 +614,7 @@ class _$_OnPlayerCompletionEvent implements _OnPlayerCompletionEvent {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onPlayerCompletionEvent != null) {
@@ -606,6 +635,7 @@ class _$_OnPlayerCompletionEvent implements _OnPlayerCompletionEvent {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) {
     return onPlayerCompletionEvent(this);
   }
@@ -619,6 +649,7 @@ class _$_OnPlayerCompletionEvent implements _OnPlayerCompletionEvent {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (onPlayerCompletionEvent != null) {
@@ -685,6 +716,8 @@ class _$_FetchArtistSongsEvent implements _FetchArtistSongsEvent {
     required TResult Function(String songId, String uid)
         onPlayerCompletionEvent,
     required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
   }) {
     return fetchArtistSongsEvent();
   }
@@ -697,6 +730,7 @@ class _$_FetchArtistSongsEvent implements _FetchArtistSongsEvent {
     TResult Function(dynamic position)? onAudioPositionChangedEvent,
     TResult Function(String songId, String uid)? onPlayerCompletionEvent,
     TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (fetchArtistSongsEvent != null) {
@@ -717,6 +751,7 @@ class _$_FetchArtistSongsEvent implements _FetchArtistSongsEvent {
         onPlayerCompletionEvent,
     required TResult Function(_FetchArtistSongsEvent value)
         fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
   }) {
     return fetchArtistSongsEvent(this);
   }
@@ -730,6 +765,7 @@ class _$_FetchArtistSongsEvent implements _FetchArtistSongsEvent {
         onAudioPositionChangedEvent,
     TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
     TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
     required TResult orElse(),
   }) {
     if (fetchArtistSongsEvent != null) {
@@ -741,6 +777,149 @@ class _$_FetchArtistSongsEvent implements _FetchArtistSongsEvent {
 
 abstract class _FetchArtistSongsEvent implements SongsPlayerEvent {
   const factory _FetchArtistSongsEvent() = _$_FetchArtistSongsEvent;
+}
+
+/// @nodoc
+abstract class _$GenerateOptionsEventCopyWith<$Res> {
+  factory _$GenerateOptionsEventCopyWith(_GenerateOptionsEvent value,
+          $Res Function(_GenerateOptionsEvent) then) =
+      __$GenerateOptionsEventCopyWithImpl<$Res>;
+  $Res call({dynamic gameModeFullSongList});
+}
+
+/// @nodoc
+class __$GenerateOptionsEventCopyWithImpl<$Res>
+    extends _$SongsPlayerEventCopyWithImpl<$Res>
+    implements _$GenerateOptionsEventCopyWith<$Res> {
+  __$GenerateOptionsEventCopyWithImpl(
+      _GenerateOptionsEvent _value, $Res Function(_GenerateOptionsEvent) _then)
+      : super(_value, (v) => _then(v as _GenerateOptionsEvent));
+
+  @override
+  _GenerateOptionsEvent get _value => super._value as _GenerateOptionsEvent;
+
+  @override
+  $Res call({
+    Object? gameModeFullSongList = freezed,
+  }) {
+    return _then(_GenerateOptionsEvent(
+      gameModeFullSongList == freezed
+          ? _value.gameModeFullSongList
+          : gameModeFullSongList // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GenerateOptionsEvent implements _GenerateOptionsEvent {
+  const _$_GenerateOptionsEvent(this.gameModeFullSongList);
+
+  @override
+  final dynamic gameModeFullSongList;
+
+  @override
+  String toString() {
+    return 'SongsPlayerEvent.generateOptionsEvent(gameModeFullSongList: $gameModeFullSongList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GenerateOptionsEvent &&
+            (identical(other.gameModeFullSongList, gameModeFullSongList) ||
+                const DeepCollectionEquality()
+                    .equals(other.gameModeFullSongList, gameModeFullSongList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(gameModeFullSongList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$GenerateOptionsEventCopyWith<_GenerateOptionsEvent> get copyWith =>
+      __$GenerateOptionsEventCopyWithImpl<_GenerateOptionsEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(dynamic duration) onDurationChangedEvent,
+    required TResult Function(dynamic position) onAudioPositionChangedEvent,
+    required TResult Function(String songId, String uid)
+        onPlayerCompletionEvent,
+    required TResult Function() fetchArtistSongsEvent,
+    required TResult Function(dynamic gameModeFullSongList)
+        generateOptionsEvent,
+  }) {
+    return generateOptionsEvent(gameModeFullSongList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(dynamic duration)? onDurationChangedEvent,
+    TResult Function(dynamic position)? onAudioPositionChangedEvent,
+    TResult Function(String songId, String uid)? onPlayerCompletionEvent,
+    TResult Function()? fetchArtistSongsEvent,
+    TResult Function(dynamic gameModeFullSongList)? generateOptionsEvent,
+    required TResult orElse(),
+  }) {
+    if (generateOptionsEvent != null) {
+      return generateOptionsEvent(gameModeFullSongList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnDurationChangedEvent value)
+        onDurationChangedEvent,
+    required TResult Function(_OnAudioPositionChangedEvent value)
+        onAudioPositionChangedEvent,
+    required TResult Function(_OnPlayerCompletionEvent value)
+        onPlayerCompletionEvent,
+    required TResult Function(_FetchArtistSongsEvent value)
+        fetchArtistSongsEvent,
+    required TResult Function(_GenerateOptionsEvent value) generateOptionsEvent,
+  }) {
+    return generateOptionsEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnDurationChangedEvent value)? onDurationChangedEvent,
+    TResult Function(_OnAudioPositionChangedEvent value)?
+        onAudioPositionChangedEvent,
+    TResult Function(_OnPlayerCompletionEvent value)? onPlayerCompletionEvent,
+    TResult Function(_FetchArtistSongsEvent value)? fetchArtistSongsEvent,
+    TResult Function(_GenerateOptionsEvent value)? generateOptionsEvent,
+    required TResult orElse(),
+  }) {
+    if (generateOptionsEvent != null) {
+      return generateOptionsEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GenerateOptionsEvent implements SongsPlayerEvent {
+  const factory _GenerateOptionsEvent(dynamic gameModeFullSongList) =
+      _$_GenerateOptionsEvent;
+
+  dynamic get gameModeFullSongList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$GenerateOptionsEventCopyWith<_GenerateOptionsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -772,6 +951,12 @@ class _$SongsPlayerStateTearOff {
       artistSongs,
     );
   }
+
+  _GenerateOptionsState generateOptionsState(dynamic songOptions) {
+    return _GenerateOptionsState(
+      songOptions,
+    );
+  }
 }
 
 /// @nodoc
@@ -786,6 +971,7 @@ mixin _$SongsPlayerState {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -795,6 +981,7 @@ mixin _$SongsPlayerState {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -809,6 +996,7 @@ mixin _$SongsPlayerState {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -819,6 +1007,7 @@ mixin _$SongsPlayerState {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -883,6 +1072,7 @@ class _$_Initial implements _Initial {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) {
     return initial();
   }
@@ -895,6 +1085,7 @@ class _$_Initial implements _Initial {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -915,6 +1106,7 @@ class _$_Initial implements _Initial {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) {
     return initial(this);
   }
@@ -928,6 +1120,7 @@ class _$_Initial implements _Initial {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1013,6 +1206,7 @@ class _$_OnDurationChangedState implements _OnDurationChangedState {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) {
     return onDurationChangedState(duration);
   }
@@ -1025,6 +1219,7 @@ class _$_OnDurationChangedState implements _OnDurationChangedState {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onDurationChangedState != null) {
@@ -1045,6 +1240,7 @@ class _$_OnDurationChangedState implements _OnDurationChangedState {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) {
     return onDurationChangedState(this);
   }
@@ -1058,6 +1254,7 @@ class _$_OnDurationChangedState implements _OnDurationChangedState {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onDurationChangedState != null) {
@@ -1152,6 +1349,7 @@ class _$_OnAudioPositionChangedState implements _OnAudioPositionChangedState {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) {
     return onAudioPositionChangedState(position);
   }
@@ -1164,6 +1362,7 @@ class _$_OnAudioPositionChangedState implements _OnAudioPositionChangedState {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onAudioPositionChangedState != null) {
@@ -1184,6 +1383,7 @@ class _$_OnAudioPositionChangedState implements _OnAudioPositionChangedState {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) {
     return onAudioPositionChangedState(this);
   }
@@ -1197,6 +1397,7 @@ class _$_OnAudioPositionChangedState implements _OnAudioPositionChangedState {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onAudioPositionChangedState != null) {
@@ -1262,6 +1463,7 @@ class _$_OnPlayerCompletionState implements _OnPlayerCompletionState {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) {
     return onPlayerCompletionState();
   }
@@ -1274,6 +1476,7 @@ class _$_OnPlayerCompletionState implements _OnPlayerCompletionState {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onPlayerCompletionState != null) {
@@ -1294,6 +1497,7 @@ class _$_OnPlayerCompletionState implements _OnPlayerCompletionState {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) {
     return onPlayerCompletionState(this);
   }
@@ -1307,6 +1511,7 @@ class _$_OnPlayerCompletionState implements _OnPlayerCompletionState {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (onPlayerCompletionState != null) {
@@ -1392,6 +1597,7 @@ class _$_FetchArtistSongsState implements _FetchArtistSongsState {
     required TResult Function(dynamic position) onAudioPositionChangedState,
     required TResult Function() onPlayerCompletionState,
     required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
   }) {
     return fetchArtistSongsState(artistSongs);
   }
@@ -1404,6 +1610,7 @@ class _$_FetchArtistSongsState implements _FetchArtistSongsState {
     TResult Function(dynamic position)? onAudioPositionChangedState,
     TResult Function()? onPlayerCompletionState,
     TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (fetchArtistSongsState != null) {
@@ -1424,6 +1631,7 @@ class _$_FetchArtistSongsState implements _FetchArtistSongsState {
         onPlayerCompletionState,
     required TResult Function(_FetchArtistSongsState value)
         fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
   }) {
     return fetchArtistSongsState(this);
   }
@@ -1437,6 +1645,7 @@ class _$_FetchArtistSongsState implements _FetchArtistSongsState {
         onAudioPositionChangedState,
     TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
     TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
     required TResult orElse(),
   }) {
     if (fetchArtistSongsState != null) {
@@ -1453,5 +1662,145 @@ abstract class _FetchArtistSongsState implements SongsPlayerState {
   dynamic get artistSongs => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$FetchArtistSongsStateCopyWith<_FetchArtistSongsState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$GenerateOptionsStateCopyWith<$Res> {
+  factory _$GenerateOptionsStateCopyWith(_GenerateOptionsState value,
+          $Res Function(_GenerateOptionsState) then) =
+      __$GenerateOptionsStateCopyWithImpl<$Res>;
+  $Res call({dynamic songOptions});
+}
+
+/// @nodoc
+class __$GenerateOptionsStateCopyWithImpl<$Res>
+    extends _$SongsPlayerStateCopyWithImpl<$Res>
+    implements _$GenerateOptionsStateCopyWith<$Res> {
+  __$GenerateOptionsStateCopyWithImpl(
+      _GenerateOptionsState _value, $Res Function(_GenerateOptionsState) _then)
+      : super(_value, (v) => _then(v as _GenerateOptionsState));
+
+  @override
+  _GenerateOptionsState get _value => super._value as _GenerateOptionsState;
+
+  @override
+  $Res call({
+    Object? songOptions = freezed,
+  }) {
+    return _then(_GenerateOptionsState(
+      songOptions == freezed
+          ? _value.songOptions
+          : songOptions // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GenerateOptionsState implements _GenerateOptionsState {
+  const _$_GenerateOptionsState(this.songOptions);
+
+  @override
+  final dynamic songOptions;
+
+  @override
+  String toString() {
+    return 'SongsPlayerState.generateOptionsState(songOptions: $songOptions)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GenerateOptionsState &&
+            (identical(other.songOptions, songOptions) ||
+                const DeepCollectionEquality()
+                    .equals(other.songOptions, songOptions)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(songOptions);
+
+  @JsonKey(ignore: true)
+  @override
+  _$GenerateOptionsStateCopyWith<_GenerateOptionsState> get copyWith =>
+      __$GenerateOptionsStateCopyWithImpl<_GenerateOptionsState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic duration) onDurationChangedState,
+    required TResult Function(dynamic position) onAudioPositionChangedState,
+    required TResult Function() onPlayerCompletionState,
+    required TResult Function(dynamic artistSongs) fetchArtistSongsState,
+    required TResult Function(dynamic songOptions) generateOptionsState,
+  }) {
+    return generateOptionsState(songOptions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic duration)? onDurationChangedState,
+    TResult Function(dynamic position)? onAudioPositionChangedState,
+    TResult Function()? onPlayerCompletionState,
+    TResult Function(dynamic artistSongs)? fetchArtistSongsState,
+    TResult Function(dynamic songOptions)? generateOptionsState,
+    required TResult orElse(),
+  }) {
+    if (generateOptionsState != null) {
+      return generateOptionsState(songOptions);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_OnDurationChangedState value)
+        onDurationChangedState,
+    required TResult Function(_OnAudioPositionChangedState value)
+        onAudioPositionChangedState,
+    required TResult Function(_OnPlayerCompletionState value)
+        onPlayerCompletionState,
+    required TResult Function(_FetchArtistSongsState value)
+        fetchArtistSongsState,
+    required TResult Function(_GenerateOptionsState value) generateOptionsState,
+  }) {
+    return generateOptionsState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_OnDurationChangedState value)? onDurationChangedState,
+    TResult Function(_OnAudioPositionChangedState value)?
+        onAudioPositionChangedState,
+    TResult Function(_OnPlayerCompletionState value)? onPlayerCompletionState,
+    TResult Function(_FetchArtistSongsState value)? fetchArtistSongsState,
+    TResult Function(_GenerateOptionsState value)? generateOptionsState,
+    required TResult orElse(),
+  }) {
+    if (generateOptionsState != null) {
+      return generateOptionsState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GenerateOptionsState implements SongsPlayerState {
+  const factory _GenerateOptionsState(dynamic songOptions) =
+      _$_GenerateOptionsState;
+
+  dynamic get songOptions => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$GenerateOptionsStateCopyWith<_GenerateOptionsState> get copyWith =>
       throw _privateConstructorUsedError;
 }

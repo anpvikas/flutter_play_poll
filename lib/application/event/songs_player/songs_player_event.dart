@@ -11,4 +11,6 @@ class SongsPlayerEvent with _$SongsPlayerEvent {
       String songId, String uid) = _OnPlayerCompletionEvent;
   const factory SongsPlayerEvent.fetchArtistSongsEvent() =
       _FetchArtistSongsEvent;
+  const factory SongsPlayerEvent.generateOptionsEvent(
+      dynamic gameModeFullSongList) = _GenerateOptionsEvent;
 }
