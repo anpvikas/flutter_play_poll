@@ -11,4 +11,13 @@ class EventState with _$EventState {
       _IncrementedVoteCount;
   const factory EventState.getSignedInUserState(String userId) =
       _GetSignedInUserState;
+  const factory EventState.gameModeVoteState() = _GameModeVoteState;
+  const factory EventState.updateAppearedInOptionCountState(
+      dynamic updatedCountInOption) = _UpdateAppearedInOptionCountState;
+
+  const factory EventState.createGameModeEntryState() =
+      _CreateGameModeEntryState;
+  const factory EventState.votingStartedState(String timerValue) =
+      _VotingStartedState;
+  const factory EventState.showWinnerState(List winner) = _ShowWinnerState;
 }

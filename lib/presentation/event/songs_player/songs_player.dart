@@ -8,14 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_play_poll/application/event/event_bloc.dart';
 import 'package:flutter_play_poll/application/event/songs_player/songs_player_bloc.dart';
+import 'package:flutter_play_poll/domain/events/i_event_repository.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SongsPlayer extends StatelessWidget {
   const SongsPlayer(
-      {Key? key, required this.audioPlayer, required this.songList})
+      {Key? key,
+      required this.audioPlayer,
+      required this.songList,
+      required this.eventData})
       : super(key: key);
   final AudioPlayer audioPlayer;
   final List songList;
+  final dynamic eventData;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,7 @@ class SongsPlayer extends StatelessWidget {
 
     List gameModeFullSongList = [];
     List optionsToShow = [];
-
+    print('~~~~~~~> EVENT DATA on songsPage $eventData');
     // BlocProvider.of<SongsPlayerBloc>(context)
     //     .add(SongsPlayerEvent.fetchArtistSongsEvent());
 
@@ -36,6 +41,9 @@ class SongsPlayer extends StatelessWidget {
     if (songList.length == 0) {
       return Center(child: CircularProgressIndicator());
     }
+
+    String eventId = '${eventData.data.data['eventId']}';
+    print('EVENT ID ~~~~> $eventId');
 
     String songPath = '${songList[0]['songUrl']}';
 
@@ -57,22 +65,7 @@ class SongsPlayer extends StatelessWidget {
 
     this.audioPlayer.onPlayerCompletion.listen((event) {
       _pos = _dur;
-
-      // context.read<SongsPlayerBloc>().add(
-      //     SongsPlayerEvent.onPlayerCompletionEvent(
-      //         songList[0]['songId'], songList[0]['uid']));
-      // context.read<EventBloc>().add(EventEvent.started(songList[0]['uid']));
-      // this.audioPlayer.play(songPath);
     });
-
-    // else {
-    // this.audioPlayer.play(songPath);
-
-    // /// Reset Vote Count to Zero
-    // context.read<SongsPlayerBloc>().add(
-    //     SongsPlayerEvent.onPlayerCompletionEvent(
-    //         songList[0]['songId'], songList[0]['uid']));
-    // }
 
     return MultiBlocListener(
       listeners: [
@@ -102,23 +95,25 @@ class SongsPlayer extends StatelessWidget {
               fetchArtistSongsState: (received) {
                 print('----> ARTIST SONGS! ${received.artistSongs} ');
                 gameModeFullSongList = received.artistSongs;
-                int i = 0;
-                int random_number1 = 0;
-                int random_number2 = 0;
-                for (i = 0; i < 2; i++) {
-                  if (i == 0) {
-                    random_number1 =
-                        random.nextInt(gameModeFullSongList.length);
-                  } else {
-                    random_number2 =
-                        random.nextInt(gameModeFullSongList.length);
-                    if (random_number1 == random_number2) {
-                      i = i - 1;
-                    }
-                  }
-                }
-                optionsToShow.add(gameModeFullSongList[random_number1]);
-                optionsToShow.add(gameModeFullSongList[random_number2]);
+                // int i = 0;
+                // int random_number1 = 0;
+                // int random_number2 = 0;
+                // for (i = 0; i < 2; i++) {
+                //   if (i == 0) {
+                //     random_number1 =
+                //         random.nextInt(gameModeFullSongList.length);
+                //   } else {
+                //     random_number2 =
+                //         random.nextInt(gameModeFullSongList.length);
+                //     if (random_number1 == random_number2) {
+                //       i = i - 1;
+                //     }
+                //   }
+                // }
+
+                optionsToShow.add(gameModeFullSongList[
+                    random.nextInt(gameModeFullSongList.length)]);
+                // optionsToShow.add(gameModeFullSongList[random_number2]);
 
                 // optionsToShow = new List.generate(
                 //         2,
@@ -266,7 +261,7 @@ class SongsPlayer extends StatelessWidget {
                     .add(SongsPlayerEvent.fetchArtistSongsEvent());
                 playLocal();
                 showDialog(
-                  barrierColor: Colors.black,
+                  barrierColor: Colors.amber,
                   useSafeArea: true,
                   barrierDismissible: false,
                   context: context,
@@ -282,6 +277,7 @@ class SongsPlayer extends StatelessWidget {
                       content: SingleChildScrollView(
                         child: BlocBuilder<SongsPlayerBloc, SongsPlayerState>(
                           builder: (context, state) {
+                            bool showWinner = false;
                             return Column(
                               children: [
                                 Container(
@@ -297,36 +293,64 @@ class SongsPlayer extends StatelessWidget {
                                         // shrinkWrap: true,
                                         itemCount: optionsToShow.length,
                                         itemBuilder: (context, index) {
+                                          bool _isPressed = false;
+
+                                          context.read<EventBloc>().add(
+                                              EventEvent
+                                                  .createGameModeEntryEvent(
+                                                      eventId,
+                                                      optionsToShow[index]
+                                                          ['songId'],
+                                                      optionsToShow[index]
+                                                          ['artistUid']));
+
+                                          /// Update the count of appeared in option
+                                          context.read<EventBloc>().add(EventEvent
+                                              .updateAppearedInOptionCountEvent(
+                                                  optionsToShow[index]
+                                                      ['songId'],
+                                                  optionsToShow[index]
+                                                      ['artistUid']));
+
                                           AudioPlayer optionAudioPlayer =
                                               AudioPlayer();
-                                          // int i = 0;
-                                          // for (i = 0;
-                                          //     i <= (optionsToShow.length);
-                                          //     i++) {}
+
                                           if (index == 0) {
                                             optionAudioPlayer.play(
                                                 optionsToShow[0]['songUrl']);
                                             Future.delayed(
-                                                const Duration(seconds: 15),
+                                                const Duration(seconds: 20),
                                                 () {
                                               optionAudioPlayer.stop();
-                                              optionAudioPlayer.play(
-                                                  optionsToShow[1]['songUrl']);
-                                              // AutoRouter.of(context).pop();
+
+                                              /// Show a text message that Voting has started after the song preview
+                                              context.read<EventBloc>().add(
+                                                  EventEvent
+                                                      .votingStartedEvent());
                                             });
 
                                             // optionAudioPlayer.stop();
                                             Future.delayed(
-                                                Duration(seconds: 40), () {
+                                                Duration(seconds: 30), () {
+                                              optionAudioPlayer.stop();
+                                            });
+
+                                            Future.delayed(
+                                                Duration(seconds: 35), () {
                                               ///Enabling this code will pop the showDIalog
                                               // AutoRouter.of(context).pop();
+                                              showWinner = true;
+                                              context.read<EventBloc>().add(
+                                                      EventEvent
+                                                          .showWinnerEvent(
+                                                    eventId,
+                                                    optionsToShow[index]
+                                                        ['songId'],
+                                                  ));
+                                              print(
+                                                  'NOW PRINTING AFTEREVENT <----');
                                             });
                                           }
-
-                                          Future.delayed(Duration(seconds: 30),
-                                              () {
-                                            optionAudioPlayer.stop();
-                                          });
 
                                           return Card(
                                             child: ListTile(
@@ -346,7 +370,8 @@ class SongsPlayer extends StatelessWidget {
                                                           const EdgeInsets.all(
                                                               4.0),
                                                       child: Text(
-                                                        "OPTION - ${index + 1}",
+                                                        // "OPTION - ${index + 1}",
+                                                        'SONG',
                                                         style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -358,6 +383,7 @@ class SongsPlayer extends StatelessWidget {
                                                   SizedBox(height: 8),
                                                   Text(
                                                     '${optionsToShow[index]['title'].split('.')[0]}',
+                                                    // '${optionsToShow[index]['title'].split('.')[0]} \n ${optionsToShow[index]}',
                                                     style: TextStyle(
                                                         fontSize: 14,
                                                         fontWeight:
@@ -377,6 +403,22 @@ class SongsPlayer extends StatelessWidget {
                                                       /// API call will be made to capture the user Id and the option thata they selected.
                                                       /// Game-Mode closes in 10 seconds so the user will have option to change their votes till then.
                                                       /// The votes will be used to generate the report for the Artist.
+
+                                                      context
+                                                          .read<EventBloc>()
+                                                          .add(
+                                                            EventEvent
+                                                                .gameModeVoteEvent(
+                                                              optionsToShow[
+                                                                      index]
+                                                                  ['songId'],
+                                                              optionsToShow[
+                                                                      index]
+                                                                  ['artistUid'],
+                                                              'sentiment_very_dissatisfied',
+                                                            ),
+                                                          );
+
                                                       print(
                                                           'sentiment_very_dissatisfied');
                                                     },
@@ -388,20 +430,49 @@ class SongsPlayer extends StatelessWidget {
                                                           Colors.red.shade800,
                                                     ),
                                                   ),
+                                                  // IconButton(
+                                                  //   onPressed: () {
+                                                  //     context
+                                                  //         .read<EventBloc>()
+                                                  //         .add(
+                                                  //           EventEvent
+                                                  //               .gameModeVoteEvent(
+                                                  //             optionsToShow[
+                                                  //                     index]
+                                                  //                 ['songId'],
+                                                  //             optionsToShow[
+                                                  //                     index]
+                                                  //                 ['artistUid'],
+                                                  //             'sentiment_neutral',
+                                                  //           ),
+                                                  //         );
+                                                  //     print(
+                                                  //         'sentiment_neutral');
+                                                  //   },
+                                                  //   icon: Icon(
+                                                  //     Icons.sentiment_neutral,
+                                                  //     size: 32,
+                                                  //     color: Colors
+                                                  //         .blueGrey.shade800,
+                                                  //   ),
+                                                  // ),
                                                   IconButton(
                                                     onPressed: () {
-                                                      print(
-                                                          'sentiment_neutral');
-                                                    },
-                                                    icon: Icon(
-                                                      Icons.sentiment_neutral,
-                                                      size: 32,
-                                                      color: Colors
-                                                          .blueGrey.shade800,
-                                                    ),
-                                                  ),
-                                                  IconButton(
-                                                    onPressed: () {
+                                                      context
+                                                          .read<EventBloc>()
+                                                          .add(
+                                                            EventEvent
+                                                                .gameModeVoteEvent(
+                                                              optionsToShow[
+                                                                      index]
+                                                                  ['songId'],
+                                                              optionsToShow[
+                                                                      index]
+                                                                  ['artistUid'],
+                                                              'sentiment_very_satisfied',
+                                                            ),
+                                                          );
+
                                                       print(
                                                           'sentiment_very_satisfied');
                                                     },
@@ -437,6 +508,111 @@ class SongsPlayer extends StatelessWidget {
                                 //     return Container();
                                 //   },
                                 // ),
+                                BlocBuilder<EventBloc, EventState>(
+                                  builder: (context, state) {
+                                    return context
+                                        .read<EventBloc>()
+                                        .state
+                                        .maybeMap(showWinnerState: (_) {
+                                      print('NOW PRINTING STATE <----');
+                                      // return Text('Winner is .... ${_.winner}',
+                                      //     style: TextStyle(fontSize: 40));
+
+                                      return Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .sentiment_very_dissatisfied,
+                                                    size: 32,
+                                                    color: Colors.red.shade800,
+                                                  ),
+                                                  Text(_.winner[2].toString())
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .sentiment_very_satisfied,
+                                                    size: 32,
+                                                    color:
+                                                        Colors.green.shade800,
+                                                  ),
+                                                  Text(_.winner[1].toString())
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          Text('... and the winner is ...',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 20,
+                                                color: Colors.green,
+                                              )),
+                                          SizedBox(height: 10),
+                                          Center(
+                                            child: Card(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Row(
+                                                  children: [
+                                                    CircleAvatar(
+                                                      backgroundImage:
+                                                          NetworkImage(
+                                                              _.winner[0]
+                                                                  ['photoUrl']),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                            '${_.winner[0]['displayName']}',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500)),
+                                                        Text(
+                                                            '${_.winner[0]['email']}',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500))
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+
+                                      // return showWinner == true
+                                      //     ? Text('Winner is ....')
+                                      //     : Text('Waiting');
+                                    }, votingStartedState: (_) {
+                                      return Center(
+                                          child: Text(
+                                              'Voting Closes in 10 seconds'));
+                                      // child: Text(
+                                      //     'Voting Closes in 10 seconds${_.timerValue}'));
+                                    }, orElse: () {
+                                      return Container();
+                                    });
+                                  },
+                                ),
                               ],
                             );
                           },

@@ -27,6 +27,8 @@ class EventPage extends StatelessWidget {
     context
         .read<EventBloc>()
         .add(EventEvent.started(data.data.data['creatorId']));
+
+    print('~~~~~~~> EVENT DATA ${data.data.data['eventId']} ');
     context.read<EventBloc>().state.maybeMap(showFetchedSongs: (received) {
       songList = received.showFetchedSongs;
     }, orElse: () {
@@ -62,6 +64,18 @@ class EventPage extends StatelessWidget {
                 currentUser = receivedUserId.userId;
               },
               displayFetchedSongs: (displayFetchedSongs) {},
+              gameModeVoteState: (_) {},
+              updateAppearedInOptionCountState: (value) {
+                return Text('${value.updatedCountInOption}');
+              },
+              showWinnerState: (_) {
+                return Text('WINNER');
+              },
+              createGameModeEntryState: (_) {},
+              votingStartedState: (_) {
+                print('TIMER VALUE Listener  ~~~~> ${_.timerValue}');
+                return Container();
+              },
             );
           },
         ),
@@ -72,13 +86,20 @@ class EventPage extends StatelessWidget {
         ),
         body: BlocBuilder<EventBloc, EventState>(
           builder: (context, state) {
-            context
-                .read<EventBloc>()
-                .add(EventEvent.started(data.data.data['creatorId']));
+            //VIKAS
+            // context
+            //     .read<EventBloc>()
+            //     .add(EventEvent.started(data.data.data['creatorId']));
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  SongsPlayer(audioPlayer: audioPlayer, songList: songList),
+                  SizedBox(
+                    height: height / 2,
+                    child: SongsPlayer(
+                        audioPlayer: audioPlayer,
+                        songList: songList,
+                        eventData: data),
+                  ),
                   context.read<EventBloc>().state.map(
                     showFetchedSongs: (received) {
                       return SingleChildScrollView(
@@ -209,6 +230,7 @@ class EventPage extends StatelessWidget {
                     },
                     incrementedVoteCount: (updatedVoteCount) {
                       // songList = [];
+                      //VIKAS
                       context
                           .read<EventBloc>()
                           .add(EventEvent.started(data.data.data['creatorId']));
@@ -216,6 +238,21 @@ class EventPage extends StatelessWidget {
                       return Container();
                     },
                     initial: (_) {
+                      return Container();
+                    },
+                    gameModeVoteState: (_) {
+                      return Container();
+                    },
+                    updateAppearedInOptionCountState: (value) {
+                      return Text('${value.updatedCountInOption}');
+                    },
+                    showWinnerState: (_) {
+                      return Text('WINNER');
+                    },
+                    createGameModeEntryState: (_) {
+                      return Container();
+                    },
+                    votingStartedState: (_) {
                       return Container();
                     },
                   ),

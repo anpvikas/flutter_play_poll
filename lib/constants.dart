@@ -20,7 +20,7 @@ BoxShadow boxBotomShadow = BoxShadow(
   ),
 );
 
-Gradient forContainerLinear = LinearGradient(
+Gradient forContainerLinear_backup = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
   // center: Alignment.bottomLeft,
@@ -30,6 +30,19 @@ Gradient forContainerLinear = LinearGradient(
     Colors.orange[100]!.withOpacity(0.6),
     Colors.purple[100]!.withOpacity(0.5),
     Colors.blueAccent[100]!.withOpacity(0.9),
+  ],
+);
+
+Gradient forContainerLinear = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  // center: Alignment.bottomLeft,
+  stops: [0.01, 0.5, 0.8, 1],
+  colors: [
+    Colors.blueAccent.withOpacity(0.8),
+    Colors.grey[100]!.withOpacity(0.6),
+    Colors.blueGrey[100]!.withOpacity(0.5),
+    Colors.blue[100]!.withOpacity(0.9),
   ],
 );
 

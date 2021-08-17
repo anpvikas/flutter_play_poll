@@ -46,6 +46,42 @@ class EventBloc extends Bloc<EventEvent, EventState> {
         dynamic userId = _eventRepository.getCurrentUserId();
         yield EventState.getSignedInUserState(userId.toString());
       },
+      gameModeVoteEvent: (e) async* {
+        await _eventRepository.registerGameModeVote(
+            e.songId, e.artistUid, e.voteSmiley);
+        yield EventState.gameModeVoteState();
+      },
+      updateAppearedInOptionCountEvent: (e) async* {
+        dynamic updatedCount =
+            _eventRepository.updateAppearedInOptionCount(e.songId, e.artistUid);
+        yield EventState.updateAppearedInOptionCountState(updatedCount);
+      },
+      showWinnerEvent: (e) async* {
+        dynamic selectedWinner =
+            await _eventRepository.decideGameModeWinner(e.eventId, e.songId);
+        yield EventState.showWinnerState(selectedWinner);
+      },
+      createGameModeEntryEvent: (e) async* {
+        await _eventRepository.createGameModeEntry(
+            e.eventId, e.songId, e.artistUid);
+        yield EventState.createGameModeEntryState();
+      },
+      votingStartedEvent: (e) async* {
+        int value = 10;
+        int output = 0;
+        Timer votingTimer = Timer.periodic(Duration(seconds: 1), (votingTimer) {
+          value = value - 1;
+          print('FROM TIMER ----> $value');
+          print(votingTimer.tick.toString());
+          output = value;
+
+          if (value == 0) {
+            votingTimer.cancel();
+          }
+        });
+
+        yield EventState.votingStartedState(votingTimer.tick.toString());
+      },
     );
   }
 }

@@ -12,8 +12,16 @@ abstract class IEventRepository {
 
   Future registerVote(String songId, String uid);
   Future resetVoteToZero(String songId, String uid);
-
   String getCurrentUserId();
+
+  Future createGameModeEntry(String eventId, String songId, String artistUid);
+  Future registerGameModeVote(
+      String songId, String artistUid, String voteSmiley);
+  Future decideGameModeWinner(String eventId, String songId);
+
+  Future artistReport();
+
+  Future updateAppearedInOptionCount(String songId, String uid);
 
   // Future<Either<EventFailure, Unit>> search(String event);
   Future allEventsFetched();

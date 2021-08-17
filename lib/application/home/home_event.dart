@@ -16,4 +16,6 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.onUploadPageEvent() = _OnUploadPageEvent;
   const factory HomeEvent.uploadArtistEventClicked() = _UploadArtistEventClicked;
   const factory HomeEvent.onUploadArtistPageEvent() = _OnUploadArtistPageEvent;
+  const factory HomeEvent.viewReportEventClicked() = _ViewReportEventClicked;
+  const factory HomeEvent.onViewReportPageEvent() = _OnViewReportPageEvent;
 }

@@ -38,6 +38,43 @@ class _$EventEventTearOff {
   _GetSignedInUserEvent getSignedInUserEvent() {
     return const _GetSignedInUserEvent();
   }
+
+  _GameModeVoteEvent gameModeVoteEvent(
+      String songId, String artistUid, String voteSmiley) {
+    return _GameModeVoteEvent(
+      songId,
+      artistUid,
+      voteSmiley,
+    );
+  }
+
+  _UpdateAppearedInOptionCountEvent updateAppearedInOptionCountEvent(
+      String songId, String artistUid) {
+    return _UpdateAppearedInOptionCountEvent(
+      songId,
+      artistUid,
+    );
+  }
+
+  _CreateGameModeEntryEvent createGameModeEntryEvent(
+      String eventId, String songId, String artistUid) {
+    return _CreateGameModeEntryEvent(
+      eventId,
+      songId,
+      artistUid,
+    );
+  }
+
+  _VotingStartedEvent votingStartedEvent() {
+    return const _VotingStartedEvent();
+  }
+
+  _ShowWinnerEvent showWinnerEvent(String eventId, String songId) {
+    return _ShowWinnerEvent(
+      eventId,
+      songId,
+    );
+  }
 }
 
 /// @nodoc
@@ -51,6 +88,15 @@ mixin _$EventEvent {
     required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +105,14 @@ mixin _$EventEvent {
     TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +122,13 @@ mixin _$EventEvent {
     required TResult Function(_DisplaySongs value) displaySongs,
     required TResult Function(_IncrementVoteCount value) incrementVoteCount,
     required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +137,12 @@ mixin _$EventEvent {
     TResult Function(_DisplaySongs value)? displaySongs,
     TResult Function(_IncrementVoteCount value)? incrementVoteCount,
     TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +230,15 @@ class _$_Started implements _Started {
     required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
   }) {
     return started(data);
   }
@@ -174,6 +250,14 @@ class _$_Started implements _Started {
     TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -189,6 +273,13 @@ class _$_Started implements _Started {
     required TResult Function(_DisplaySongs value) displaySongs,
     required TResult Function(_IncrementVoteCount value) incrementVoteCount,
     required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
   }) {
     return started(this);
   }
@@ -200,6 +291,12 @@ class _$_Started implements _Started {
     TResult Function(_DisplaySongs value)? displaySongs,
     TResult Function(_IncrementVoteCount value)? incrementVoteCount,
     TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -286,6 +383,15 @@ class _$_DisplaySongs implements _DisplaySongs {
     required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
   }) {
     return displaySongs(data);
   }
@@ -297,6 +403,14 @@ class _$_DisplaySongs implements _DisplaySongs {
     TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (displaySongs != null) {
@@ -312,6 +426,13 @@ class _$_DisplaySongs implements _DisplaySongs {
     required TResult Function(_DisplaySongs value) displaySongs,
     required TResult Function(_IncrementVoteCount value) incrementVoteCount,
     required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
   }) {
     return displaySongs(this);
   }
@@ -323,6 +444,12 @@ class _$_DisplaySongs implements _DisplaySongs {
     TResult Function(_DisplaySongs value)? displaySongs,
     TResult Function(_IncrementVoteCount value)? incrementVoteCount,
     TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (displaySongs != null) {
@@ -421,6 +548,15 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
     required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
   }) {
     return incrementVoteCount(songId, uid);
   }
@@ -432,6 +568,14 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
     TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (incrementVoteCount != null) {
@@ -447,6 +591,13 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
     required TResult Function(_DisplaySongs value) displaySongs,
     required TResult Function(_IncrementVoteCount value) incrementVoteCount,
     required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
   }) {
     return incrementVoteCount(this);
   }
@@ -458,6 +609,12 @@ class _$_IncrementVoteCount implements _IncrementVoteCount {
     TResult Function(_DisplaySongs value)? displaySongs,
     TResult Function(_IncrementVoteCount value)? incrementVoteCount,
     TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (incrementVoteCount != null) {
@@ -522,6 +679,15 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
     required TResult Function(dynamic data) displaySongs,
     required TResult Function(String songId, String uid) incrementVoteCount,
     required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
   }) {
     return getSignedInUserEvent();
   }
@@ -533,6 +699,14 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
     TResult Function(dynamic data)? displaySongs,
     TResult Function(String songId, String uid)? incrementVoteCount,
     TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (getSignedInUserEvent != null) {
@@ -548,6 +722,13 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
     required TResult Function(_DisplaySongs value) displaySongs,
     required TResult Function(_IncrementVoteCount value) incrementVoteCount,
     required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
   }) {
     return getSignedInUserEvent(this);
   }
@@ -559,6 +740,12 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
     TResult Function(_DisplaySongs value)? displaySongs,
     TResult Function(_IncrementVoteCount value)? incrementVoteCount,
     TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
     required TResult orElse(),
   }) {
     if (getSignedInUserEvent != null) {
@@ -570,6 +757,835 @@ class _$_GetSignedInUserEvent implements _GetSignedInUserEvent {
 
 abstract class _GetSignedInUserEvent implements EventEvent {
   const factory _GetSignedInUserEvent() = _$_GetSignedInUserEvent;
+}
+
+/// @nodoc
+abstract class _$GameModeVoteEventCopyWith<$Res> {
+  factory _$GameModeVoteEventCopyWith(
+          _GameModeVoteEvent value, $Res Function(_GameModeVoteEvent) then) =
+      __$GameModeVoteEventCopyWithImpl<$Res>;
+  $Res call({String songId, String artistUid, String voteSmiley});
+}
+
+/// @nodoc
+class __$GameModeVoteEventCopyWithImpl<$Res>
+    extends _$EventEventCopyWithImpl<$Res>
+    implements _$GameModeVoteEventCopyWith<$Res> {
+  __$GameModeVoteEventCopyWithImpl(
+      _GameModeVoteEvent _value, $Res Function(_GameModeVoteEvent) _then)
+      : super(_value, (v) => _then(v as _GameModeVoteEvent));
+
+  @override
+  _GameModeVoteEvent get _value => super._value as _GameModeVoteEvent;
+
+  @override
+  $Res call({
+    Object? songId = freezed,
+    Object? artistUid = freezed,
+    Object? voteSmiley = freezed,
+  }) {
+    return _then(_GameModeVoteEvent(
+      songId == freezed
+          ? _value.songId
+          : songId // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistUid == freezed
+          ? _value.artistUid
+          : artistUid // ignore: cast_nullable_to_non_nullable
+              as String,
+      voteSmiley == freezed
+          ? _value.voteSmiley
+          : voteSmiley // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GameModeVoteEvent implements _GameModeVoteEvent {
+  const _$_GameModeVoteEvent(this.songId, this.artistUid, this.voteSmiley);
+
+  @override
+  final String songId;
+  @override
+  final String artistUid;
+  @override
+  final String voteSmiley;
+
+  @override
+  String toString() {
+    return 'EventEvent.gameModeVoteEvent(songId: $songId, artistUid: $artistUid, voteSmiley: $voteSmiley)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _GameModeVoteEvent &&
+            (identical(other.songId, songId) ||
+                const DeepCollectionEquality().equals(other.songId, songId)) &&
+            (identical(other.artistUid, artistUid) ||
+                const DeepCollectionEquality()
+                    .equals(other.artistUid, artistUid)) &&
+            (identical(other.voteSmiley, voteSmiley) ||
+                const DeepCollectionEquality()
+                    .equals(other.voteSmiley, voteSmiley)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(songId) ^
+      const DeepCollectionEquality().hash(artistUid) ^
+      const DeepCollectionEquality().hash(voteSmiley);
+
+  @JsonKey(ignore: true)
+  @override
+  _$GameModeVoteEventCopyWith<_GameModeVoteEvent> get copyWith =>
+      __$GameModeVoteEventCopyWithImpl<_GameModeVoteEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic data) started,
+    required TResult Function(dynamic data) displaySongs,
+    required TResult Function(String songId, String uid) incrementVoteCount,
+    required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
+  }) {
+    return gameModeVoteEvent(songId, artistUid, voteSmiley);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic data)? started,
+    TResult Function(dynamic data)? displaySongs,
+    TResult Function(String songId, String uid)? incrementVoteCount,
+    TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (gameModeVoteEvent != null) {
+      return gameModeVoteEvent(songId, artistUid, voteSmiley);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DisplaySongs value) displaySongs,
+    required TResult Function(_IncrementVoteCount value) incrementVoteCount,
+    required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
+  }) {
+    return gameModeVoteEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DisplaySongs value)? displaySongs,
+    TResult Function(_IncrementVoteCount value)? incrementVoteCount,
+    TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (gameModeVoteEvent != null) {
+      return gameModeVoteEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GameModeVoteEvent implements EventEvent {
+  const factory _GameModeVoteEvent(
+          String songId, String artistUid, String voteSmiley) =
+      _$_GameModeVoteEvent;
+
+  String get songId => throw _privateConstructorUsedError;
+  String get artistUid => throw _privateConstructorUsedError;
+  String get voteSmiley => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$GameModeVoteEventCopyWith<_GameModeVoteEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UpdateAppearedInOptionCountEventCopyWith<$Res> {
+  factory _$UpdateAppearedInOptionCountEventCopyWith(
+          _UpdateAppearedInOptionCountEvent value,
+          $Res Function(_UpdateAppearedInOptionCountEvent) then) =
+      __$UpdateAppearedInOptionCountEventCopyWithImpl<$Res>;
+  $Res call({String songId, String artistUid});
+}
+
+/// @nodoc
+class __$UpdateAppearedInOptionCountEventCopyWithImpl<$Res>
+    extends _$EventEventCopyWithImpl<$Res>
+    implements _$UpdateAppearedInOptionCountEventCopyWith<$Res> {
+  __$UpdateAppearedInOptionCountEventCopyWithImpl(
+      _UpdateAppearedInOptionCountEvent _value,
+      $Res Function(_UpdateAppearedInOptionCountEvent) _then)
+      : super(_value, (v) => _then(v as _UpdateAppearedInOptionCountEvent));
+
+  @override
+  _UpdateAppearedInOptionCountEvent get _value =>
+      super._value as _UpdateAppearedInOptionCountEvent;
+
+  @override
+  $Res call({
+    Object? songId = freezed,
+    Object? artistUid = freezed,
+  }) {
+    return _then(_UpdateAppearedInOptionCountEvent(
+      songId == freezed
+          ? _value.songId
+          : songId // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistUid == freezed
+          ? _value.artistUid
+          : artistUid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateAppearedInOptionCountEvent
+    implements _UpdateAppearedInOptionCountEvent {
+  const _$_UpdateAppearedInOptionCountEvent(this.songId, this.artistUid);
+
+  @override
+  final String songId;
+  @override
+  final String artistUid;
+
+  @override
+  String toString() {
+    return 'EventEvent.updateAppearedInOptionCountEvent(songId: $songId, artistUid: $artistUid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateAppearedInOptionCountEvent &&
+            (identical(other.songId, songId) ||
+                const DeepCollectionEquality().equals(other.songId, songId)) &&
+            (identical(other.artistUid, artistUid) ||
+                const DeepCollectionEquality()
+                    .equals(other.artistUid, artistUid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(songId) ^
+      const DeepCollectionEquality().hash(artistUid);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateAppearedInOptionCountEventCopyWith<_UpdateAppearedInOptionCountEvent>
+      get copyWith => __$UpdateAppearedInOptionCountEventCopyWithImpl<
+          _UpdateAppearedInOptionCountEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic data) started,
+    required TResult Function(dynamic data) displaySongs,
+    required TResult Function(String songId, String uid) incrementVoteCount,
+    required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
+  }) {
+    return updateAppearedInOptionCountEvent(songId, artistUid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic data)? started,
+    TResult Function(dynamic data)? displaySongs,
+    TResult Function(String songId, String uid)? incrementVoteCount,
+    TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (updateAppearedInOptionCountEvent != null) {
+      return updateAppearedInOptionCountEvent(songId, artistUid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DisplaySongs value) displaySongs,
+    required TResult Function(_IncrementVoteCount value) incrementVoteCount,
+    required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
+  }) {
+    return updateAppearedInOptionCountEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DisplaySongs value)? displaySongs,
+    TResult Function(_IncrementVoteCount value)? incrementVoteCount,
+    TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (updateAppearedInOptionCountEvent != null) {
+      return updateAppearedInOptionCountEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAppearedInOptionCountEvent implements EventEvent {
+  const factory _UpdateAppearedInOptionCountEvent(
+      String songId, String artistUid) = _$_UpdateAppearedInOptionCountEvent;
+
+  String get songId => throw _privateConstructorUsedError;
+  String get artistUid => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateAppearedInOptionCountEventCopyWith<_UpdateAppearedInOptionCountEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$CreateGameModeEntryEventCopyWith<$Res> {
+  factory _$CreateGameModeEntryEventCopyWith(_CreateGameModeEntryEvent value,
+          $Res Function(_CreateGameModeEntryEvent) then) =
+      __$CreateGameModeEntryEventCopyWithImpl<$Res>;
+  $Res call({String eventId, String songId, String artistUid});
+}
+
+/// @nodoc
+class __$CreateGameModeEntryEventCopyWithImpl<$Res>
+    extends _$EventEventCopyWithImpl<$Res>
+    implements _$CreateGameModeEntryEventCopyWith<$Res> {
+  __$CreateGameModeEntryEventCopyWithImpl(_CreateGameModeEntryEvent _value,
+      $Res Function(_CreateGameModeEntryEvent) _then)
+      : super(_value, (v) => _then(v as _CreateGameModeEntryEvent));
+
+  @override
+  _CreateGameModeEntryEvent get _value =>
+      super._value as _CreateGameModeEntryEvent;
+
+  @override
+  $Res call({
+    Object? eventId = freezed,
+    Object? songId = freezed,
+    Object? artistUid = freezed,
+  }) {
+    return _then(_CreateGameModeEntryEvent(
+      eventId == freezed
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
+              as String,
+      songId == freezed
+          ? _value.songId
+          : songId // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistUid == freezed
+          ? _value.artistUid
+          : artistUid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreateGameModeEntryEvent implements _CreateGameModeEntryEvent {
+  const _$_CreateGameModeEntryEvent(this.eventId, this.songId, this.artistUid);
+
+  @override
+  final String eventId;
+  @override
+  final String songId;
+  @override
+  final String artistUid;
+
+  @override
+  String toString() {
+    return 'EventEvent.createGameModeEntryEvent(eventId: $eventId, songId: $songId, artistUid: $artistUid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _CreateGameModeEntryEvent &&
+            (identical(other.eventId, eventId) ||
+                const DeepCollectionEquality()
+                    .equals(other.eventId, eventId)) &&
+            (identical(other.songId, songId) ||
+                const DeepCollectionEquality().equals(other.songId, songId)) &&
+            (identical(other.artistUid, artistUid) ||
+                const DeepCollectionEquality()
+                    .equals(other.artistUid, artistUid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(eventId) ^
+      const DeepCollectionEquality().hash(songId) ^
+      const DeepCollectionEquality().hash(artistUid);
+
+  @JsonKey(ignore: true)
+  @override
+  _$CreateGameModeEntryEventCopyWith<_CreateGameModeEntryEvent> get copyWith =>
+      __$CreateGameModeEntryEventCopyWithImpl<_CreateGameModeEntryEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic data) started,
+    required TResult Function(dynamic data) displaySongs,
+    required TResult Function(String songId, String uid) incrementVoteCount,
+    required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
+  }) {
+    return createGameModeEntryEvent(eventId, songId, artistUid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic data)? started,
+    TResult Function(dynamic data)? displaySongs,
+    TResult Function(String songId, String uid)? incrementVoteCount,
+    TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (createGameModeEntryEvent != null) {
+      return createGameModeEntryEvent(eventId, songId, artistUid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DisplaySongs value) displaySongs,
+    required TResult Function(_IncrementVoteCount value) incrementVoteCount,
+    required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
+  }) {
+    return createGameModeEntryEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DisplaySongs value)? displaySongs,
+    TResult Function(_IncrementVoteCount value)? incrementVoteCount,
+    TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (createGameModeEntryEvent != null) {
+      return createGameModeEntryEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateGameModeEntryEvent implements EventEvent {
+  const factory _CreateGameModeEntryEvent(
+          String eventId, String songId, String artistUid) =
+      _$_CreateGameModeEntryEvent;
+
+  String get eventId => throw _privateConstructorUsedError;
+  String get songId => throw _privateConstructorUsedError;
+  String get artistUid => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$CreateGameModeEntryEventCopyWith<_CreateGameModeEntryEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$VotingStartedEventCopyWith<$Res> {
+  factory _$VotingStartedEventCopyWith(
+          _VotingStartedEvent value, $Res Function(_VotingStartedEvent) then) =
+      __$VotingStartedEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$VotingStartedEventCopyWithImpl<$Res>
+    extends _$EventEventCopyWithImpl<$Res>
+    implements _$VotingStartedEventCopyWith<$Res> {
+  __$VotingStartedEventCopyWithImpl(
+      _VotingStartedEvent _value, $Res Function(_VotingStartedEvent) _then)
+      : super(_value, (v) => _then(v as _VotingStartedEvent));
+
+  @override
+  _VotingStartedEvent get _value => super._value as _VotingStartedEvent;
+}
+
+/// @nodoc
+
+class _$_VotingStartedEvent implements _VotingStartedEvent {
+  const _$_VotingStartedEvent();
+
+  @override
+  String toString() {
+    return 'EventEvent.votingStartedEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _VotingStartedEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic data) started,
+    required TResult Function(dynamic data) displaySongs,
+    required TResult Function(String songId, String uid) incrementVoteCount,
+    required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
+  }) {
+    return votingStartedEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic data)? started,
+    TResult Function(dynamic data)? displaySongs,
+    TResult Function(String songId, String uid)? incrementVoteCount,
+    TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (votingStartedEvent != null) {
+      return votingStartedEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DisplaySongs value) displaySongs,
+    required TResult Function(_IncrementVoteCount value) incrementVoteCount,
+    required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
+  }) {
+    return votingStartedEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DisplaySongs value)? displaySongs,
+    TResult Function(_IncrementVoteCount value)? incrementVoteCount,
+    TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (votingStartedEvent != null) {
+      return votingStartedEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VotingStartedEvent implements EventEvent {
+  const factory _VotingStartedEvent() = _$_VotingStartedEvent;
+}
+
+/// @nodoc
+abstract class _$ShowWinnerEventCopyWith<$Res> {
+  factory _$ShowWinnerEventCopyWith(
+          _ShowWinnerEvent value, $Res Function(_ShowWinnerEvent) then) =
+      __$ShowWinnerEventCopyWithImpl<$Res>;
+  $Res call({String eventId, String songId});
+}
+
+/// @nodoc
+class __$ShowWinnerEventCopyWithImpl<$Res>
+    extends _$EventEventCopyWithImpl<$Res>
+    implements _$ShowWinnerEventCopyWith<$Res> {
+  __$ShowWinnerEventCopyWithImpl(
+      _ShowWinnerEvent _value, $Res Function(_ShowWinnerEvent) _then)
+      : super(_value, (v) => _then(v as _ShowWinnerEvent));
+
+  @override
+  _ShowWinnerEvent get _value => super._value as _ShowWinnerEvent;
+
+  @override
+  $Res call({
+    Object? eventId = freezed,
+    Object? songId = freezed,
+  }) {
+    return _then(_ShowWinnerEvent(
+      eventId == freezed
+          ? _value.eventId
+          : eventId // ignore: cast_nullable_to_non_nullable
+              as String,
+      songId == freezed
+          ? _value.songId
+          : songId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ShowWinnerEvent implements _ShowWinnerEvent {
+  const _$_ShowWinnerEvent(this.eventId, this.songId);
+
+  @override
+  final String eventId;
+  @override
+  final String songId;
+
+  @override
+  String toString() {
+    return 'EventEvent.showWinnerEvent(eventId: $eventId, songId: $songId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ShowWinnerEvent &&
+            (identical(other.eventId, eventId) ||
+                const DeepCollectionEquality()
+                    .equals(other.eventId, eventId)) &&
+            (identical(other.songId, songId) ||
+                const DeepCollectionEquality().equals(other.songId, songId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(eventId) ^
+      const DeepCollectionEquality().hash(songId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ShowWinnerEventCopyWith<_ShowWinnerEvent> get copyWith =>
+      __$ShowWinnerEventCopyWithImpl<_ShowWinnerEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(dynamic data) started,
+    required TResult Function(dynamic data) displaySongs,
+    required TResult Function(String songId, String uid) incrementVoteCount,
+    required TResult Function() getSignedInUserEvent,
+    required TResult Function(
+            String songId, String artistUid, String voteSmiley)
+        gameModeVoteEvent,
+    required TResult Function(String songId, String artistUid)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(String eventId, String songId, String artistUid)
+        createGameModeEntryEvent,
+    required TResult Function() votingStartedEvent,
+    required TResult Function(String eventId, String songId) showWinnerEvent,
+  }) {
+    return showWinnerEvent(eventId, songId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(dynamic data)? started,
+    TResult Function(dynamic data)? displaySongs,
+    TResult Function(String songId, String uid)? incrementVoteCount,
+    TResult Function()? getSignedInUserEvent,
+    TResult Function(String songId, String artistUid, String voteSmiley)?
+        gameModeVoteEvent,
+    TResult Function(String songId, String artistUid)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(String eventId, String songId, String artistUid)?
+        createGameModeEntryEvent,
+    TResult Function()? votingStartedEvent,
+    TResult Function(String eventId, String songId)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (showWinnerEvent != null) {
+      return showWinnerEvent(eventId, songId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DisplaySongs value) displaySongs,
+    required TResult Function(_IncrementVoteCount value) incrementVoteCount,
+    required TResult Function(_GetSignedInUserEvent value) getSignedInUserEvent,
+    required TResult Function(_GameModeVoteEvent value) gameModeVoteEvent,
+    required TResult Function(_UpdateAppearedInOptionCountEvent value)
+        updateAppearedInOptionCountEvent,
+    required TResult Function(_CreateGameModeEntryEvent value)
+        createGameModeEntryEvent,
+    required TResult Function(_VotingStartedEvent value) votingStartedEvent,
+    required TResult Function(_ShowWinnerEvent value) showWinnerEvent,
+  }) {
+    return showWinnerEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DisplaySongs value)? displaySongs,
+    TResult Function(_IncrementVoteCount value)? incrementVoteCount,
+    TResult Function(_GetSignedInUserEvent value)? getSignedInUserEvent,
+    TResult Function(_GameModeVoteEvent value)? gameModeVoteEvent,
+    TResult Function(_UpdateAppearedInOptionCountEvent value)?
+        updateAppearedInOptionCountEvent,
+    TResult Function(_CreateGameModeEntryEvent value)? createGameModeEntryEvent,
+    TResult Function(_VotingStartedEvent value)? votingStartedEvent,
+    TResult Function(_ShowWinnerEvent value)? showWinnerEvent,
+    required TResult orElse(),
+  }) {
+    if (showWinnerEvent != null) {
+      return showWinnerEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowWinnerEvent implements EventEvent {
+  const factory _ShowWinnerEvent(String eventId, String songId) =
+      _$_ShowWinnerEvent;
+
+  String get eventId => throw _privateConstructorUsedError;
+  String get songId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ShowWinnerEventCopyWith<_ShowWinnerEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -603,6 +1619,33 @@ class _$EventStateTearOff {
       userId,
     );
   }
+
+  _GameModeVoteState gameModeVoteState() {
+    return const _GameModeVoteState();
+  }
+
+  _UpdateAppearedInOptionCountState updateAppearedInOptionCountState(
+      dynamic updatedCountInOption) {
+    return _UpdateAppearedInOptionCountState(
+      updatedCountInOption,
+    );
+  }
+
+  _CreateGameModeEntryState createGameModeEntryState() {
+    return const _CreateGameModeEntryState();
+  }
+
+  _VotingStartedState votingStartedState(String timerValue) {
+    return _VotingStartedState(
+      timerValue,
+    );
+  }
+
+  _ShowWinnerState showWinnerState(List<dynamic> winner) {
+    return _ShowWinnerState(
+      winner,
+    );
+  }
 }
 
 /// @nodoc
@@ -617,6 +1660,12 @@ mixin _$EventState {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -626,6 +1675,12 @@ mixin _$EventState {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -636,6 +1691,13 @@ mixin _$EventState {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -645,6 +1707,12 @@ mixin _$EventState {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -708,6 +1776,12 @@ class _$_Initial implements _Initial {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) {
     return initial();
   }
@@ -720,6 +1794,12 @@ class _$_Initial implements _Initial {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -736,6 +1816,13 @@ class _$_Initial implements _Initial {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) {
     return initial(this);
   }
@@ -748,6 +1835,12 @@ class _$_Initial implements _Initial {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -833,6 +1926,12 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) {
     return showFetchedSongs(this.showFetchedSongs);
   }
@@ -845,6 +1944,12 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) {
     if (showFetchedSongs != null) {
@@ -861,6 +1966,13 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) {
     return showFetchedSongs(this);
   }
@@ -873,6 +1985,12 @@ class _$_ShowFetchedSongs implements _ShowFetchedSongs {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) {
     if (showFetchedSongs != null) {
@@ -965,6 +2083,12 @@ class _$_DisplayFetchedSongs implements _DisplayFetchedSongs {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) {
     return displayFetchedSongs(this.displayFetchedSongs);
   }
@@ -977,6 +2101,12 @@ class _$_DisplayFetchedSongs implements _DisplayFetchedSongs {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) {
     if (displayFetchedSongs != null) {
@@ -993,6 +2123,13 @@ class _$_DisplayFetchedSongs implements _DisplayFetchedSongs {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) {
     return displayFetchedSongs(this);
   }
@@ -1005,6 +2142,12 @@ class _$_DisplayFetchedSongs implements _DisplayFetchedSongs {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) {
     if (displayFetchedSongs != null) {
@@ -1097,6 +2240,12 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) {
     return incrementedVoteCount(updatedVoteCount);
   }
@@ -1109,6 +2258,12 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) {
     if (incrementedVoteCount != null) {
@@ -1125,6 +2280,13 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) {
     return incrementedVoteCount(this);
   }
@@ -1137,6 +2299,12 @@ class _$_IncrementedVoteCount implements _IncrementedVoteCount {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) {
     if (incrementedVoteCount != null) {
@@ -1227,6 +2395,12 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
     required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
     required TResult Function(String updatedVoteCount) incrementedVoteCount,
     required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
   }) {
     return getSignedInUserState(userId);
   }
@@ -1239,6 +2413,12 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
     TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
     TResult Function(String updatedVoteCount)? incrementedVoteCount,
     TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
     required TResult orElse(),
   }) {
     if (getSignedInUserState != null) {
@@ -1255,6 +2435,13 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
     required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
     required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
     required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
   }) {
     return getSignedInUserState(this);
   }
@@ -1267,6 +2454,12 @@ class _$_GetSignedInUserState implements _GetSignedInUserState {
     TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
     TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
     TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
     required TResult orElse(),
   }) {
     if (getSignedInUserState != null) {
@@ -1282,5 +2475,720 @@ abstract class _GetSignedInUserState implements EventState {
   String get userId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$GetSignedInUserStateCopyWith<_GetSignedInUserState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$GameModeVoteStateCopyWith<$Res> {
+  factory _$GameModeVoteStateCopyWith(
+          _GameModeVoteState value, $Res Function(_GameModeVoteState) then) =
+      __$GameModeVoteStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$GameModeVoteStateCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$GameModeVoteStateCopyWith<$Res> {
+  __$GameModeVoteStateCopyWithImpl(
+      _GameModeVoteState _value, $Res Function(_GameModeVoteState) _then)
+      : super(_value, (v) => _then(v as _GameModeVoteState));
+
+  @override
+  _GameModeVoteState get _value => super._value as _GameModeVoteState;
+}
+
+/// @nodoc
+
+class _$_GameModeVoteState implements _GameModeVoteState {
+  const _$_GameModeVoteState();
+
+  @override
+  String toString() {
+    return 'EventState.gameModeVoteState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _GameModeVoteState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
+  }) {
+    return gameModeVoteState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (gameModeVoteState != null) {
+      return gameModeVoteState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
+  }) {
+    return gameModeVoteState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (gameModeVoteState != null) {
+      return gameModeVoteState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GameModeVoteState implements EventState {
+  const factory _GameModeVoteState() = _$_GameModeVoteState;
+}
+
+/// @nodoc
+abstract class _$UpdateAppearedInOptionCountStateCopyWith<$Res> {
+  factory _$UpdateAppearedInOptionCountStateCopyWith(
+          _UpdateAppearedInOptionCountState value,
+          $Res Function(_UpdateAppearedInOptionCountState) then) =
+      __$UpdateAppearedInOptionCountStateCopyWithImpl<$Res>;
+  $Res call({dynamic updatedCountInOption});
+}
+
+/// @nodoc
+class __$UpdateAppearedInOptionCountStateCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$UpdateAppearedInOptionCountStateCopyWith<$Res> {
+  __$UpdateAppearedInOptionCountStateCopyWithImpl(
+      _UpdateAppearedInOptionCountState _value,
+      $Res Function(_UpdateAppearedInOptionCountState) _then)
+      : super(_value, (v) => _then(v as _UpdateAppearedInOptionCountState));
+
+  @override
+  _UpdateAppearedInOptionCountState get _value =>
+      super._value as _UpdateAppearedInOptionCountState;
+
+  @override
+  $Res call({
+    Object? updatedCountInOption = freezed,
+  }) {
+    return _then(_UpdateAppearedInOptionCountState(
+      updatedCountInOption == freezed
+          ? _value.updatedCountInOption
+          : updatedCountInOption // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateAppearedInOptionCountState
+    implements _UpdateAppearedInOptionCountState {
+  const _$_UpdateAppearedInOptionCountState(this.updatedCountInOption);
+
+  @override
+  final dynamic updatedCountInOption;
+
+  @override
+  String toString() {
+    return 'EventState.updateAppearedInOptionCountState(updatedCountInOption: $updatedCountInOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateAppearedInOptionCountState &&
+            (identical(other.updatedCountInOption, updatedCountInOption) ||
+                const DeepCollectionEquality()
+                    .equals(other.updatedCountInOption, updatedCountInOption)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(updatedCountInOption);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateAppearedInOptionCountStateCopyWith<_UpdateAppearedInOptionCountState>
+      get copyWith => __$UpdateAppearedInOptionCountStateCopyWithImpl<
+          _UpdateAppearedInOptionCountState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
+  }) {
+    return updateAppearedInOptionCountState(updatedCountInOption);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (updateAppearedInOptionCountState != null) {
+      return updateAppearedInOptionCountState(updatedCountInOption);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
+  }) {
+    return updateAppearedInOptionCountState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (updateAppearedInOptionCountState != null) {
+      return updateAppearedInOptionCountState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAppearedInOptionCountState implements EventState {
+  const factory _UpdateAppearedInOptionCountState(
+      dynamic updatedCountInOption) = _$_UpdateAppearedInOptionCountState;
+
+  dynamic get updatedCountInOption => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateAppearedInOptionCountStateCopyWith<_UpdateAppearedInOptionCountState>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$CreateGameModeEntryStateCopyWith<$Res> {
+  factory _$CreateGameModeEntryStateCopyWith(_CreateGameModeEntryState value,
+          $Res Function(_CreateGameModeEntryState) then) =
+      __$CreateGameModeEntryStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$CreateGameModeEntryStateCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$CreateGameModeEntryStateCopyWith<$Res> {
+  __$CreateGameModeEntryStateCopyWithImpl(_CreateGameModeEntryState _value,
+      $Res Function(_CreateGameModeEntryState) _then)
+      : super(_value, (v) => _then(v as _CreateGameModeEntryState));
+
+  @override
+  _CreateGameModeEntryState get _value =>
+      super._value as _CreateGameModeEntryState;
+}
+
+/// @nodoc
+
+class _$_CreateGameModeEntryState implements _CreateGameModeEntryState {
+  const _$_CreateGameModeEntryState();
+
+  @override
+  String toString() {
+    return 'EventState.createGameModeEntryState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _CreateGameModeEntryState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
+  }) {
+    return createGameModeEntryState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (createGameModeEntryState != null) {
+      return createGameModeEntryState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
+  }) {
+    return createGameModeEntryState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (createGameModeEntryState != null) {
+      return createGameModeEntryState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateGameModeEntryState implements EventState {
+  const factory _CreateGameModeEntryState() = _$_CreateGameModeEntryState;
+}
+
+/// @nodoc
+abstract class _$VotingStartedStateCopyWith<$Res> {
+  factory _$VotingStartedStateCopyWith(
+          _VotingStartedState value, $Res Function(_VotingStartedState) then) =
+      __$VotingStartedStateCopyWithImpl<$Res>;
+  $Res call({String timerValue});
+}
+
+/// @nodoc
+class __$VotingStartedStateCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$VotingStartedStateCopyWith<$Res> {
+  __$VotingStartedStateCopyWithImpl(
+      _VotingStartedState _value, $Res Function(_VotingStartedState) _then)
+      : super(_value, (v) => _then(v as _VotingStartedState));
+
+  @override
+  _VotingStartedState get _value => super._value as _VotingStartedState;
+
+  @override
+  $Res call({
+    Object? timerValue = freezed,
+  }) {
+    return _then(_VotingStartedState(
+      timerValue == freezed
+          ? _value.timerValue
+          : timerValue // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_VotingStartedState implements _VotingStartedState {
+  const _$_VotingStartedState(this.timerValue);
+
+  @override
+  final String timerValue;
+
+  @override
+  String toString() {
+    return 'EventState.votingStartedState(timerValue: $timerValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _VotingStartedState &&
+            (identical(other.timerValue, timerValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.timerValue, timerValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(timerValue);
+
+  @JsonKey(ignore: true)
+  @override
+  _$VotingStartedStateCopyWith<_VotingStartedState> get copyWith =>
+      __$VotingStartedStateCopyWithImpl<_VotingStartedState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
+  }) {
+    return votingStartedState(timerValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (votingStartedState != null) {
+      return votingStartedState(timerValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
+  }) {
+    return votingStartedState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (votingStartedState != null) {
+      return votingStartedState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VotingStartedState implements EventState {
+  const factory _VotingStartedState(String timerValue) = _$_VotingStartedState;
+
+  String get timerValue => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$VotingStartedStateCopyWith<_VotingStartedState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ShowWinnerStateCopyWith<$Res> {
+  factory _$ShowWinnerStateCopyWith(
+          _ShowWinnerState value, $Res Function(_ShowWinnerState) then) =
+      __$ShowWinnerStateCopyWithImpl<$Res>;
+  $Res call({List<dynamic> winner});
+}
+
+/// @nodoc
+class __$ShowWinnerStateCopyWithImpl<$Res>
+    extends _$EventStateCopyWithImpl<$Res>
+    implements _$ShowWinnerStateCopyWith<$Res> {
+  __$ShowWinnerStateCopyWithImpl(
+      _ShowWinnerState _value, $Res Function(_ShowWinnerState) _then)
+      : super(_value, (v) => _then(v as _ShowWinnerState));
+
+  @override
+  _ShowWinnerState get _value => super._value as _ShowWinnerState;
+
+  @override
+  $Res call({
+    Object? winner = freezed,
+  }) {
+    return _then(_ShowWinnerState(
+      winner == freezed
+          ? _value.winner
+          : winner // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ShowWinnerState implements _ShowWinnerState {
+  const _$_ShowWinnerState(this.winner);
+
+  @override
+  final List<dynamic> winner;
+
+  @override
+  String toString() {
+    return 'EventState.showWinnerState(winner: $winner)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ShowWinnerState &&
+            (identical(other.winner, winner) ||
+                const DeepCollectionEquality().equals(other.winner, winner)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(winner);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ShowWinnerStateCopyWith<_ShowWinnerState> get copyWith =>
+      __$ShowWinnerStateCopyWithImpl<_ShowWinnerState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(dynamic showFetchedSongs) showFetchedSongs,
+    required TResult Function(dynamic displayFetchedSongs) displayFetchedSongs,
+    required TResult Function(String updatedVoteCount) incrementedVoteCount,
+    required TResult Function(String userId) getSignedInUserState,
+    required TResult Function() gameModeVoteState,
+    required TResult Function(dynamic updatedCountInOption)
+        updateAppearedInOptionCountState,
+    required TResult Function() createGameModeEntryState,
+    required TResult Function(String timerValue) votingStartedState,
+    required TResult Function(List<dynamic> winner) showWinnerState,
+  }) {
+    return showWinnerState(winner);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(dynamic showFetchedSongs)? showFetchedSongs,
+    TResult Function(dynamic displayFetchedSongs)? displayFetchedSongs,
+    TResult Function(String updatedVoteCount)? incrementedVoteCount,
+    TResult Function(String userId)? getSignedInUserState,
+    TResult Function()? gameModeVoteState,
+    TResult Function(dynamic updatedCountInOption)?
+        updateAppearedInOptionCountState,
+    TResult Function()? createGameModeEntryState,
+    TResult Function(String timerValue)? votingStartedState,
+    TResult Function(List<dynamic> winner)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (showWinnerState != null) {
+      return showWinnerState(winner);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ShowFetchedSongs value) showFetchedSongs,
+    required TResult Function(_DisplayFetchedSongs value) displayFetchedSongs,
+    required TResult Function(_IncrementedVoteCount value) incrementedVoteCount,
+    required TResult Function(_GetSignedInUserState value) getSignedInUserState,
+    required TResult Function(_GameModeVoteState value) gameModeVoteState,
+    required TResult Function(_UpdateAppearedInOptionCountState value)
+        updateAppearedInOptionCountState,
+    required TResult Function(_CreateGameModeEntryState value)
+        createGameModeEntryState,
+    required TResult Function(_VotingStartedState value) votingStartedState,
+    required TResult Function(_ShowWinnerState value) showWinnerState,
+  }) {
+    return showWinnerState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ShowFetchedSongs value)? showFetchedSongs,
+    TResult Function(_DisplayFetchedSongs value)? displayFetchedSongs,
+    TResult Function(_IncrementedVoteCount value)? incrementedVoteCount,
+    TResult Function(_GetSignedInUserState value)? getSignedInUserState,
+    TResult Function(_GameModeVoteState value)? gameModeVoteState,
+    TResult Function(_UpdateAppearedInOptionCountState value)?
+        updateAppearedInOptionCountState,
+    TResult Function(_CreateGameModeEntryState value)? createGameModeEntryState,
+    TResult Function(_VotingStartedState value)? votingStartedState,
+    TResult Function(_ShowWinnerState value)? showWinnerState,
+    required TResult orElse(),
+  }) {
+    if (showWinnerState != null) {
+      return showWinnerState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowWinnerState implements EventState {
+  const factory _ShowWinnerState(List<dynamic> winner) = _$_ShowWinnerState;
+
+  List<dynamic> get winner => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ShowWinnerStateCopyWith<_ShowWinnerState> get copyWith =>
       throw _privateConstructorUsedError;
 }

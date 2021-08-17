@@ -13,6 +13,7 @@ import 'package:flutter_play_poll/presentation/sign_in/sign_in_page.dart';
 import 'package:flutter_play_poll/presentation/splash/splash_page.dart';
 import 'package:flutter_play_poll/presentation/upload_artist/upload_artist_page.dart';
 import 'package:flutter_play_poll/presentation/upload_event/upload_event_page.dart';
+import 'package:flutter_play_poll/presentation/view_report/view_report_page.dart';
 
 @MaterialAutoRouter(
     // generateNavigationHelperExtension: true,
@@ -29,5 +30,6 @@ import 'package:flutter_play_poll/presentation/upload_event/upload_event_page.da
       AutoRoute(page: JoinedEventsPage),
       AutoRoute(page: UploadEventPage),
       AutoRoute(page: UploadArtistPage),
+      AutoRoute(page: ViewReportPage),
     ])
 class $AppRouter {}

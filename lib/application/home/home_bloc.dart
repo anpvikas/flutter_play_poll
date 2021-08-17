@@ -68,6 +68,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       uploadArtistEventClicked: (e) async* {
         yield HomeState.onUploadArtistEventPage();
       },
+      onViewReportPageEvent: (e) async* {
+        yield HomeState.navigatedToViewReportEventPage();
+      },
+      viewReportEventClicked: (e) async* {
+        yield HomeState.onViewReportEventPage();
+      },
     );
   }
 }

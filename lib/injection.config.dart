@@ -10,10 +10,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i21;
+import 'application/auth/auth_bloc.dart' as _i22;
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart' as _i17;
-import 'application/create_event/create_bloc.dart' as _i22;
-import 'application/event/event_bloc.dart' as _i23;
+import 'application/create_event/create_bloc.dart' as _i23;
+import 'application/event/event_bloc.dart' as _i24;
 import 'application/event/songs_player/songs_player_bloc.dart' as _i18;
 import 'application/home/home_bloc.dart' as _i7;
 import 'application/joined_events/joined_events_bloc.dart' as _i14;
@@ -21,12 +21,13 @@ import 'application/my_events/my_events_bloc.dart' as _i15;
 import 'application/search_event/search_event_bloc.dart' as _i16;
 import 'application/upload_artist/upload_artist_bloc.dart' as _i19;
 import 'application/upload_event/upload_event_bloc.dart' as _i20;
+import 'application/view_report/view_report_bloc.dart' as _i21;
 import 'domain/auth/i_auth_facade.dart' as _i8;
 import 'domain/events/i_event_repository.dart' as _i10;
 import 'domain/storage/i_storage_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i9;
 import 'infrastructure/auth/firebase_user_mapper.dart' as _i5;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i24;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i25;
 import 'infrastructure/events/event_repository.dart' as _i11;
 import 'infrastructure/storage/firebase_storage_repository.dart' as _i13;
 
@@ -75,12 +76,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<_i10.IEventRepository>(), get<_i12.IStorageRepository>()));
   gh.factory<_i20.UploadEventBloc>(() => _i20.UploadEventBloc(
       get<_i10.IEventRepository>(), get<_i12.IStorageRepository>()));
-  gh.factory<_i21.AuthBloc>(() => _i21.AuthBloc(get<_i8.IAuthFacade>()));
-  gh.factory<_i22.CreateBloc>(
-      () => _i22.CreateBloc(get<_i10.IEventRepository>()));
-  gh.factory<_i23.EventBloc>(
-      () => _i23.EventBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i21.ViewReportBloc>(
+      () => _i21.ViewReportBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i22.AuthBloc>(() => _i22.AuthBloc(get<_i8.IAuthFacade>()));
+  gh.factory<_i23.CreateBloc>(
+      () => _i23.CreateBloc(get<_i10.IEventRepository>()));
+  gh.factory<_i24.EventBloc>(
+      () => _i24.EventBloc(get<_i10.IEventRepository>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i24.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i25.FirebaseInjectableModule {}

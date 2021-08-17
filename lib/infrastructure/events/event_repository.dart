@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
@@ -76,7 +77,6 @@ class EventRepository implements IEventRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const EventFailure.insufficientPermissions());
       } else {
@@ -98,7 +98,7 @@ class EventRepository implements IEventRepository {
   //     await userDoc.doc(eventDto.id).set(eventDto.toJson());
   //     return right(unit);
   //   } on PlatformException catch (e) {
-  //     // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
+
   //     if (e.message!.contains('PERMISSION_DENIED')) {
   //       return left(const EventFailure.insufficientPermissions());
   //     } else {
@@ -179,7 +179,6 @@ class EventRepository implements IEventRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const EventFailure.insufficientPermissions());
       } else {
@@ -287,8 +286,6 @@ class EventRepository implements IEventRepository {
 
   @override
   Future resetVoteToZero(String songId, String uid) async {
-    print('DATABASE <----');
-
     try {
       User? user = FirebaseAuth.instance.currentUser;
       String updatedCount = '0';
@@ -300,6 +297,286 @@ class EventRepository implements IEventRepository {
           .collection('songs')
           .doc(songId)
           .update({'votes': []});
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future updateAppearedInOptionCount(String songId, String artistUid) async {
+    print('DATABASE <----');
+
+    try {
+      _firestore
+          .collection('artists')
+          .doc(artistUid)
+          .collection('songs')
+          .doc(songId)
+          .update(
+        {'appearedInOption': FieldValue.increment(1)},
+      );
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future createGameModeEntry(
+      String eventId, String songId, String artistUid) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      print('INSIDE createGameModeEntry method <----');
+      await _firestore.collection('game_mode').doc().set(
+        {
+          'eventId': eventId,
+          'songId': songId,
+          'artistUid': artistUid,
+          'yesVotes': [],
+          'noVotes': [],
+          'winner': '',
+          'isSongPlayed': true,
+          'dateTimeStamp': DateTime.now()
+        },
+      );
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future registerGameModeVote(
+      String songId, String artistUid, String voteSmiley) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      print('INSIDE registerGameModeVote method <----');
+
+      _firestore
+          .collection('game_mode')
+          .orderBy('dateTimeStamp', descending: true)
+          .limit(1)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach(
+          (doc) {
+            if (voteSmiley == 'sentiment_very_dissatisfied') {
+              _firestore.collection('game_mode').doc(doc.id).update({
+                'noVotes': FieldValue.arrayUnion(['${user!.uid}'])
+              });
+            } else {
+              _firestore.collection('game_mode').doc(doc.id).update({
+                'yesVotes': FieldValue.arrayUnion(['${user!.uid}'])
+              });
+            }
+          },
+        );
+      });
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  /// ------------------------------------------------------------------------///
+  /// ----------------------------- GAME-MODE WINNER -------------------------///
+  /// ------------------------------------------------------------------------///
+
+  @override
+  Future decideGameModeWinner(String eventId, String songId) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      Random random = Random();
+      List gameModeFullData = [];
+      List yesVotesList = [];
+      List noVotesList = [];
+      String winnerUid = '';
+      List winnerData = [];
+      String documentId = '';
+
+      print('INSIDE decideGameModeWinner method <----');
+
+      await _firestore
+          .collection('game_mode')
+          .where('eventId', isEqualTo: eventId)
+          .where('songId', isEqualTo: songId)
+          .orderBy('dateTimeStamp', descending: true)
+          .limit(1)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach(
+          (doc) {
+            gameModeFullData.add(doc.data());
+            documentId = doc.id;
+          },
+        );
+      });
+
+      print('~~~~> gameModeFullData - ${gameModeFullData}');
+      yesVotesList = gameModeFullData[0]['yesVotes'];
+      print('~~~~> gameModeFullData YES - ${gameModeFullData[0]['yesVotes']}');
+      print('yesVotesList - $yesVotesList');
+
+      noVotesList = gameModeFullData[0]['noVotes'];
+      print('~~~~> gameModeFullData NO - ${gameModeFullData[0]['noVotes']}');
+      print('noVotesList - $noVotesList');
+
+      if (yesVotesList.length >= noVotesList.length) {
+        winnerUid = yesVotesList[random.nextInt(yesVotesList.length)];
+      } else {
+        winnerUid = noVotesList[random.nextInt(noVotesList.length)];
+        await _firestore.collection('game_mode').doc(documentId).update({
+          'isSongPlayed': false,
+        });
+      }
+
+      await _firestore.collection('game_mode').doc(documentId).update({
+        'winner': winnerUid,
+      });
+
+      await _firestore
+          .collection('users')
+          .where('uid', isEqualTo: winnerUid)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach(
+          (doc) {
+            winnerData.add(doc.data());
+          },
+        );
+      });
+
+      /// Below code is to add the vote counts to the winnerData list
+      /// to show it on the game mode page
+
+      /// Zero length check
+      if (yesVotesList.length == 0) {
+        winnerData.add(0);
+      } else {
+        winnerData.add(yesVotesList.length);
+      }
+
+      /// Zero length check
+      if (noVotesList.length == 0) {
+        winnerData.add(0);
+      } else {
+        winnerData.add(noVotesList.length);
+      }
+
+      // return yesVotesList[random.nextInt(yesVotesList.length)];
+      return winnerData;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  /// ------------------------------------------------------------------------///
+  /// ------------------------------ ARTIST REPORT ---------------------------///
+  /// ------------------------------------------------------------------------///
+  @override
+  Future artistReport() async {
+    List artistData = [];
+    List items = [];
+    List gameModeDocIdsForLoggedInArtist = [];
+
+    ///----------------------
+    List songIdList = [];
+    List songNameList = [];
+    List timesSongAppearedAsOption = [];
+    List yesCountList = [];
+    List noCountList = [];
+    List isSongPlayedCountList = [];
+
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      /// Prepairing the list of Song Ids for the current logged in Artist
+      await _firestore
+          .collection('artists')
+          .doc(user!.uid)
+          .collection('songs')
+          .where('artistUid', isEqualTo: user.uid)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          songIdList.add(doc.id);
+          songNameList.add(doc.get('title'.split('.')[0]));
+        });
+      });
+
+      // print('songIdList --> $songIdList');
+      // print('songNameList --> $songNameList');
+
+      /// Iterating for each song in the songIdList and performing analysis
+
+      for (var songId in songIdList) {
+        await _firestore
+            .collection('game_mode')
+            .where('songId', isEqualTo: songId)
+            .get()
+            .then((QuerySnapshot querySnapshot) {
+          // print(songId + '-' + querySnapshot.size.toString());
+          timesSongAppearedAsOption.add(querySnapshot.size.toString());
+
+          int yesCount = 0;
+          int noCount = 0;
+          int isSongPlayedCount = 0;
+          querySnapshot.docs.forEach((doc) {
+            /// FETCHING YES COUNT - HAPPY SMILEY
+            yesCount =
+                yesCount + int.parse(((doc.get('yesVotes')).length.toString()));
+
+            /// FETCHING NO COUNT - SAD SMILEY
+            noCount =
+                noCount + int.parse(((doc.get('noVotes')).length.toString()));
+
+            /// FETCHING NUMBER OF TIMES THE SONG GOT PLAYED
+            if (doc.get('isSongPlayed') == true) {
+              isSongPlayedCount = isSongPlayedCount + 1;
+            }
+          });
+          yesCountList.add(yesCount.toString());
+          noCountList.add(noCount.toString());
+          isSongPlayedCountList.add(isSongPlayedCount.toString());
+        });
+      }
+
+      // print('timesSongAppearedAsOption --> $timesSongAppearedAsOption');
+      // print('isSongPlayedCountList --> $isSongPlayedCountList');
+      // print('yesCountList --> $yesCountList');
+      // print('noCountList --> $noCountList');
+
+      artistData.add(songIdList);
+      artistData.add(songNameList);
+      artistData.add(timesSongAppearedAsOption);
+      artistData.add(isSongPlayedCountList);
+      artistData.add(yesCountList);
+      artistData.add(noCountList);
+
+      // await _firestore
+      //     .collection('game_mode')
+      //     .where('artistUid', isEqualTo: user.uid)
+      //     .get()
+      //     .then((QuerySnapshot querySnapshot) {
+      //   querySnapshot.docs.forEach(
+      //     (doc) {
+      //       // print(doc.id);
+      //       gameModeDocIdsForLoggedInArtist.add(doc.id);
+      //       artistData.add(doc.data());
+      //     },
+      //   );
+      // });
+
+      // print(gameModeDocIdsForLoggedInArtist);
+      // print('\n');
+
+      // print('~~~~> Artist DATA $artistData');
+
+      return artistData;
     } catch (e) {
       print(e.toString());
       return null;
@@ -341,7 +618,7 @@ class EventRepository implements IEventRepository {
   //   } on PlatformException catch (e) {
   //     print(e.toString());
   //     return null;
-  //     //   // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
+
   //     //   if (e.message!.contains('PERMISSION_DENIED')) {
   //     //     return left(const EventFailure.insufficientPermissions());
   //     //   } else {
@@ -368,7 +645,6 @@ class EventRepository implements IEventRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const EventFailure.insufficientPermissions());
       } else {
@@ -468,7 +744,6 @@ class EventRepository implements IEventRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const EventFailure.insufficientPermissions());
       } else {
@@ -558,7 +833,6 @@ class EventRepository implements IEventRepository {
 
       return right(unit);
     } on PlatformException catch (e) {
-      // These error codes and messages aren't in the documentation AFAIK, experiment in the debugger to find out about them.
       if (e.message!.contains('PERMISSION_DENIED')) {
         return left(const EventFailure.insufficientPermissions());
       } else {

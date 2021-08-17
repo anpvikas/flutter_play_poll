@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_play_poll/domain/auth/i_auth_facade.dart';
-import 'package:flutter_play_poll/domain/core/errors.dart';
 
 import 'package:flutter_play_poll/domain/core/value_objects.dart';
 import 'package:flutter_play_poll/domain/events/event.dart';
 import 'package:flutter_play_poll/domain/events/value_objects.dart';
-import 'package:flutter_play_poll/injection.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'event_dtos.freezed.dart';

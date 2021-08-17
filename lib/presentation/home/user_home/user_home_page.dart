@@ -8,6 +8,7 @@ import 'package:flutter_play_poll/application/create_event/create_bloc.dart';
 import 'package:flutter_play_poll/application/home/home_bloc.dart';
 import 'package:flutter_play_poll/application/my_events/my_events_bloc.dart';
 import 'package:flutter_play_poll/application/search_event/search_event_bloc.dart';
+import 'package:flutter_play_poll/application/view_report/view_report_bloc.dart';
 import 'package:flutter_play_poll/constants.dart';
 import 'package:flutter_play_poll/injection.dart';
 import 'package:flutter_play_poll/presentation/my_events/my_events_page.dart';
@@ -91,6 +92,18 @@ class UserHomePage extends StatelessWidget {
                     .read<HomeBloc>()
                     .add(HomeEvent.onUploadArtistPageEvent());
                 AutoRouter.of(context).navigate(UploadArtistRoute());
+              },
+              navigatedToViewReportEventPage: (_) {
+                // context.read<HomeBloc>().add(HomeEvent.onViewReportPageEvent());
+                context.read<ViewReportBloc>().add(ViewReportEvent.started());
+                context
+                    .read<ViewReportBloc>()
+                    .add(ViewReportEvent.showArtistReportEvent());
+                AutoRouter.of(context).navigate(ViewReportRoute());
+              },
+              onViewReportEventPage: (_) {
+                context.read<HomeBloc>().add(HomeEvent.onViewReportPageEvent());
+                // AutoRouter.of(context).navigate(ViewReportRoute());
               },
             );
           },
@@ -425,7 +438,7 @@ class UserHomePage extends StatelessWidget {
                         onTap: () {
                           context
                               .read<HomeBloc>()
-                              .add(HomeEvent.joinedEventClicked());
+                              .add(HomeEvent.viewReportEventClicked());
                         },
                         child: Container(
                           height: height / 5,

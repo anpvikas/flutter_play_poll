@@ -4,7 +4,7 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:audioplayers/audioplayers.dart' as _i14;
+import 'package:audioplayers/audioplayers.dart' as _i15;
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
@@ -19,6 +19,7 @@ import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
 import '../upload_artist/upload_artist_page.dart' as _i13;
 import '../upload_event/upload_event_page.dart' as _i12;
+import '../view_report/view_report_page.dart' as _i14;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -71,7 +72,8 @@ class AppRouter extends _i1.RootStackRouter {
           return _i10.SongsPlayer(
               key: args.key,
               audioPlayer: args.audioPlayer,
-              songList: args.songList);
+              songList: args.songList,
+              eventData: args.eventData);
         }),
     JoinedEventsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -87,6 +89,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i13.UploadArtistPage();
+        }),
+    ViewReportRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i14.ViewReportPage();
         })
   };
 
@@ -102,7 +109,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SongsPlayer.name, path: '/songs-player'),
         _i1.RouteConfig(JoinedEventsRoute.name, path: '/joined-events-page'),
         _i1.RouteConfig(UploadEventRoute.name, path: '/upload-event-page'),
-        _i1.RouteConfig(UploadArtistRoute.name, path: '/upload-artist-page')
+        _i1.RouteConfig(UploadArtistRoute.name, path: '/upload-artist-page'),
+        _i1.RouteConfig(ViewReportRoute.name, path: '/view-report-page')
       ];
 }
 
@@ -169,25 +177,34 @@ class EventRouteArgs {
 class SongsPlayer extends _i1.PageRouteInfo<SongsPlayerArgs> {
   SongsPlayer(
       {_i2.Key? key,
-      required _i14.AudioPlayer audioPlayer,
-      required List<dynamic> songList})
+      required _i15.AudioPlayer audioPlayer,
+      required List<dynamic> songList,
+      required dynamic eventData})
       : super(name,
             path: '/songs-player',
             args: SongsPlayerArgs(
-                key: key, audioPlayer: audioPlayer, songList: songList));
+                key: key,
+                audioPlayer: audioPlayer,
+                songList: songList,
+                eventData: eventData));
 
   static const String name = 'SongsPlayer';
 }
 
 class SongsPlayerArgs {
   const SongsPlayerArgs(
-      {this.key, required this.audioPlayer, required this.songList});
+      {this.key,
+      required this.audioPlayer,
+      required this.songList,
+      required this.eventData});
 
   final _i2.Key? key;
 
-  final _i14.AudioPlayer audioPlayer;
+  final _i15.AudioPlayer audioPlayer;
 
   final List<dynamic> songList;
+
+  final dynamic eventData;
 }
 
 class JoinedEventsRoute extends _i1.PageRouteInfo {
@@ -206,4 +223,10 @@ class UploadArtistRoute extends _i1.PageRouteInfo {
   const UploadArtistRoute() : super(name, path: '/upload-artist-page');
 
   static const String name = 'UploadArtistRoute';
+}
+
+class ViewReportRoute extends _i1.PageRouteInfo {
+  const ViewReportRoute() : super(name, path: '/view-report-page');
+
+  static const String name = 'ViewReportRoute';
 }
