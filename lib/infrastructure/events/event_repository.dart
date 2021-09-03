@@ -45,9 +45,11 @@ class EventRepository implements IEventRepository {
       final userDoc = await _firestore.userDocument();
       final eventDto = EventDto.fromDomain(event);
       print('${_firebaseAuth.currentUser} CURRENT USER<-----');
+
       final user = _firebaseAuth.currentUser;
       print('${eventDto.creatorId} CREATOR <----');
 
+      /// Create the user
       await _firestore.collection('users').doc(user!.uid).set({
         'displayName': user.displayName,
         'email': user.email,
@@ -55,25 +57,18 @@ class EventRepository implements IEventRepository {
         'photoUrl': user.photoURL
       });
 
+      /// Create the evnet entry under the logged-in user
       final updatedUserDoc = await _firestore
           .collection('users')
           .doc(user.uid)
           .collection('createdEvents')
           .add(eventDto.toJson());
 
+      /// Create the event entry in the events collection
       await _firestore
           .collection('events')
           .doc(eventDto.id)
           .set(eventDto.toJson());
-
-      // await userDoc.eventCollection.doc().set(eventDto.toJson());
-
-      // userDoc.set({
-      //   id: 'testId',
-      //   name: StringSingleLine(user!.displayName.toString()),
-      //   emailAddress: EmailAddress(user.email.toString()),
-      //   photoUrl: PhotoUrl(user.photoURL.toString()),
-      // }.toJson());
 
       return right(unit);
     } on PlatformException catch (e) {
@@ -84,28 +79,6 @@ class EventRepository implements IEventRepository {
       }
     }
   }
-
-  // @override
-  // Future<Either<EventFailure, Unit>> create(Event event) async {
-  //   try {
-  //     User? user = FirebaseAuth.instance.currentUser;
-  //     print(user!.uid);
-  //     final userDoc = _firestore
-  //         .collection('users')
-  //         .doc('${user.uid}')
-  //         .collection('createdEvents');
-  //     final eventDto = EventDto.fromDomain(event);
-  //     await userDoc.doc(eventDto.id).set(eventDto.toJson());
-  //     return right(unit);
-  //   } on PlatformException catch (e) {
-
-  //     if (e.message!.contains('PERMISSION_DENIED')) {
-  //       return left(const EventFailure.insufficientPermissions());
-  //     } else {
-  //       return left(const EventFailure.unexpected());
-  //     }
-  //   }
-  // }
 
   @override
   Future myEvents() async {
@@ -225,7 +198,6 @@ class EventRepository implements IEventRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         querySnapshot.docs.forEach((doc) {
-          // print('${doc.data()} <-----fetching SONGS------');
           itemsList.add(doc.data());
         });
       });
@@ -265,9 +237,9 @@ class EventRepository implements IEventRepository {
     try {
       User? user = FirebaseAuth.instance.currentUser;
       String updatedCount = '0';
-      // updatedCount = (int.parse(currentVoteCount) + 1).toString();
+
       updatedCountList.add(updatedCount);
-      print('INSIDE registerVote method <----');
+
       await _firestore
           .collection('users')
           .doc(uid)
@@ -275,7 +247,6 @@ class EventRepository implements IEventRepository {
           .doc(songId)
           .update({
         'votes': FieldValue.arrayUnion(['${user!.uid}'])
-        // 'votes': FieldValue.arrayUnion(['Test1'])
       });
       return updatedCountList;
     } catch (e) {
@@ -284,6 +255,9 @@ class EventRepository implements IEventRepository {
     }
   }
 
+  /// ------------------------------------------------------------------------///
+  /// ------------------------ RESET SONG VOTE TO ZERO -----------------------///
+  /// ------------------------------------------------------------------------///
   @override
   Future resetVoteToZero(String songId, String uid) async {
     try {
@@ -322,6 +296,10 @@ class EventRepository implements IEventRepository {
     }
   }
 
+  /// ------------------------------------------------------------------------///
+  /// ------------------------- CREATE GAME MODE ENTRY -----------------------///
+  /// ------------------------------------------------------------------------///
+
   @override
   Future createGameModeEntry(
       String eventId, String songId, String artistUid) async {
@@ -346,6 +324,10 @@ class EventRepository implements IEventRepository {
       return null;
     }
   }
+
+  /// ------------------------------------------------------------------------///
+  /// ------------------------ REGISTER GAME MODE VOTE -----------------------///
+  /// ------------------------------------------------------------------------///
 
   @override
   Future registerGameModeVote(
@@ -432,7 +414,6 @@ class EventRepository implements IEventRepository {
           'isSongPlayed': false,
         });
       }
-
       await _firestore.collection('game_mode').doc(documentId).update({
         'winner': winnerUid,
       });
@@ -557,25 +538,6 @@ class EventRepository implements IEventRepository {
       artistData.add(yesCountList);
       artistData.add(noCountList);
 
-      // await _firestore
-      //     .collection('game_mode')
-      //     .where('artistUid', isEqualTo: user.uid)
-      //     .get()
-      //     .then((QuerySnapshot querySnapshot) {
-      //   querySnapshot.docs.forEach(
-      //     (doc) {
-      //       // print(doc.id);
-      //       gameModeDocIdsForLoggedInArtist.add(doc.id);
-      //       artistData.add(doc.data());
-      //     },
-      //   );
-      // });
-
-      // print(gameModeDocIdsForLoggedInArtist);
-      // print('\n');
-
-      // print('~~~~> Artist DATA $artistData');
-
       return artistData;
     } catch (e) {
       print(e.toString());
@@ -589,43 +551,6 @@ class EventRepository implements IEventRepository {
     print('${user!.uid} <---- INSIDE METHOD - getCurrentUserId');
     return user.uid.toString();
   }
-
-  // @override
-  // // Future<Either<EventFailure, Unit>> myEvents() async {
-  // Future myEvents() async {
-  //   List itemList = [];
-  //   try {
-  //     User? user = FirebaseAuth.instance.currentUser;
-  //     print(user!.uid);
-  //     final userDoc = _firestore
-  //         .collection('users')
-  //         .doc('${user.uid}')
-  //         .collection('createdEvents')
-  //         .get()
-  //         .then((QuerySnapshot querySnapshot) {
-  //       querySnapshot.docs.forEach((doc) {
-  //         print('${doc.data()} <-----REPO------');
-  //         itemList.add(doc.data());
-  //       });
-  //       print('$itemList Item LIST <----');
-  //       // return itemList;
-  //     });
-
-  //     print('$itemList **********');
-
-  //     // return right(unit);
-  //     return itemList;
-  //   } on PlatformException catch (e) {
-  //     print(e.toString());
-  //     return null;
-
-  //     //   if (e.message!.contains('PERMISSION_DENIED')) {
-  //     //     return left(const EventFailure.insufficientPermissions());
-  //     //   } else {
-  //     //     return left(const EventFailure.unexpected());
-  //     //   }
-  //   }
-  // }
 
   @override
   Future<Either<EventFailure, Unit>> update(Event event) async {

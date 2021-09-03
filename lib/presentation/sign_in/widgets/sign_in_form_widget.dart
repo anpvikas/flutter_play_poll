@@ -43,6 +43,11 @@ class SignInFormWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: ListView(
               children: [
+                Text(
+                  'Play Poll',
+                  style: TextStyle(fontSize: 50),
+                  textAlign: TextAlign.center,
+                ),
                 TextField(
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email),
