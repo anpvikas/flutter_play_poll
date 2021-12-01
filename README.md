@@ -17,8 +17,6 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
    keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
 
    Generated SHA-keys:
-   SHA1: 15:91:A3:CB:55:1E:93:D3:17:26:C5:D6:60:5E:73:63:0A:1C:19:89
-   SHA256: AC:96:5E:ED:3C:53:45:64:3E:C6:68:D0:67:A5:F0:6B:C7:4F:CC:55:B3:57:F6:FB:38:B9:63:B5:66:CA:BE:3B
 8. Enter the SHA-1 key and click next to register the application
 9. download the json file and place it in the app level build.gradle file
 10. Add the suggested codes in both project level and app level build.gradle files
